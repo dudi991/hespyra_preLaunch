@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#241D22" />
+<meta name="robots" content="index,follow" />
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23241D22'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-size='22' fill='%239E6B41' text-anchor='middle' font-style='italic'%3EH%3C/text%3E%3C/svg%3E" />
+<title>Über uns — HESPYRA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root { --cream:#EFE6D6; --cream-deep:#E8D8C2; --sand-line:#D2BE9F; --night:#241D22; --ink:#322B24; --ink-soft:#645A4B; --amber:#9E6B41; --amber-soft:#C0966B; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:var(--cream); color:var(--ink); font-family:'Jost',sans-serif; font-weight:400; line-height:1.72; -webkit-font-smoothing:antialiased; }
+  ::selection { background:var(--amber); color:var(--cream); }
+  .serif { font-family:'Cormorant Garamond',serif; }
+  nav { position:fixed; top:0; left:0; right:0; display:flex; justify-content:space-between; align-items:center; padding:18px 44px; z-index:20; background:rgba(239,230,214,0.92); backdrop-filter:blur(10px); border-bottom:1px solid var(--sand-line); }
+  nav .left { display:flex; align-items:center; gap:26px; }
+  nav .wordmark { letter-spacing:0.42em; font-size:18px; color:var(--ink); text-indent:0.42em; text-decoration:none; }
+  nav .back { font-size:13px; letter-spacing:0.12em; text-transform:uppercase; color:var(--ink-soft); text-decoration:none; transition:color .3s; }
+  nav .back:hover { color:var(--amber); }
+  nav .lang { display:flex; align-items:center; gap:10px; }
+  nav .lang button { background:none; border:none; cursor:pointer; font-family:'Jost',sans-serif; font-size:14px; font-weight:500; letter-spacing:0.1em; color:var(--ink-soft); padding:3px 2px; transition:color .3s; }
+  nav .lang button.active { color:var(--ink); border-bottom:1.5px solid var(--amber); }
+  nav .lang button:hover { color:var(--ink); }
+  nav .lang span { color:var(--ink-soft); }
+  main { max-width:760px; margin:0 auto; padding:160px 28px 100px; }
+  .eyebrow { font-size:12px; letter-spacing:0.32em; text-transform:uppercase; color:var(--amber); font-weight:500; }
+  h1 { font-family:'Cormorant Garamond',serif; font-size:clamp(34px,5vw,52px); font-weight:400; line-height:1.1; margin:18px 0 40px; }
+  h2 { font-family:'Cormorant Garamond',serif; font-size:25px; font-weight:500; margin:44px 0 14px; }
+  p { color:var(--ink-soft); margin-bottom:16px; max-width:640px; }
+  p strong { color:var(--ink); font-weight:500; }
+  a { color:var(--amber); }
+  ul { margin:0 0 16px 20px; color:var(--ink-soft); max-width:620px; }
+  li { margin-bottom:6px; }
+  .placeholder { background:var(--cream-deep); border:1px dashed var(--amber-soft); padding:2px 8px; color:var(--ink); font-size:0.95em; }
+  .note { margin:48px 0 0; padding:18px 22px; border-left:2px solid var(--amber); background:var(--cream-deep); font-size:14px; color:var(--ink-soft); }
+  .lead { font-size:19px; color:var(--ink); max-width:640px; margin-bottom:28px; }
+  footer { border-top:1px solid var(--sand-line); padding:40px 44px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:14px; }
+  footer span, footer a { font-size:13px; color:var(--ink-soft); text-decoration:none; }
+  footer a { margin-left:22px; }
+  footer a:hover { color:var(--amber); }
+  @media (max-width:720px) { nav { padding:16px 22px; } nav .left { gap:14px; } main { padding:130px 22px 70px; } footer { padding:32px 22px; } footer a { margin-left:0; margin-right:18px; } }
+</style>
+</head>
+<body>
+<nav>
+  <div class="left">
+    <a href="hespyra-landingpage.html" class="wordmark">HESPYRA</a>
+    <a href="hespyra-landingpage.html" class="back" data-en="Back to site">Zurück zur Seite</a>
+  </div>
+  <div class="lang" role="group" aria-label="Sprache">
+    <button class="active" aria-current="true">DE</button><span>/</span><button>EN</button>
+  </div>
+</nav>
+<main>
+  <p class="eyebrow" data-en="HESPYRA">HESPYRA</p>
+  <h1 class="serif" data-en="About">Über uns</h1>
+  <p class="lead" data-en="HESPYRA was born from the observation that the day often ends outwardly before it is truly over inwardly.">HESPYRA entstand aus der Beobachtung, dass der Tag oft äußerlich endet, bevor er innerlich wirklich vorbei ist.</p>
+<p data-en="The last appointment is done. The laptop is closed. The apartment grows quieter. And yet, something continues to run: thoughts, decisions, conversations, a residue of pace.">Der letzte Termin ist vorüber. Der Laptop ist geschlossen. Die Wohnung wird stiller. Und doch läuft etwas weiter: Gedanken, Entscheidungen, Gespräche, ein Rest von Tempo.</p>
+<p data-en="We wanted to give this moment more attention. Not because the evening needs to be optimized. But because it deserves a conscious beginning.">Wir wollten diesem Moment mehr Aufmerksamkeit schenken. Nicht, weil der Abend optimiert werden muss. Sondern weil er einen bewussten Anfang verdient.</p>
+<p data-en="HESPYRA is a modern evening ritual brand from Germany. We develop products for the transition from the day into true stillness — quiet, sensory, and without loud promises.">HESPYRA ist eine moderne Evening Ritual Brand aus Deutschland. Wir entwickeln Produkte für den Übergang vom Tag in echte Ruhe — ruhig, sinnlich und ohne laute Versprechen.</p>
+<p data-en="Our first ritual is a drinkable composition for the evening: selected minerals, plant extracts, and warm flavor notes, combined with a simple action. A spoon. A glass. A moment in which the day is allowed to grow quieter.">Unser erstes Ritual ist eine trinkbare Komposition für den Abend: ausgewählte Mineralien, Pflanzenextrakte und warme Geschmacksnoten, verbunden mit einer einfachen Handlung. Ein Löffel. Ein Glas. Ein Moment, in dem der Tag leiser werden darf.</p>
+<h2 data-en="What we believe in">Woran wir glauben</h2>
+<p data-en="We believe in products that do not rush. In rituals instead of routines. In stillness instead of optimization. In quality that does not need to get loud.">Wir glauben an Produkte, die nicht drängen. An Rituale statt Routinen. An Ruhe statt Optimierung. An Qualität, die nicht laut werden muss.</p>
+<p data-en="HESPYRA is our beginning. For the moment when the evening truly starts.">HESPYRA ist unser Anfang. Für den Moment, in dem der Abend wirklich beginnt.</p>
+<p style="margin-top:32px;"><a href="hespyra-landingpage.html#warteliste" data-en="Join the first edition →">Die erste Edition begleiten →</a></p>
+</main>
+<footer>
+  <span>© 2026 HESPYRA</span>
+  <div>
+    <a href="ueber-uns.html" data-en="About">Über uns</a>
+    <a href="kontakt.html" data-en="Contact">Kontakt</a>
+    <a href="datenschutz.html" data-en="Privacy">Datenschutz</a>
+    <a href="impressum.html" data-en="Imprint">Impressum</a>
+  </div>
+</footer>
+<script>
+  (function(){
+    var btns=document.querySelectorAll('.lang button');
+    document.querySelectorAll('[data-en]').forEach(function(el){el.setAttribute('data-de',el.innerHTML);});
+    document.querySelectorAll('[data-en-ph]').forEach(function(el){el.setAttribute('data-de-ph',el.getAttribute('placeholder')||'');});
+    function setLang(l){
+      document.documentElement.lang=l;
+      document.querySelectorAll('[data-en]').forEach(function(el){var v=el.getAttribute(l==='en'?'data-en':'data-de');if(v!==null)el.innerHTML=v;});
+      document.querySelectorAll('[data-en-ph]').forEach(function(el){var v=el.getAttribute(l==='en'?'data-en-ph':'data-de-ph');if(v!==null)el.setAttribute('placeholder',v);});
+      btns.forEach(function(b){var a=b.textContent.trim().toLowerCase()===l;b.classList.toggle('active',a);if(a)b.setAttribute('aria-current','true');else b.removeAttribute('aria-current');});
+      try{sessionStorage.setItem('hespyra_lang',l);}catch(e){}
+    }
+    btns.forEach(function(b){b.addEventListener('click',function(){setLang(b.textContent.trim().toLowerCase());});});
+    var s='de';try{s=sessionStorage.getItem('hespyra_lang')||'de';}catch(e){}
+    if(s==='en')setLang('en');
+  })();
+</script>
+</body>
+</html>
