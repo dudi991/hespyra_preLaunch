@@ -122,8 +122,8 @@
   @media (max-width: 860px) {
     .moment { padding-top: 12px; padding-bottom: 18px; }   /* Hero→Moment + Moment-Text→Ritual-Bild enger */
     .moment__quote { font-size: 24px; line-height: 1.32; }   /* mobil deutlich weniger monumental */
-    .moment__concrete { margin-top: 16px; font-size: 16.5px; line-height: 1.45; }   /* konkreter Kern, mobil etwas kompakter */
-    .moment__foot { margin-top: 11px; font-size: 16.5px; line-height: 1.45; color: var(--ink); }   /* gleiche Schrift/Größe/Farbe wie erster Block */
+    .moment__concrete { margin-top: 16px; font-size: 15.5px; line-height: 1.58; }   /* konkreter Kern, mobil etwas kompakter */
+    .moment__foot { margin-top: 11px; font-size: 15.5px; line-height: 1.58; color: var(--ink); }   /* gleiche Schrift/Größe/Farbe wie erster Block */
     .moment__bg { display: none; }   /* Hintergrundschriftzug auf Mobil ausgeblendet */
     .care { padding-top: 44px; padding-bottom: 22px; }      /* Sorgfalt: bewusster, knapper Abschluss vor FAQ-Trenner */
   }
@@ -137,9 +137,7 @@
   .hero__text { padding: 84px 44px 80px max(44px, calc((53.49vw - 740px) / 2 + 44px)); max-width: 820px; width: 100%; display: flex; flex-direction: column; justify-content: center; }
   .hero h1 { font-size: clamp(52px, 6.0vw, 90px); line-height: 1.04; font-weight: 400; letter-spacing: -0.01em; margin: 14px 0 0; overflow-wrap: break-word; }
   .hero h1 .ml > span { white-space: nowrap; }
-  /* Variante B hat längere Zeilen — eigene Kalibrierung für sicher 2 Zeilen */
   .hero h1.hero-h1--a { font-size: clamp(31px, 3.8vw, 70px); }
-  .hero h1.hero-h1--b { font-size: clamp(38px, 4.6vw, 68px); }
   .hero h1 em { font-style: italic; color: var(--amber); }
   .hero .lede { margin-top: 18px; font-size: clamp(17px, 1.6vw, 20px); max-width: 490px; color: var(--ink); line-height: 1.68; }
   .hero-spacer { flex: 1 1 auto; min-height: 20px; max-height: 48px; }
@@ -156,10 +154,6 @@
   .hero-link { font-size: 13px; letter-spacing: 0.02em; color: #4A4030; text-decoration: none; padding-bottom: 2px; border-bottom: 1px solid transparent; transition: color 0.3s, border-color 0.3s, opacity 0.3s; opacity: 0.92; }
   .hero-link:hover { color: var(--ink); border-color: var(--amber); opacity: 1; }
   .hero .hero-cta:hover { background: var(--amber); border-color: var(--amber); color: var(--cream); }
-
-  /* Hero-Varianten: A oder B sichtbar je nach data-variant */
-  .hero[data-variant="A"] .hero-h1--b, .hero[data-variant="A"] .hero-lede--b { display: none; }
-  .hero[data-variant="B"] .hero-h1--a, .hero[data-variant="B"] .hero-lede--a { display: none; }
 
   /* Mini-Hinweise als leise Hairlines */
 
@@ -201,7 +195,6 @@
     .hero .hero__media img { width: auto; max-width: 80%; height: auto; max-height: 31vh; object-fit: contain; object-position: center center; }
     .hero h1 { order: 3; margin: 4px 24px 0; line-height: 1.12; }
     .hero h1.hero-h1--a { font-size: clamp(24px, 6.2vw, 34px); }
-    .hero h1.hero-h1--b { font-size: clamp(22px, 5.6vw, 30px); }
     /* Erste Maskenzeile einzeilig halten */
     .hero h1 .ml { white-space: normal; overflow: visible; height: auto; }
     .hero h1 .ml > span { white-space: normal; transform: none !important; }
@@ -271,7 +264,7 @@
   .beat p { font-size: 19px; color: var(--ink); line-height: 1.6; }
   @media (max-width: 860px) {
     .beats { grid-template-columns: 1fr; }
-    .beat { border-left: none; border-top: 1px solid var(--sand-line); padding: 14px 0 0; }
+    .beat { border-left: none; border-top: 1px solid var(--sand-line); padding: 14px 0 0; margin-bottom: 18px; }
     .beat:first-child { border-top: none; }
     .beat .num { font-size: 38px; margin-bottom: 2px; }
     .beat h3 { font-size: 19px; margin: 5px 0 7px; }
@@ -304,6 +297,7 @@
     .layer .layer-items li span { font-size: 12px; }
   }
   .composition .disclaimer { margin-top: 52px; padding-top: 28px; border-top: 1px solid rgba(255,255,255,0.12); font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 17px; line-height: 1.55; color: var(--cream-on-night); max-width: 640px; }
+  @media (max-width: 860px) { .composition .disclaimer { font-size: 15px; line-height: 1.5; } }
 
   /* 6 — Ein anderes Glas am Abend */
   .another-glass { position: relative; overflow: hidden; background: var(--cream); display: grid; grid-template-columns: 1.25fr 1fr; align-items: stretch; }
@@ -315,9 +309,10 @@
   @media (max-width: 860px) {
     .another-glass { grid-template-columns: 1fr; }
     .ag__media { aspect-ratio: 16/11; min-height: 0; }   /* Bild folgt dem Text (kein order:-1 mehr) */
-    .ag__text { padding: 56px 22px 48px; max-width: none; }
+    .ag__text { padding: 48px 22px 36px; max-width: none; }
     .ag-lines p { font-size: 15px; }
     .ag-lines { gap: 18px; }
+    .ag-close { font-size: 21px; margin-top: 36px; }
   }
   .another-glass h2 { font-size: clamp(31px, 4vw, 48px); font-weight: 400; line-height: 1.12; margin: 22px 0 44px; max-width: 100%; }
   .ag-lines { display: flex; flex-direction: column; gap: 24px; max-width: 100%; }
@@ -645,28 +640,21 @@
 </nav>
 
 <!-- 2 — Hero -->
-<!-- Hero-Variante wechseln: data-variant="A" (markig) oder "B" (klar). Beide bleiben im Code. -->
 <main id="hauptinhalt">
-<section class="hero" data-variant="A">
+<section class="hero">
 
   <div class="hero__text">
     <p class="eyebrow hero-eyebrow" data-en="An evening drink for the moment before">Ein Abenddrink für den Moment davor</p>
 
-    <!-- Variante A — markengeführt -->
     <h1 class="serif hero-h1 hero-h1--a">
       <span class="ml"><span data-en="Not for sleep.">Nicht für den Schlaf.</span></span>
       <span class="ml"><span data-en="For the <em>moment before.</em>">Für den <em>Moment davor.</em></span></span>
     </h1>
-    <!-- Variante B — problemgeführt -->
-    <h1 class="serif hero-h1 hero-h1--b">
-      <span class="ml"><span data-en="For people whose day">Für Menschen, deren Tag</span></span>
-      <span class="ml"><span data-en="doesn't end on its <em>own.</em>">nicht von selbst <em>aufhört.</em></span></span>
-    </h1>
 
     <p class="lede hero-lede hero-lede--a" data-en="HESPYRA is a warm cacao evening drink — a daily powder ritual without melatonin, for the transition from the day into a quieter evening.">HESPYRA ist ein warmer Kakao-Abenddrink — ein tägliches Pulverritual ohne Melatonin, für den Übergang vom Tag in einen ruhigeren Abend.</p>
-    <p class="lede hero-lede hero-lede--b" data-en="HESPYRA is a warm cacao evening drink for the moment before — a daily powder ritual without melatonin, between day, evening and stillness.">HESPYRA ist ein warmer Kakao-Abenddrink für den Moment davor — ein tägliches Pulverritual ohne Melatonin, zwischen Tag, Abend und Ruhe.</p>
 
     <div class="hero-spacer" aria-hidden="true"></div>
+
 
     <div class="hero-actions">
       <a href="#warteliste" class="hero-cta"><span class="cta-text cta-text--full" data-en="Early access to the first edition">Früher Zugang zur ersten Edition</span><span class="cta-text cta-text--short" data-en="Join the first edition">Erste Edition begleiten</span></a>
@@ -701,7 +689,7 @@
       <span class="ml"><span data-en="The day is over.">Der Tag ist vorbei.</span></span>
       <span class="ml"><span data-en="But not <em>within you.</em>">Aber nicht <em>in dir.</em></span></span>
     </h2>
-    <p class="moment__concrete reveal" data-en="You lie in bed, but your head keeps going. One more email in the back of your mind, one more thought about tomorrow. Your body is tired — switching off is another matter.">Du liegst im Bett, aber der Kopf macht weiter. Noch eine Mail im Hinterkopf, noch ein Gedanke an morgen. Der Körper ist müde — abschalten ist trotzdem eine andere Sache.</p>
+    <p class="moment__concrete reveal" data-en="You're home, but your head keeps going. One more email in the back of your mind, one more thought about tomorrow. Your body is tired — switching off is another matter.">Du bist zuhause, aber der Kopf macht weiter. Noch eine Mail im Hinterkopf, noch ein Gedanke an morgen. Der Körper ist müde — abschalten ist trotzdem eine andere Sache.</p>
     <p class="moment__foot reveal" data-en="You're home. But still inwardly caught in conversations and thoughts that don't stop. The evening is here — only you haven't arrived yet. HESPYRA begins right there: in the moment when the day doesn't simply end on its own.">Du bist zuhause. Aber innerlich noch in Gesprächen und Gedanken, die nicht aufhören. Der Abend ist da — nur du bist noch nicht angekommen. HESPYRA beginnt genau dort: in dem Moment, in dem der Tag nicht einfach von selbst endet.</p>
   </div>
 </section>
@@ -768,7 +756,7 @@
         </ul>
       </div>
     </div>
-    <p class="disclaimer reveal" data-en="The final formula will be fully disclosed before launch — including forms and dosages. No proprietary blends. No hidden fillers. The composition is the reasoning. The ritual is the reason.">Die finale Rezeptur wird vor dem Launch vollständig offengelegt — inklusive Formen und Dosierungen. Keine proprietären Mischungen. Keine versteckten Füllstoffe. Die Komposition ist die Begründung. Das Ritual ist der Grund.</p>
+    <p class="disclaimer reveal" data-en="The final formula will be fully disclosed before launch — including forms and dosages. No proprietary blends. No hidden fillers.">Die finale Rezeptur wird vor dem Launch vollständig offengelegt — inklusive Formen und Dosierungen. Keine proprietären Mischungen. Keine versteckten Füllstoffe.</p>
   </div>
 </section>
 
@@ -832,7 +820,7 @@
                <img class="care__portrait" src="img/christian-baker.webp" alt="Christian Baker, Gründer von Profound Formulas" loading="lazy" /> -->
           <div class="seal serif" data-en="Formulated with<br>Profound Formulas">Formuliert mit<br>Profound Formulas</div>
         </div>
-        <p data-en="Behind the formula is Christian Baker, founder of Profound Formulas. Over sixteen years as a formulator, he has worked for companies including AG1 and GNC — bringing the same care to a product that deliberately stays quiet.">Hinter der Rezeptur steht Christian Baker, Gründer von Profound Formulas. In sechzehn Jahren hat er als Formulierer unter anderem für AG1 und GNC gearbeitet — und bringt dieselbe Sorgfalt in ein Produkt ein, das bewusst leise auftritt.</p>
+        <p data-en="Behind the formula is Christian Baker, founder of Profound Formulas. Over sixteen years as a formulator, he has worked on products for international brands, among others — bringing the same care to a product that deliberately stays quiet.">Hinter der Rezeptur steht Christian Baker, Gründer von Profound Formulas. In sechzehn Jahren als Formulierer hat er unter anderem an Produkten für internationale Marken gearbeitet — und bringt dieselbe Sorgfalt in ein Produkt ein, das bewusst leise auftritt.</p>
         <div class="creds">
           <div class="c"><span class="k serif">16</span><span class="v" data-en="years of formulation">Jahre Formulierung</span></div>
         </div>
@@ -851,7 +839,7 @@
     <div class="faq__list reveal" id="faqList">
       <div class="faq-item open">
         <button class="faq-q" data-en="Is HESPYRA a sleep product? <span class=&quot;ic&quot; aria-hidden=&quot;true&quot;></span>">Ist HESPYRA ein Schlafprodukt? <span class="ic" aria-hidden="true"></span></button>
-        <div class="faq-a"><div class="faq-a__inner" data-en="Not in the classic sense. HESPYRA begins earlier: in the moment before sleep, when the day is allowed to turn into evening.">Nicht im klassischen Sinn. HESPYRA setzt früher an: im Moment vor dem Schlaf, wenn der Tag in den Abend übergehen darf.</div></div>
+        <div class="faq-a"><div class="faq-a__inner" data-en="Not in the classic sense. HESPYRA begins earlier: in the transition from day to evening — before sleep even becomes a topic.">Nicht im klassischen Sinn. HESPYRA setzt früher an: im Übergang vom Tag in den Abend — bevor Schlaf überhaupt zum Thema wird.</div></div>
       </div>
       <div class="faq-item">
         <button class="faq-q" data-en="Does HESPYRA contain melatonin? <span class=&quot;ic&quot; aria-hidden=&quot;true&quot;></span>">Enthält HESPYRA Melatonin? <span class="ic" aria-hidden="true"></span></button>
@@ -867,7 +855,7 @@
       </div>
       <div class="faq-item">
         <button class="faq-q" data-en="When do you drink HESPYRA? <span class=&quot;ic&quot; aria-hidden=&quot;true&quot;></span>">Wann trinkt man HESPYRA? <span class="ic" aria-hidden="true"></span></button>
-        <div class="faq-a"><div class="faq-a__inner" data-en="In the evening, when the day is meant to end — for example after dinner, after putting the children to bed, or before the quiet part of the evening.">Am Abend, wenn der Tag enden soll — zum Beispiel nach dem Essen, nach dem Kinder-ins-Bett-Bringen oder vor dem ruhigen Teil des Abends.</div></div>
+        <div class="faq-a"><div class="faq-a__inner" data-en="In the evening, when the day is allowed to end — for example after dinner, after the children are in bed, or before the quiet part of the evening.">Am Abend, wenn der Tag enden darf — zum Beispiel nach dem Essen, nachdem die Kinder im Bett sind oder vor dem ruhigen Teil des Abends.</div></div>
       </div>
       <div class="faq-item">
         <button class="faq-q" data-en="What does HESPYRA taste like? <span class=&quot;ic&quot; aria-hidden=&quot;true&quot;></span>">Wie schmeckt HESPYRA? <span class="ic" aria-hidden="true"></span></button>
@@ -1042,16 +1030,8 @@
     });
   });
 
-  // Hero-Variante erfassen (für A/B-Auswertung) und CTA-Klicks tracken
+  // CTA-Klicks tracken
   (function(){
-    var heroEl = document.querySelector('.hero[data-variant]');
-    if (heroEl) {
-      track('hero-view', { variant: heroEl.getAttribute('data-variant') });
-      // Die versteckte H1-Variante aus Vorlese-/SEO-Hierarchie nehmen, damit nur eine aktive H1 zählt
-      var active = heroEl.getAttribute('data-variant') === 'B' ? 'b' : 'a';
-      var hidden = heroEl.querySelector('.hero-h1--' + (active === 'a' ? 'b' : 'a'));
-      if (hidden) hidden.setAttribute('aria-hidden', 'true');
-    }
     var heroCta = document.querySelector('.hero-cta');
     if (heroCta) heroCta.addEventListener('click', function(){ track('cta-click', { location: 'hero' }); });
     var heroLink = document.querySelector('.hero-link');
