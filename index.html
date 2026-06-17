@@ -128,7 +128,6 @@
     .moment__concrete { margin-top: 24px; font-size: 18px; line-height: 1.45; }   /* konkreter Kern, mobil etwas kompakter */
     .moment__foot { margin-top: 18px; font-size: 18px; line-height: 1.45; color: var(--ink); }   /* gleiche Schrift/Größe/Farbe wie erster Block */
     .moment__bg { display: none; }   /* Hintergrundschriftzug auf Mobil ausgeblendet */
-    .culture { padding-top: 72px; }                         /* Abendkultur: mehr Luft nach oben */
     .care { padding-bottom: 52px; }                         /* Care→Fragen enger */
   }
 
@@ -138,15 +137,15 @@
 
   /* 2 — Hero */
   .hero { min-height: 94vh; background: var(--cream); display: grid; grid-template-columns: 0.95fr 1.05fr; align-items: stretch; gap: 0; position: relative; }
-  .hero__text { padding: 150px 44px 80px max(44px, calc((53.49vw - 740px) / 2 + 44px)); max-width: 820px; width: 100%; display: flex; flex-direction: column; justify-content: space-between; }
-  .hero h1 { font-size: clamp(52px, 6.0vw, 90px); line-height: 1.04; font-weight: 400; letter-spacing: -0.01em; margin: 28px 0 0; overflow-wrap: break-word; }
+  .hero__text { padding: 84px 44px 80px max(44px, calc((53.49vw - 740px) / 2 + 44px)); max-width: 820px; width: 100%; display: flex; flex-direction: column; justify-content: flex-start; }
+  .hero h1 { font-size: clamp(52px, 6.0vw, 90px); line-height: 1.04; font-weight: 400; letter-spacing: -0.01em; margin: 14px 0 0; overflow-wrap: break-word; }
   .hero h1 .ml > span { white-space: nowrap; }
   /* Variante B hat längere Zeilen — eigene Kalibrierung für sicher 2 Zeilen */
   .hero h1.hero-h1--a { font-size: clamp(31px, 3.8vw, 70px); }
   .hero h1.hero-h1--b { font-size: clamp(38px, 4.6vw, 68px); }
   .hero h1 em { font-style: italic; color: var(--amber); }
-  .hero .lede { margin-top: 38px; font-size: clamp(17px, 1.6vw, 20px); max-width: 460px; color: var(--ink); line-height: 1.6; }
-  .hero-spacer { flex: 1 1 auto; min-height: 56px; max-height: 130px; }
+  .hero .lede { margin-top: 18px; font-size: clamp(17px, 1.6vw, 20px); max-width: 460px; color: var(--ink); line-height: 1.6; }
+  .hero-spacer { flex: 1 1 auto; min-height: 20px; max-height: 48px; }
   /* leise Mikrozeile statt Badge-Kästchen */
   /* veredelte Microcopy: kleiner, weiter gesperrt, mit feinem Amber-Akzent */
   .hero-meta { margin-top: 0; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-soft); display: inline-flex; align-items: center; gap: 11px; }
@@ -194,6 +193,7 @@
   .hero__media img { width: 100%; height: 100%; max-height: 94vh; object-fit: contain; object-position: 14% 64%; mix-blend-mode: multiply; }
 
   @media (max-width: 860px) {
+    #nav { border-bottom-color: var(--sand-line); }
     /* Reihenfolge: Eyebrow → Bild → Überschrift → Lead → Mikrozeile → CTA */
     .hero { display: flex; flex-direction: column; min-height: auto; gap: 0; background: var(--cream); }
     .hero .hero__text { display: contents; }
@@ -211,6 +211,20 @@
     .hero .lede { order: 4; margin: 16px 24px 0; font-size: 15.5px; line-height: 1.55; }
     .hero .hero-meta { order: 5; margin: 20px 24px 0; }
     .hero .hero-actions { order: 6; margin: 16px 24px 20px; gap: 16px; }
+  }
+
+  /* 2 — Produkt-Klarheit */
+  .facts { background: var(--cream); border-top: 1px solid var(--sand-line); border-bottom: 1px solid var(--sand-line); padding: 20px 0; }
+  .facts__row { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 0; list-style: none; margin: 0; padding: 0; }
+  .facts__row li { font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: var(--ink-soft); padding: 5px 22px; position: relative; white-space: nowrap; }
+  .facts__row li:not(:last-child)::after { content: ""; position: absolute; right: 0; top: 50%; transform: translateY(-50%); width: 1px; height: 12px; background: var(--sand-line); }
+  @media (max-width: 880px) {
+    .facts { padding: 30px 24px; }
+    .facts__row { flex-direction: column; align-items: stretch; gap: 0; max-width: 300px; margin: 0 auto; }
+    .facts__row li { display: flex; align-items: center; gap: 11px; font-size: 11px; letter-spacing: 0.12em; padding: 13px 2px; text-align: left; white-space: normal; border-bottom: 1px solid var(--sand-line); }
+    .facts__row li:last-child { border-bottom: none; }
+    .facts__row li::before { content: ""; flex-shrink: 0; width: 5px; height: 5px; border-radius: 50%; background: var(--amber); }
+    .facts__row li::after { display: none; }
   }
 
   /* 3 — Der Moment davor */
@@ -303,34 +317,21 @@
   .ag-lines p::before { content: ""; position: absolute; left: 0; top: 0.72em; width: 6px; height: 1px; background: var(--amber-soft); opacity: 0.7; }
   .ag-close { font-size: clamp(22px, 2.8vw, 32px); margin-top: 48px; color: var(--ink); max-width: 100%; line-height: 1.3; }
   .ag-close em { font-style: italic; color: var(--amber); }
-  .culture { background: var(--cream-deep); color: var(--ink); padding: var(--section-y) 0; position: relative; overflow: hidden; }
-  .culture::before { content: ""; position: absolute; top: -30%; right: -10%; width: 60%; height: 120%; background: radial-gradient(circle, rgba(158,107,65,0.12), transparent 65%); pointer-events: none; }
-  .culture__bg { position: absolute; bottom: -8%; right: -2%; pointer-events: none; z-index: 0; line-height: 1; will-change: transform; }
-  .culture__bg span { font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: clamp(160px, 30vw, 420px); color: var(--amber); opacity: 0.06; letter-spacing: -0.02em; }
-  .culture .wrap { position: relative; z-index: 1; }
-  .culture .eyebrow { color: var(--amber); }
-  .culture h2 { font-size: clamp(31px, 4vw, 48px); font-weight: 400; line-height: 1.12; margin: 22px 0 28px; max-width: 760px; position: relative; }
-  .culture .lead { max-width: 580px; color: var(--ink-soft); font-size: 18px; margin-bottom: 70px; position: relative; }
-  .culture__scenes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--sand-line); position: relative; }
-  .scene { background: var(--cream-deep); padding: 40px 30px; transition: background 0.5s; position: relative; }
-  /* Bild-Slot: blutet randlos an die Kachelkanten, Platzhalter-Tönung bis Bild eingefügt */
-  .scene__media { position: relative; aspect-ratio: 4/3; margin: -40px -30px 26px; overflow: hidden; background: linear-gradient(150deg, rgba(192,150,107,0.16), rgba(158,107,65,0.06) 55%, transparent); }
-  .scene__media:has(img) { background: var(--night); }
-  .scene__media::after { content: ""; position: absolute; left: 24px; right: 24px; top: 50%; height: 1px; background: var(--amber-soft); opacity: 0.35; }
-  .scene__media:has(img)::after { display: none; }
-  .scene__media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; transition: transform 0.8s cubic-bezier(.2,.7,.2,1); filter: saturate(0.9) brightness(0.96) sepia(0.14) contrast(1.02); }
-  .scene__media:has(img)::before { content: ""; position: absolute; inset: 0; z-index: 2; pointer-events: none; background: linear-gradient(180deg, rgba(36,29,34,0.05), rgba(158,107,65,0.12)); mix-blend-mode: multiply; }
-  .scene:hover .scene__media img { transform: scale(1.035); }
-  .scene::after { content: ""; position: absolute; inset: 0; background: radial-gradient(120% 100% at 50% 0%, rgba(192,150,107,0.0), transparent 70%); transition: background 0.5s; pointer-events: none; }
-  .scene:hover .s-num { color: var(--amber-soft); }
-  .scene:hover::after { background: radial-gradient(120% 100% at 50% 0%, rgba(192,150,107,0.12), transparent 70%); }
-  .scene--1 { background: #E9DAC4; }
-  .scene--2 { background: #E4D3BB; }
-  .scene--3 { background: #DECBB0; }
-  .scene .s-num { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 22px; color: var(--amber); position: relative; z-index: 1; transition: color 0.4s; }
-  .scene h3 { font-family: 'Cormorant Garamond', serif; font-size: 27px; font-weight: 400; margin: 12px 0 10px; color: var(--ink); position: relative; z-index: 1; }
-  .scene p { font-size: 14.5px; color: var(--ink-soft); position: relative; z-index: 1; }
-  @media (max-width: 720px) { .culture__scenes { grid-template-columns: 1fr; } }
+  .culture { position: relative; background: var(--night); color: var(--cream-on-night); overflow: hidden; }
+  .culture__media { position: relative; width: 100%; height: clamp(560px, 88vh, 880px); overflow: hidden; }
+  .culture__media img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center 56%; filter: saturate(1.04) brightness(0.97); }
+  .culture__scrim { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(42,29,24,0.4) 0%, rgba(30,23,23,0.16) 18%, rgba(24,19,22,0.08) 30%, rgba(24,19,22,0.22) 44%, rgba(24,19,22,0.94) 100%); }
+  .culture__overlay { position: absolute; left: 0; right: 0; bottom: 0; z-index: 2; max-width: 1140px; margin: 0 auto; padding: 0 44px 68px; }
+  .culture .eyebrow { color: var(--amber-soft); }
+  .culture h2 { font-size: clamp(31px, 4.2vw, 50px); font-weight: 400; line-height: 1.14; margin: 16px 0 18px; max-width: 640px; color: var(--cream-on-night); }
+  .culture h2 em { color: var(--amber-soft); }
+  .culture .lead { max-width: 520px; color: var(--ink-soft-on-night); font-size: 17px; margin: 0; }
+  @media (max-width: 720px) {
+    .culture__media { height: clamp(440px, 78vh, 620px); }
+    .culture__overlay { padding: 0 22px 52px; }
+    .culture h2 { font-size: clamp(26px, 6.4vw, 34px); max-width: 100%; }
+    .culture .lead { font-size: 15.5px; max-width: 100%; }
+  }
 
   /* 7 — Entwickelt mit Sorgfalt */
   .care { padding: var(--section-y) 0; }
@@ -462,9 +463,11 @@
   footer .footer__nav a:hover { color: var(--amber); }
   footer .footer__copy { font-size: 12px; letter-spacing: 0.04em; color: var(--ink-soft); }
   @media (max-width: 760px) {
-    .footer__inner { flex-direction: column; gap: 24px; text-align: center; padding: 0 22px; }
-    footer .footer__brand { flex-direction: column; gap: 8px; align-items: center; }
-    footer .footer__nav { flex-direction: column; gap: 16px; }
+    footer { padding: 22px 0; }
+    .footer__inner { flex-direction: column; gap: 12px; text-align: center; padding: 0 22px; }
+    footer .footer__brand { flex-direction: row; gap: 9px; align-items: baseline; justify-content: center; }
+    footer .footer__nav { flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 8px 16px; }
+    footer .footer__copy { font-size: 11px; opacity: 0.75; }
   }
 
 
@@ -574,7 +577,7 @@
       "name": "HESPYRA Evening Ritual",
       "brand": { "@id": "https://hespyra.com/#organization" },
       "image": "https://hespyra.com/hespyra-og.jpg",
-      "description": "Ein täglicher Abenddrink als Pulverdrink mit Kakao, Vanille und Tonka. Ohne Melatonin. Für den Übergang vom Tag in einen ruhigeren Abend.",
+      "description": "Ein täglicher Abenddrink als Pulverdrink mit Kakao und Vanille. Ohne Melatonin. Für den Übergang vom Tag in einen ruhigeren Abend.",
       "category": "Nahrungsergänzungsmittel",
       "releaseDate": "2026"
     }
@@ -636,8 +639,6 @@
 
     <div class="hero-spacer" aria-hidden="true"></div>
 
-    <p class="hero-meta" data-en="Without melatonin. Warm. Cacao, vanilla &amp; tonka.">Ohne Melatonin. Warm. Kakao, Vanille &amp; Tonka.</p>
-
     <div class="hero-actions">
       <a href="#warteliste" class="hero-cta" data-en="Early access to the first edition">Früher Zugang zur ersten Edition</a>
       <a href="#composition-anchor" class="hero-link" data-en="To the composition">Zur Komposition</a>
@@ -646,6 +647,19 @@
 
   <div class="hero__media">
     <img class="hero__product" src="img/hespyra_hero_multiply-1100.webp" srcset="img/hespyra_hero_multiply-760.webp 760w, img/hespyra_hero_multiply-1100.webp 1100w, img/hespyra_hero_multiply-1500.webp 1500w" sizes="(max-width:860px) 100vw, 50vw" width="1498" height="1628" alt="HESPYRA Evening Ritual — Dose, ein Glas des Drinks und ein Holzlöffel mit Pulver auf warmem Creme" fetchpriority="high" />
+  </div>
+</section>
+
+<!-- 2 — Produkt-Klarheit (Powder-Blindspot) -->
+<section class="facts" aria-label="Das Produkt auf einen Blick">
+  <div class="wrap">
+    <ul class="facts__row reveal">
+      <li data-en="Powder in the tin">Pulver in der Dose</li>
+      <li data-en="Cacao &amp; vanilla">Kakao &amp; Vanille</li>
+      <li data-en="30 evening servings">30 Abendportionen</li>
+      <li data-en="Stirred warm or cold">Warm oder kalt angerührt</li>
+      <li data-en="Without melatonin">Ohne Melatonin</li>
+    </ul>
   </div>
 </section>
 
@@ -680,12 +694,12 @@
       <div class="beat reveal">
         <div class="num">i</div>
         <h3 class="serif" data-en="Release">Lösen</h3>
-        <p data-en="Not carrying everything from the day with you. A spoon, warm water, one minute — slowly stirred as the first gesture at the end of the day.">Nicht alles aus dem Tag mitnehmen. Ein Löffel, warmes Wasser, eine Minute — langsam verrührt als erste Geste zum Tagesende.</p>
+        <p data-en="Not carrying everything from the day with you. A spoon in water or plant milk, one minute — slowly stirred as the first gesture at the end of the day.">Nicht alles aus dem Tag mitnehmen. Ein Löffel in Wasser oder Pflanzenmilch, eine Minute — langsam verrührt als erste Geste zum Tagesende.</p>
       </div>
       <div class="beat reveal">
         <div class="num">ii</div>
         <h3 class="serif" data-en="Gather">Sammeln</h3>
-        <p data-en="From reacting back to yourself. The warm glass in your hands, cacao, vanilla and tonka giving the moment a quiet depth.">Vom Reagieren zurück zu dir. Das warme Glas in den Händen, Kakao, Vanille und Tonka geben dem Moment eine ruhige Tiefe.</p>
+        <p data-en="From reacting back to yourself. The warm glass in your hands, cacao and vanilla giving the moment a quiet depth.">Vom Reagieren zurück zu dir. Das warme Glas in den Händen, Kakao und Vanille geben dem Moment eine ruhige Tiefe.</p>
       </div>
       <div class="beat reveal">
         <div class="num">iii</div>
@@ -701,7 +715,7 @@
   <div class="wrap">
     <p class="eyebrow reveal" data-en="The Composition">Die Komposition</p>
     <h2 class="serif reveal" data-en="A &lt;em&gt;composition&lt;/em&gt; for the evening.">Eine <em>Komposition</em> für&nbsp;den&nbsp;Abend.</h2>
-    <p class="intro reveal" data-en="HESPYRA combines warm flavour with a transparent formula. Not meant to switch you off, but as a conscious ritual for the moment before.">HESPYRA verbindet warmen Geschmack mit einer transparenten Rezeptur. Nicht zum Ausschalten gedacht, sondern als bewusstes Ritual für den Moment davor.</p>
+    <p class="intro reveal" data-en="HESPYRA is more than a cacao drink: warm flavour, joined with a deliberately chosen, transparent composition. Not meant to switch you off, but a conscious ritual for the moment before.">HESPYRA ist mehr als ein Kakao-Drink: warmer Geschmack, verbunden mit einer bewusst gewählten, transparenten Zusammensetzung. Nicht zum Ausschalten gedacht, sondern als bewusstes Ritual für den Moment davor.</p>
     <div class="comp-layers stagger-group">
       <div class="layer reveal">
         <div class="layer-label" data-en="<svg class=&quot;layer-ico&quot; viewBox=&quot;0 0 40 24&quot; aria-hidden=&quot;true&quot;><line x1=&quot;4&quot; y1=&quot;8&quot; x2=&quot;36&quot; y2=&quot;8&quot;/><line x1=&quot;4&quot; y1=&quot;12&quot; x2=&quot;28&quot; y2=&quot;12&quot;/><line x1=&quot;4&quot; y1=&quot;16&quot; x2=&quot;32&quot; y2=&quot;16&quot;/></svg>Mineral Foundation"><svg class="layer-ico" viewBox="0 0 40 24" aria-hidden="true"><line x1="4" y1="8" x2="36" y2="8"/><line x1="4" y1="12" x2="28" y2="12"/><line x1="4" y1="16" x2="32" y2="16"/></svg>Mineralische Grundlage</div>
@@ -721,7 +735,7 @@
         <div class="layer-label" data-en="<svg class=&quot;layer-ico&quot; viewBox=&quot;0 0 40 24&quot; aria-hidden=&quot;true&quot;><path d=&quot;M14 20 C14 16 11 15 11 11 C11 8 14 7 14 4&quot;/><path d=&quot;M20 20 C20 16 17 15 17 11 C17 8 20 7 20 4&quot;/><path d=&quot;M26 20 C26 16 23 15 23 11 C23 8 26 7 26 4&quot;/></svg>Warm Notes"><svg class="layer-ico" viewBox="0 0 40 24" aria-hidden="true"><path d="M14 20 C14 16 11 15 11 11 C11 8 14 7 14 4"/><path d="M20 20 C20 16 17 15 17 11 C17 8 20 7 20 4"/><path d="M26 20 C26 16 23 15 23 11 C23 8 26 7 26 4"/></svg>Warme Noten</div>
         <ul class="layer-items">
           <li><span data-en="Cacao">Kakao</span> <span data-en="Warmth and substance, not too sweet.">Wärme und Substanz, nicht zu süß.</span></li>
-          <li><span data-en="Vanilla &amp; Tonka">Vanille &amp; Tonka</span> <span data-en="So the ritual becomes repeatable every evening.">Damit das Ritual jeden Abend wiederholbar wird.</span></li>
+          <li><span data-en="Vanilla">Vanille</span> <span data-en="So the ritual becomes repeatable every evening.">Damit das Ritual jeden Abend wiederholbar wird.</span></li>
         </ul>
       </div>
     </div>
@@ -742,37 +756,20 @@
     <p class="ag-close serif reveal" data-en="HESPYRA is not about giving up. It is a different <em>beginning.</em>">HESPYRA ist kein Verzicht. Es ist ein anderer <em>Anfang.</em></p>
   </div>
   <div class="ag__media analog-media reveal">
-    <img src="img/hespyra_table_v6-1024.webp" srcset="img/hespyra_table_v6-640.webp 640w, img/hespyra_table_v6-1024.webp 1024w" sizes="(max-width:860px) 100vw, 50vw" width="1024" height="1024" alt="Ein anderes Glas am Abend: eine dampfende Tasse auf der Fensterbank im letzten Tageslicht" loading="lazy" />
+    <img src="img/hespyra_anderes_glas-1024.webp" srcset="img/hespyra_anderes_glas-640.webp 640w, img/hespyra_anderes_glas-1024.webp 1024w" sizes="(max-width:860px) 100vw, 50vw" width="1024" height="1024" alt="Ein anderes Glas am Abend: HESPYRA Evening Ritual auf einem Holztisch im warmen Licht des Wohnzimmers" loading="lazy" />
   </div>
 </section>
 
-<!-- 7 — Abendkultur (hell, atmosphärisch) -->
+<!-- 7 — Abendkultur (immersives Full-Bleed-Bild) -->
 <section class="culture" id="culture">
-  <div class="culture__bg" aria-hidden="true"><span id="cultureBgWord">Abend</span></div>
-  <div class="wrap">
-    <p class="eyebrow reveal" data-en="Evening Culture">Abendkultur</p>
-    <h2 class="serif reveal" data-en="The evening is &lt;em&gt;more&lt;/em&gt; than the time before sleep.">Der Abend ist <em>mehr</em> als die Zeit vor&nbsp;dem&nbsp;Schlaf.</h2>
-    <p class="lead reveal" data-en="It can be quiet or lively. Alone or with others. What matters is not how the evening looks — but that it does not remain merely the remainder of the day. HESPYRA is the small ritual that opens this space.">Er kann still sein oder lebendig. Allein oder mit anderen. Entscheidend ist nicht, wie der Abend aussieht — sondern dass er nicht nur der Rest des Tages bleibt. HESPYRA ist das kleine Ritual, das diesen Raum eröffnet.</p>
-    <div class="culture__scenes stagger-group">
-      <div class="scene scene--1 reveal">
-        <div class="scene__media analog-media">
-          <img src="img/hespyra_table_v4-900.webp" srcset="img/hespyra_table_v4-480.webp 480w, img/hespyra_table_v4-900.webp 900w" sizes="(max-width:860px) 100vw, 33vw" width="900" height="900" alt="Abend am Tisch: eine dampfende Tasse auf einem Holztisch am Fenster im Dämmerlicht" loading="lazy" />
-        </div>
-        <div class="s-num">i</div><h3 data-en="At the Table">Am Tisch</h3><p data-en="With others, without occasion. Conversations, family, a shared moment.">Mit anderen, ohne Anlass. Gespräche, Familie, ein gemeinsamer Moment.</p>
-      </div>
-      <div class="scene scene--2 reveal">
-        <div class="scene__media analog-media">
-          <img src="img/hespyra_balcony_clean-900.webp" srcset="img/hespyra_balcony_clean-480.webp 480w, img/hespyra_balcony_clean-900.webp 900w" sizes="(max-width:860px) 100vw, 33vw" width="900" height="900" alt="Abend auf dem Balkon: Blick über die Stadt im Sonnenuntergang von einer ruhigen Terrasse" loading="lazy" />
-        </div>
-        <div class="s-num">ii</div><h3 data-en="On the Balcony">Auf dem Balkon</h3><p data-en="Outside, with music or silence. The evening that belongs to you again.">Draußen, mit Musik oder Stille. Der Abend, der wieder einem selbst gehört.</p>
-      </div>
-      <div class="scene scene--3 reveal">
-        <div class="scene__media analog-media">
-          <img src="img/hespyra_self_v5-900.webp" srcset="img/hespyra_self_v5-480.webp 480w, img/hespyra_self_v5-900.webp 900w" sizes="(max-width:860px) 100vw, 33vw" width="900" height="900" alt="Ein ruhiger Moment für sich: ein Holzstuhl am großen Fenster mit Stadtblick zur blauen Stunde" loading="lazy" />
-        </div>
-        <div class="s-num">iii</div><h3 data-en="For Yourself">Für sich</h3><p data-en="The first quiet moment of the evening — a beginning instead of the leftover of the day.">Der erste ruhige Moment des Abends — Anfang statt Rest des Tages.</p>
-      </div>
-    </div>
+  <div class="culture__media reveal">
+    <img src="img/hespyra_balcony_clean-900.webp" srcset="img/hespyra_balcony_clean-480.webp 480w, img/hespyra_balcony_clean-900.webp 900w" sizes="100vw" width="900" height="900" alt="Ein ruhiger Abend für sich: Blick über die Stadt im warmen Sonnenuntergang von einer stillen Terrasse" loading="lazy" decoding="async" />
+    <div class="culture__scrim" aria-hidden="true"></div>
+  </div>
+  <div class="culture__overlay">
+    <p class="eyebrow reveal" data-en="Your own evening">Der eigene Abend</p>
+    <h2 class="serif reveal" data-en="The evening belongs to &lt;em&gt;you&lt;/em&gt; again.">Der Abend gehört wieder&nbsp;<em>dir</em>.</h2>
+    <p class="lead reveal" data-en="Not just the remainder of the day. But a space of your own: for a conversation, a book, a glance outside — or a moment that belongs only to you.">Nicht nur der Rest des Tages. Sondern ein eigener Raum: für ein Gespräch, ein Buch, einen Blick nach draußen — oder einen Moment, der nur dir gehört.</p>
   </div>
 </section>
 
@@ -842,7 +839,7 @@
       </div>
       <div class="faq-item">
         <button class="faq-q" data-en="What does HESPYRA taste like? <span class=&quot;ic&quot;>+</span>">Wie schmeckt HESPYRA? <span class="ic">+</span></button>
-        <div class="faq-a"><div class="faq-a__inner" data-en="Warm, grown-up, rounded. Cacao, vanilla and tonka — not too sweet, not medicinal, not like a classic protein shake.">Warm, erwachsen, rund. Kakao, Vanille und Tonka — nicht zu süß, nicht medizinisch, nicht wie ein klassischer Proteinshake.</div></div>
+        <div class="faq-a"><div class="faq-a__inner" data-en="Warm, grown-up, rounded. Cacao and vanilla — not too sweet, not medicinal, not like a classic protein shake.">Warm, erwachsen, rund. Kakao und Vanille — nicht zu süß, nicht medizinisch, nicht wie ein klassischer Proteinshake.</div></div>
       </div>
       <div class="faq-item">
         <button class="faq-q" data-en="What does first edition mean? <span class=&quot;ic&quot;>+</span>">Was bedeutet erste Edition? <span class="ic">+</span></button>
