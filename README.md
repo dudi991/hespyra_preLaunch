@@ -10,7 +10,6 @@ ueber-uns.html        Unterseite
 impressum.html        Rechtstext (Platzhalter prüfen)
 kontakt.html          Kontaktseite (Formular-Backend fehlt noch)
 datenschutz.html      Rechtstext (Platzhalter prüfen)
-hespyra-og.jpg        Open-Graph-Vorschaubild
 img/                  Bilder (WebP, responsive Größen)
 ```
 
@@ -26,7 +25,7 @@ python3 -m http.server 8000
 
 **Technisch**
 - [ ] `noindex` entfernen (im `<head>` von index.html), sobald öffentlich
-- [ ] Domain-Platzhalter `https://hespyra.com` ersetzen (og:image, JSON-LD, Canonical)
+- [ ] Domain-Platzhalter `https://hespyra.com` ersetzen (JSON-LD, Canonical)
 - [ ] Umami: echte `UMAMI_WEBSITE_ID` und `UMAMI_SCRIPT_URL` eintragen
 - [ ] Fonts self-hosten (Cormorant Garamond, Jost) statt via CDN — DSGVO + Performance
 - [ ] Rapidmail-Formular mit Echt-Test prüfen (Double-Opt-in-Mail kommt an?)
