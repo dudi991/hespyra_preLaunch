@@ -130,7 +130,6 @@
     .moment__concrete { margin-top: 16px; font-size: 15.5px; line-height: 1.58; }   /* konkreter Kern, mobil etwas kompakter */
     .moment__foot { margin-top: 11px; font-size: 15.5px; line-height: 1.58; color: var(--ink); }   /* gleiche Schrift/Größe/Farbe wie erster Block */
     .moment__bg { display: none; }   /* Hintergrundschriftzug auf Mobil ausgeblendet */
-    .care { padding-top: 44px; padding-bottom: 22px; }      /* Sorgfalt: bewusster, knapper Abschluss vor FAQ-Trenner */
   }
 
   .reveal { opacity: 0; transform: translateY(28px); transition: opacity 1.1s cubic-bezier(.2,.7,.2,1), transform 1.1s cubic-bezier(.2,.7,.2,1); }
@@ -342,15 +341,13 @@
   }
 
   /* 7 — Entwickelt mit Sorgfalt */
-  .care { padding: var(--section-y) 0; }
-  @media (min-width: 861px) { .care { padding-bottom: 28px; } }   /* bewusster, knapper Abschluss vor FAQ-Trenner */
-  .care__grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 80px; align-items: start; }
-  /* Christian/Profound Formulas vorerst aus: Klasse care__grid--solo am Grid entfernen, um Card wieder einzublenden */
-  .care__grid--solo { grid-template-columns: 1fr; }
-  .care__grid--solo .care__maker { display: none; }
-  .care__grid--solo .care__body { max-width: 620px; }
-  .care__body h2 { font-size: clamp(31px, 4vw, 48px); font-weight: 400; line-height: 1.13; margin: 18px 0 26px; }
-  .care__body p:not(.eyebrow) { color: var(--ink-soft); font-size: 18px; margin-bottom: 22px; max-width: 520px; }
+  .care { padding: 0; }
+  .care--split { position: relative; overflow: hidden; background: var(--cream); display: grid; grid-template-columns: 1.15fr 1fr; align-items: stretch; }
+  .care--split .care__text { display: flex; flex-direction: column; justify-content: center; justify-self: center; padding: var(--section-y) 44px; max-width: 600px; width: 100%; }
+  .care--split .care__media { position: relative; overflow: hidden; min-height: 100%; }
+  .care--split .care__media img { width: 100%; height: 100%; object-fit: cover; object-position: center 55%; display: block; filter: saturate(1.04) contrast(1.01); }
+  .care__text h2 { font-size: clamp(31px, 4vw, 48px); font-weight: 400; line-height: 1.13; margin: 18px 0 26px; }
+  .care__text p:not(.eyebrow) { color: var(--ink-soft); font-size: 18px; margin-bottom: 22px; max-width: 520px; }
   .care__origin { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: clamp(19px, 2vw, 23px) !important; color: var(--ink) !important; max-width: 540px !important; margin-top: 26px !important; padding-top: 22px; border-top: 1px solid var(--sand-line); }
   .care__principles { margin-top: 44px; border-top: 1px solid var(--sand-line); }
   .principle { padding: 24px 0; border-bottom: 1px solid var(--sand-line); }
@@ -361,7 +358,6 @@
     .principle__label { font-size: 16px; margin-bottom: 5px; }
     .principle__text { font-size: 15px; }
   }
-  .care__intro--mobile, .care__bio--mobile { display: none; }
   .care__maker { background: var(--cream-deep); padding: 40px 36px; position: relative; }
   .care__maker-top { display: flex; align-items: center; gap: 20px; margin-bottom: 20px; }
   .care__portrait { width: 68px; height: 68px; border-radius: 6px; object-fit: cover; flex-shrink: 0; filter: grayscale(0.2) sepia(0.06) contrast(1.03) brightness(0.98); border: 1px solid rgba(158,107,65,0.22); }
@@ -371,10 +367,11 @@
   .care__maker .creds .c .k { font-family: 'Cormorant Garamond', serif; font-size: 27px; color: var(--amber); display: block; }
   .care__maker .creds .c .v { font-size: 11.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-soft); }
   @media (max-width: 860px) {
-    .care__grid { grid-template-columns: 1fr; gap: 30px; }
-    .care__intro--desktop, .care__bio--desktop { display: none; }
-    .care__intro--mobile, .care__bio--mobile { display: block; }
-    .care__body p:not(.eyebrow) { font-size: 15.5px; margin-bottom: 12px; }
+    .care--split { grid-template-columns: 1fr; }
+    .care--split .care__text { padding: 56px 22px 32px; max-width: none; }
+    .care--split .care__media { aspect-ratio: 16/11; min-height: 0; }
+    .care--split .care__media img { aspect-ratio: 16/11; object-position: center 50%; }
+    .care__text p:not(.eyebrow) { font-size: 15.5px; margin-bottom: 12px; }
     .care__origin { font-size: 17px !important; line-height: 1.5 !important; margin-top: 16px !important; padding-top: 16px; }
     .care__principles { margin-top: 18px; }
     .principle { padding: 13px 0; }
@@ -567,13 +564,8 @@
   .sticky-optin__form:focus-within { border-bottom-color: var(--amber-soft); }
   .form input:focus-visible, .sticky-optin__form input:focus-visible { outline: none; }
 </style>
-<!-- Umami Analytics — cookiefrei, DSGVO-konform ohne Consent-Banner.
-     Vor Live-Gang die zwei Platzhalter ersetzen:
-     - data-website-id: die ID aus eurem Umami-Dashboard
-     - src: die URL eurer Umami-Instanz (z. B. https://analytics.hespyra.com/script.js
-       oder bei Umami Cloud https://cloud.umami.is/script.js)
-     defer = lädt nicht-blockierend. Bis die Werte gesetzt sind, lädt nichts. -->
-<script defer data-website-id="UMAMI_WEBSITE_ID" src="UMAMI_SCRIPT_URL"></script>
+<!-- Umami Analytics — cookiefrei, DSGVO-konform ohne Consent-Banner. Umami Cloud, EU-/Cloud-Instanz. -->
+<script defer src="https://cloud.umami.is/script.js" data-website-id="1ecf682b-8921-492c-9b42-71f46a9cae65"></script>
 
 <!-- Strukturierte Daten (JSON-LD): hilft Suchmaschinen, HESPYRA als Marke/Produkt zu verstehen.
      Bewusst OHNE Preis, Bewertung oder Verfügbarkeitsversprechen — das Produkt ist in Entwicklung.
@@ -803,14 +795,11 @@
 </section>
 
 <!-- 7 — Entwickelt mit Sorgfalt -->
-<section class="care">
-  <div class="wrap">
-    <div class="care__grid care__grid--solo">
-      <div class="care__body">
+<section class="care care--split">
+  <div class="care__text">
         <p class="eyebrow reveal" data-en="Developed with Care">Entwickelt mit Sorgfalt</p>
         <h2 class="serif reveal" data-en="The &lt;em&gt;opposite&lt;/em&gt; of a quick fix.">Das <em>Gegenteil</em> einer schnellen&nbsp;Lösung.</h2>
-        <p class="reveal care__intro--desktop" data-en="HESPYRA grows from the conviction that an evening ritual does not need to be loud. The first edition is developed calmly — in taste and composition — as a conscious beginning, not a quick effect.">HESPYRA entsteht aus der Überzeugung, dass ein Abendritual nicht laut auftreten muss. Die erste Edition wird mit Ruhe entwickelt — in Geschmack und Komposition, als bewusster Beginn, nicht als schneller Effekt.</p>
-        <p class="reveal care__intro--mobile" data-en="HESPYRA grows from the conviction that an evening ritual does not need to be loud — developed calmly, as a conscious beginning, not a quick effect.">HESPYRA entsteht aus der Überzeugung, dass ein Abendritual nicht laut auftreten muss — entwickelt mit Ruhe, als bewusster Beginn, nicht als schneller Effekt.</p>
+        <p class="reveal" data-en="HESPYRA grows from the conviction that an evening ritual does not need to be loud — developed calmly, as a conscious beginning, not a quick effect.">HESPYRA entsteht aus der Überzeugung, dass ein Abendritual nicht laut auftreten muss — entwickelt mit Ruhe, als bewusster Beginn, nicht als schneller Effekt.</p>
         <p class="care__origin reveal" data-en="Developed from conversations with people whose day lasts longer in their head than in their calendar — not from a trend briefing.">Entwickelt aus Gesprächen mit Menschen, deren Tag im Kopf länger dauert als im Kalender — nicht aus einem Trendbriefing.</p>
         <div class="care__principles">
           <div class="principle reveal">
@@ -826,20 +815,12 @@
             <div class="principle__text" data-en="Transparency in the composition. Restraint in the claims.">Transparenz in der Komposition. Zurückhaltung in der Behauptung.</div>
           </div>
         </div>
-      </div>
-      <div class="care__maker reveal">
-        <div class="care__maker-top">
-          <!-- Portrait-Platz für Christian Baker: sobald verfügbar, hier einfügen —
-               <img class="care__portrait" src="img/christian-baker.webp" alt="Christian Baker, Gründer von Profound Formulas" loading="lazy" /> -->
-          <div class="seal serif" data-en="Formulated with<br>Profound Formulas">Formuliert mit<br>Profound Formulas</div>
-        </div>
-        <p class="care__bio--desktop" data-en="Behind the formula is Christian Baker, founder of Profound Formulas. Over sixteen years as a formulator, he has worked on products for international brands, among others — bringing the same care to a product that deliberately stays quiet.">Hinter der Rezeptur steht Christian Baker, Gründer von Profound Formulas. In sechzehn Jahren als Formulierer hat er unter anderem an Produkten für internationale Marken gearbeitet — und bringt dieselbe Sorgfalt in ein Produkt ein, das bewusst leise auftritt.</p>
-        <p class="care__bio--mobile" data-en="Behind the formula is Christian Baker, founder of Profound Formulas — sixteen years as a formulator, with the same care that keeps HESPYRA deliberately quiet.">Hinter der Rezeptur steht Christian Baker, Gründer von Profound Formulas — seit sechzehn Jahren Formulierer, mit derselben Sorgfalt, die HESPYRA bewusst leise hält.</p>
-        <div class="creds">
-          <div class="c"><span class="k serif">16</span><span class="v" data-en="years of formulation">Jahre Formulierung</span></div>
-        </div>
-      </div>
-    </div>
+  </div>
+  <!-- Rechte Spalte: Ritualbild randlos (vorübergehend statt Maker-Card; Backup separat gesichert). -->
+  <div class="care__media reveal">
+    <img src="img/hespyra_ritual-1024.webp" srcset="img/hespyra_ritual-760.webp 760w, img/hespyra_ritual-1024.webp 1024w, img/hespyra_ritual-1500.webp 1500w" sizes="(max-width: 860px) 100vw, 45vw" width="1500" height="1500" loading="lazy" decoding="async" alt="HESPYRA-Abendritual: Kakaopulver wird in ein Glas gerührt, daneben die Dose, in warmem Abendlicht" />
+  </div>
+</section>
   </div>
 </section>
 
@@ -1095,10 +1076,19 @@
       b.addEventListener('click', () => setLang(b.textContent.trim().toLowerCase()));
     });
 
-    // Gespeicherte Sprache wiederherstellen
-    let saved = 'de';
-    try { saved = sessionStorage.getItem('hespyra_lang') || 'de'; } catch (e) {}
-    if (saved === 'en') setLang('en');
+    // Sprache bestimmen: 1) bewusste Wahl dieser Sitzung, sonst 2) Browsersprache, sonst 3) Deutsch
+    let saved = null;
+    try { saved = sessionStorage.getItem('hespyra_lang'); } catch (e) {}
+    if (saved === 'en' || saved === 'de') {
+      // Nutzer hat in dieser Sitzung bewusst gewählt — Wahl respektieren
+      setLang(saved);
+    } else {
+      // Keine bewusste Wahl: aus der Browsersprache ableiten
+      let browserLang = 'de';
+      try { browserLang = (navigator.language || navigator.userLanguage || 'de').toLowerCase(); } catch (e) {}
+      // Alles, was nicht klar Deutsch ist, bekommt Englisch (internationaler Default)
+      if (browserLang.indexOf('de') !== 0) setLang('en');
+    }
   })();
 
   // Listen-Zähler: zählt sanft hoch, sobald sichtbar. Bei data-count="0" ausgeblendet.
