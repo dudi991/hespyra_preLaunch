@@ -21,6 +21,7 @@
   nav .wordmark { letter-spacing:0.42em; font-size:18px; color:var(--ink); text-indent:0.42em; text-decoration:none; }
   nav .back { font-size:13px; letter-spacing:0.12em; text-transform:uppercase; color:var(--ink-soft); text-decoration:none; transition:color .3s; }
   nav .back:hover { color:var(--amber); }
+  nav .back__icon { display:none; font-size:20px; line-height:1; }
   nav .lang { display:flex; align-items:center; gap:10px; }
   nav .lang button { background:none; border:none; cursor:pointer; font-family:'Jost',sans-serif; font-size:14px; font-weight:500; letter-spacing:0.1em; color:var(--ink-soft); padding:3px 2px; transition:color .3s; }
   nav .lang button.active { color:var(--ink); border-bottom:1.5px solid var(--amber); }
@@ -42,14 +43,14 @@
   footer span, footer a { font-size:13px; color:var(--ink-soft); text-decoration:none; }
   footer a { margin-left:22px; }
   footer a:hover { color:var(--amber); }
-  @media (max-width:720px) { nav { padding:16px 22px; } nav .left { gap:14px; } main { padding:130px 22px 70px; } footer { padding:32px 22px; } footer a { margin-left:0; margin-right:18px; } }
+  @media (max-width:720px) { nav { padding:16px 22px; } nav .left { gap:14px; } nav .back__full { display:none; } nav .back__icon { display:inline; } main { padding:130px 22px 70px; } footer { padding:32px 22px; } footer a { margin-left:0; margin-right:18px; } }
 </style>
 </head>
 <body>
 <nav>
   <div class="left">
     <a href="index.html" class="wordmark">HESPYRA</a>
-    <a href="index.html" class="back" data-en="Back to site">Zurück zur Seite</a>
+    <a href="index.html" class="back" aria-label="Zurück zur Seite"><span class="back__full" data-en="Back to site">Zurück zur Seite</span><span class="back__icon" aria-hidden="true">←</span></a>
   </div>
   <div class="lang" role="group" aria-label="Sprache">
     <button class="active" aria-current="true">DE</button><span>/</span><button>EN</button>

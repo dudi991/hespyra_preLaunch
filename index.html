@@ -213,14 +213,14 @@
   }
 
   /* 2 — Produkt-Klarheit */
-  .facts { background: var(--cream); border-top: 1px solid var(--sand-line); border-bottom: 1px solid var(--sand-line); padding: 20px 0; }
+  .facts { background: var(--cream); border-top: 1px solid var(--sand-line); border-bottom: 1px solid var(--sand-line); padding: 26px 0; }
   .facts__row { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 0; list-style: none; margin: 0; padding: 0; }
-  .facts__row li { font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: var(--ink-soft); padding: 5px 22px; position: relative; white-space: nowrap; }
-  .facts__row li:not(:last-child)::after { content: ""; position: absolute; right: 0; top: 50%; transform: translateY(-50%); width: 1px; height: 12px; background: var(--sand-line); }
+  .facts__row li { font-family: 'Jost', sans-serif; font-size: 12.5px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink); padding: 5px 24px; position: relative; white-space: nowrap; }
+  .facts__row li:not(:last-child)::after { content: ""; position: absolute; right: 0; top: 50%; transform: translateY(-50%); width: 1px; height: 13px; background: var(--ink-soft); opacity: 0.45; }
   @media (max-width: 880px) {
-    .facts { padding: 16px 24px; }
+    .facts { padding: 18px 24px; }
     .facts__row { flex-direction: column; align-items: stretch; gap: 0; max-width: 290px; margin: 0 auto; }
-    .facts__row li { display: flex; align-items: center; gap: 10px; font-size: 10.5px; letter-spacing: 0.06em; padding: 11px 2px; text-align: left; white-space: normal; border-bottom: 1px solid var(--sand-line); }
+    .facts__row li { display: flex; align-items: center; gap: 10px; font-size: 11.5px; letter-spacing: 0.05em; padding: 12px 2px; text-align: left; white-space: normal; color: var(--ink); border-bottom: 1px solid var(--sand-line); }
     .facts__row li:last-child { border-bottom: none; }
     .facts__row li::before { content: ""; flex-shrink: 0; width: 5px; height: 5px; border-radius: 50%; background: var(--amber); }
     .facts__row li::after { display: none; }
@@ -386,9 +386,10 @@
   }
 
   /* 8 — FAQ */
-  .faq { padding: 0 0 var(--section-y); }
-  .faq__head { margin-bottom: 50px; border-top: 1px solid var(--sand-line); padding-top: 32px; max-width: 880px; }
-  @media (max-width: 860px) { .faq__head { padding-top: 24px; } }
+  .faq { padding: 0 0 var(--section-y); background: #EBE0CE; }   /* minimal wärmer/sandiger als --cream, setzt FAQ als eigene Sektion ab */
+  @media (min-width: 861px) { .faq { padding-top: 88px; } }   /* eigener Rhythmus, klarer Sektionsanfang ohne Trennlinie */
+  .faq__head { margin-bottom: 50px; padding-top: 0; max-width: 760px; }
+  @media (max-width: 860px) { .faq { padding-top: 56px; } }
   .faq__head h2 { font-size: clamp(31px, 4vw, 48px); font-weight: 400; line-height: 1.12; margin-top: 16px; max-width: 600px; }
   .faq__list { border-top: 1px solid var(--sand-line); max-width: 880px; }
   .faq-item { border-bottom: 1px solid var(--sand-line); transition: border-color 0.3s; }
@@ -648,7 +649,7 @@
 <section class="hero">
 
   <div class="hero__text">
-    <p class="eyebrow hero-eyebrow" data-en="An evening drink for the moment before">Ein Abenddrink für den Moment davor</p>
+    <p class="eyebrow hero-eyebrow" data-en="A ritual for after work">Ein Ritual für den Feierabend</p>
 
     <h1 class="serif hero-h1 hero-h1--a">
       <span class="ml"><span data-en="Not for sleep.">Nicht für den Schlaf.</span></span>
@@ -702,7 +703,7 @@
 <!-- 4 — Das Ritual -->
 <section class="ritual" id="ritual-anchor">
   <div class="ritual__media analog-media reveal">
-    <img src="img/hespyra_ritual-1024.webp" srcset="img/hespyra_ritual-760.webp 760w, img/hespyra_ritual-1024.webp 1024w, img/hespyra_ritual-1500.webp 1500w" sizes="100vw" width="1500" height="1500" loading="lazy" decoding="async" alt="HESPYRA-Abendritual: Kakaopulver wird aus einem Holzlöffel in ein Glas gerührt, daneben die Dose, in warmem Abendlicht am Fenster" />
+    <img src="img/hespyra_ritual-1024.webp" srcset="img/hespyra_ritual-760.webp 760w, img/hespyra_ritual-1024.webp 1024w, img/hespyra_ritual-1500.webp 1500w" sizes="100vw" width="1500" height="1500" decoding="async" alt="HESPYRA-Abendritual: Kakaopulver wird aus einem Holzlöffel in ein Glas gerührt, daneben die Dose, in warmem Abendlicht am Fenster" />
     <div class="cap" data-en="Release. Gather. Arrive.">Lösen. Sammeln. Ankommen.</div>
   </div>
   <div class="wrap ritual__lower">
@@ -777,14 +778,14 @@
     <p class="ag-close serif reveal" data-en="HESPYRA is not about giving up. It is a different <em>beginning.</em>">HESPYRA ist kein Verzicht. Es ist ein anderer <em>Anfang.</em></p>
   </div>
   <div class="ag__media analog-media reveal">
-    <img src="img/hespyra_anderes_glas-1024.webp" srcset="img/hespyra_anderes_glas-640.webp 640w, img/hespyra_anderes_glas-1024.webp 1024w" sizes="(max-width:860px) 100vw, 50vw" width="1024" height="1024" alt="Ein anderes Glas am Abend: HESPYRA Evening Ritual auf einem Holztisch im warmen Licht des Wohnzimmers" loading="lazy" />
+    <img src="img/hespyra_anderes_glas-1024.webp" srcset="img/hespyra_anderes_glas-640.webp 640w, img/hespyra_anderes_glas-1024.webp 1024w" sizes="(max-width:860px) 100vw, 50vw" width="1024" height="1024" alt="Ein anderes Glas am Abend: HESPYRA Evening Ritual auf einem Holztisch im warmen Licht des Wohnzimmers" decoding="async" />
   </div>
 </section>
 
 <!-- 7 — Abendkultur (immersives Full-Bleed-Bild) -->
 <section class="culture" id="culture">
   <div class="culture__media reveal">
-    <img src="img/hespyra_balcony_clean-900.webp" srcset="img/hespyra_balcony_clean-480.webp 480w, img/hespyra_balcony_clean-900.webp 900w" sizes="100vw" width="900" height="900" alt="Ein ruhiger Abend für sich: Blick über die Stadt im warmen Sonnenuntergang von einer stillen Terrasse" loading="lazy" decoding="async" />
+    <img src="img/hespyra_balcony_clean-900.webp" srcset="img/hespyra_balcony_clean-480.webp 480w, img/hespyra_balcony_clean-900.webp 900w" sizes="100vw" width="900" height="900" alt="Ein ruhiger Abend für sich: Blick über die Stadt im warmen Sonnenuntergang von einer stillen Terrasse" decoding="async" />
     <div class="culture__scrim" aria-hidden="true"></div>
   </div>
   <div class="culture__overlay">
@@ -818,7 +819,7 @@
   </div>
   <!-- Rechte Spalte: Ritualbild randlos (vorübergehend statt Maker-Card; Backup separat gesichert). -->
   <div class="care__media reveal">
-    <img src="img/hespyra_ritual-1024.webp" srcset="img/hespyra_ritual-760.webp 760w, img/hespyra_ritual-1024.webp 1024w, img/hespyra_ritual-1500.webp 1500w" sizes="(max-width: 860px) 100vw, 45vw" width="1500" height="1500" loading="lazy" decoding="async" alt="HESPYRA-Abendritual: Kakaopulver wird in ein Glas gerührt, daneben die Dose, in warmem Abendlicht" />
+    <img src="img/hespyra_ritual-1024.webp" srcset="img/hespyra_ritual-760.webp 760w, img/hespyra_ritual-1024.webp 1024w, img/hespyra_ritual-1500.webp 1500w" sizes="(max-width: 860px) 100vw, 45vw" width="1500" height="1500" decoding="async" alt="HESPYRA-Abendritual: Kakaopulver wird in ein Glas gerührt, daneben die Dose, in warmem Abendlicht" />
   </div>
 </section>
   </div>

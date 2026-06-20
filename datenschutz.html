@@ -4,7 +4,6 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="theme-color" content="#241D22" />
-<meta name="robots" content="noindex" />
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23241D22'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-size='22' fill='%239E6B41' text-anchor='middle' font-style='italic'%3EH%3C/text%3E%3C/svg%3E" />
 <title>Datenschutzerklärung — HESPYRA</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -21,6 +20,7 @@
   nav .wordmark { letter-spacing:0.42em; font-size:18px; color:var(--ink); text-indent:0.42em; text-decoration:none; }
   nav .back { font-size:13px; letter-spacing:0.12em; text-transform:uppercase; color:var(--ink-soft); text-decoration:none; transition:color .3s; }
   nav .back:hover { color:var(--amber); }
+  nav .back__icon { display:none; font-size:20px; line-height:1; }
   nav .lang { display:flex; align-items:center; gap:10px; }
   nav .lang button { background:none; border:none; cursor:pointer; font-family:'Jost',sans-serif; font-size:14px; font-weight:500; letter-spacing:0.1em; color:var(--ink-soft); padding:3px 2px; transition:color .3s; }
   nav .lang button.active { color:var(--ink); border-bottom:1.5px solid var(--amber); }
@@ -42,14 +42,14 @@
   footer span, footer a { font-size:13px; color:var(--ink-soft); text-decoration:none; }
   footer a { margin-left:22px; }
   footer a:hover { color:var(--amber); }
-  @media (max-width:720px) { nav { padding:16px 22px; } nav .left { gap:14px; } main { padding:130px 22px 70px; } footer { padding:32px 22px; } footer a { margin-left:0; margin-right:18px; } }
+  @media (max-width:720px) { nav { padding:16px 22px; } nav .left { gap:14px; } nav .back__full { display:none; } nav .back__icon { display:inline; } main { padding:130px 22px 70px; } footer { padding:32px 22px; } footer a { margin-left:0; margin-right:18px; } }
 </style>
 </head>
 <body>
 <nav>
   <div class="left">
     <a href="index.html" class="wordmark">HESPYRA</a>
-    <a href="index.html" class="back" data-en="Back to site">Zurück zur Seite</a>
+    <a href="index.html" class="back" aria-label="Zurück zur Seite"><span class="back__full" data-en="Back to site">Zurück zur Seite</span><span class="back__icon" aria-hidden="true">←</span></a>
   </div>
   <div class="lang" role="group" aria-label="Sprache">
     <button class="active" aria-current="true">DE</button><span>/</span><button>EN</button>
@@ -64,7 +64,7 @@
 <p data-en="We process personal data only insofar as this is necessary to provide a functioning website and our content, or where consent has been given (Art. 6 GDPR).">Wir verarbeiten personenbezogene Daten nur, soweit dies zur Bereitstellung einer funktionsfähigen Website und unserer Inhalte erforderlich ist oder eine Einwilligung vorliegt (Art. 6 DSGVO).</p>
 <h2 data-en="3. Hosting and server log files">3. Hosting und Server-Logfiles</h2>
 <p data-en="When you access this website, our hosting provider automatically processes server log files (including IP address, time of access, browser type) on the basis of our legitimate interest in secure provision (Art. 6(1)(f) GDPR).">Beim Aufruf dieser Website verarbeitet unser Hosting-Anbieter automatisch Server-Logfiles (u. a. IP-Adresse, Zeitpunkt des Zugriffs, Browsertyp) auf Grundlage unseres berechtigten Interesses an sicherer Bereitstellung (Art. 6 Abs. 1 lit. f DSGVO).</p>
-<p data-en="Hosting provider: &lt;span class=&quot;placeholder&quot;&gt;[name and address of host]&lt;/span&gt;">Hosting-Anbieter: <span class="placeholder">[Name und Anschrift des Hosters]</span></p>
+<p data-en="Hosting provider: IONOS SE, Elgendorfer Straße 57, 56410 Montabaur, Germany.">Hosting-Anbieter: IONOS SE, Elgendorfer Straße 57, 56410 Montabaur.</p>
 <h2 data-en="4. Waitlist and newsletter (Rapidmail)">4. Warteliste und Newsletter (Rapidmail)</h2>
 <p data-en="If you sign up for the waitlist, we process your email address to send information about HESPYRA. Sending is handled via rapidmail GmbH, Wentzingerstraße 21, 79106 Freiburg, Germany. Registration uses the double opt-in procedure; the legal basis is your consent (Art. 6(1)(a) GDPR), revocable at any time via the unsubscribe link.">Tragen Sie sich in die Warteliste ein, verarbeiten wir Ihre E-Mail-Adresse zum Versand von Informationen zu HESPYRA. Der Versand erfolgt über die rapidmail GmbH, Wentzingerstraße 21, 79106 Freiburg. Die Anmeldung erfolgt im Double-Opt-In-Verfahren; Rechtsgrundlage ist Ihre Einwilligung (Art. 6 Abs. 1 lit. a DSGVO), jederzeit widerruflich über den Abmeldelink.</p>
 <h2 data-en="5. Contact form">5. Kontaktformular</h2>
@@ -74,8 +74,7 @@
 <h2 data-en="7. Your rights">7. Ihre Rechte</h2>
 <ul data-en="&lt;li&gt;Access (Art. 15), rectification (Art. 16), erasure (Art. 17)&lt;/li&gt;&lt;li&gt;Restriction (Art. 18), data portability (Art. 20), objection (Art. 21)&lt;/li&gt;&lt;li&gt;Complaint to a supervisory authority (Art. 77)&lt;/li&gt;"><li>Auskunft (Art. 15), Berichtigung (Art. 16), Löschung (Art. 17)</li><li>Einschränkung (Art. 18), Datenübertragbarkeit (Art. 20), Widerspruch (Art. 21)</li><li>Beschwerde bei einer Aufsichtsbehörde (Art. 77)</li></ul>
 <h2 data-en="8. Status">8. Stand</h2>
-<p data-en="This privacy policy is dated &lt;span class=&quot;placeholder&quot;&gt;[month year]&lt;/span&gt;.">Diese Datenschutzerklärung hat den Stand <span class="placeholder">[Monat Jahr]</span>.</p>
-<div class="note" data-en="Note: Draft with two placeholders (host, date). Have it legally reviewed before publishing and remove the noindex.">Hinweis: Entwurf mit zwei Platzhaltern (Hoster, Stand). Vor Veröffentlichung rechtlich prüfen lassen und das noindex entfernen.</div>
+<p data-en="This privacy policy is dated June 2026.">Diese Datenschutzerklärung hat den Stand Juni 2026.</p>
 </main>
 <footer>
   <span>© 2026 HESPYRA</span>

@@ -21,6 +21,7 @@
   nav .wordmark { letter-spacing:0.42em; font-size:18px; color:var(--ink); text-indent:0.42em; text-decoration:none; }
   nav .back { font-size:13px; letter-spacing:0.12em; text-transform:uppercase; color:var(--ink-soft); text-decoration:none; transition:color .3s; }
   nav .back:hover { color:var(--amber); }
+  nav .back__icon { display:none; font-size:20px; line-height:1; }
   nav .lang { display:flex; align-items:center; gap:10px; }
   nav .lang button { background:none; border:none; cursor:pointer; font-family:'Jost',sans-serif; font-size:14px; font-weight:500; letter-spacing:0.1em; color:var(--ink-soft); padding:3px 2px; transition:color .3s; }
   nav .lang button.active { color:var(--ink); border-bottom:1.5px solid var(--amber); }
@@ -42,14 +43,14 @@
   footer span, footer a { font-size:13px; color:var(--ink-soft); text-decoration:none; }
   footer a { margin-left:22px; }
   footer a:hover { color:var(--amber); }
-  @media (max-width:720px) { nav { padding:16px 22px; } nav .left { gap:14px; } main { padding:130px 22px 70px; } footer { padding:32px 22px; } footer a { margin-left:0; margin-right:18px; } }
+  @media (max-width:720px) { nav { padding:16px 22px; } nav .left { gap:14px; } nav .back__full { display:none; } nav .back__icon { display:inline; } main { padding:130px 22px 70px; } footer { padding:32px 22px; } footer a { margin-left:0; margin-right:18px; } }
 </style>
 </head>
 <body>
 <nav>
   <div class="left">
     <a href="index.html" class="wordmark">HESPYRA</a>
-    <a href="index.html" class="back" data-en="Back to site">Zurück zur Seite</a>
+    <a href="index.html" class="back" aria-label="Zurück zur Seite"><span class="back__full" data-en="Back to site">Zurück zur Seite</span><span class="back__icon" aria-hidden="true">←</span></a>
   </div>
   <div class="lang" role="group" aria-label="Sprache">
     <button class="active" aria-current="true">DE</button><span>/</span><button>EN</button>
@@ -59,27 +60,29 @@
   <p class="eyebrow" data-en="HESPYRA">HESPYRA</p>
   <h1 class="serif" data-en="Contact">Kontakt</h1>
   <p class="lead" data-en="We’d love to hear from you – we reply as quickly as possible.">Wir freuen uns, von dir zu hören – wir antworten so schnell wie möglich.</p>
-<form onsubmit="event.preventDefault(); this.reset(); document.getElementById('kontakt-success').style.display='block';" style="max-width:520px; margin-top:32px;">
+<form action="kontakt.php" method="post" style="max-width:520px; margin-top:32px;">
   <div style="margin-bottom:18px;">
-    <label style="display:block; font-size:13px; letter-spacing:0.08em; text-transform:uppercase; color:var(--ink-soft); margin-bottom:8px;" data-en="Your name">Dein Name</label>
-    <input type="text" required placeholder="Anna Schmidt" data-en-ph="Anna Smith" style="width:100%; background:transparent; border:none; border-bottom:1px solid var(--ink); padding:10px 2px; font-family:'Jost',sans-serif; font-size:16px; color:var(--ink); outline:none;" />
+    <label for="kf-name" style="display:block; font-size:13px; letter-spacing:0.08em; text-transform:uppercase; color:var(--ink-soft); margin-bottom:8px;" data-en="Your name">Dein Name</label>
+    <input id="kf-name" name="name" type="text" required placeholder="Anna Schmidt" data-en-ph="Anna Smith" style="width:100%; background:transparent; border:none; border-bottom:1px solid var(--ink); padding:10px 2px; font-family:'Jost',sans-serif; font-size:16px; color:var(--ink); outline:none;" />
   </div>
   <div style="margin-bottom:18px;">
-    <label style="display:block; font-size:13px; letter-spacing:0.08em; text-transform:uppercase; color:var(--ink-soft); margin-bottom:8px;" data-en="Your email address">Deine E-Mail-Adresse</label>
-    <input type="email" required placeholder="anna@example.com" style="width:100%; background:transparent; border:none; border-bottom:1px solid var(--ink); padding:10px 2px; font-family:'Jost',sans-serif; font-size:16px; color:var(--ink); outline:none;" />
+    <label for="kf-email" style="display:block; font-size:13px; letter-spacing:0.08em; text-transform:uppercase; color:var(--ink-soft); margin-bottom:8px;" data-en="Your email address">Deine E-Mail-Adresse</label>
+    <input id="kf-email" name="email" type="email" required placeholder="anna@example.com" style="width:100%; background:transparent; border:none; border-bottom:1px solid var(--ink); padding:10px 2px; font-family:'Jost',sans-serif; font-size:16px; color:var(--ink); outline:none;" />
   </div>
   <div style="margin-bottom:22px;">
-    <label style="display:block; font-size:13px; letter-spacing:0.08em; text-transform:uppercase; color:var(--ink-soft); margin-bottom:8px;" data-en="Your message">Deine Nachricht</label>
-    <textarea required rows="5" placeholder="Schreibe hier deine Nachricht an uns..." data-en-ph="Write your message to us here..." style="width:100%; background:transparent; border:1px solid var(--sand-line); padding:12px; font-family:'Jost',sans-serif; font-size:16px; color:var(--ink); outline:none; resize:vertical;"></textarea>
+    <label for="kf-message" style="display:block; font-size:13px; letter-spacing:0.08em; text-transform:uppercase; color:var(--ink-soft); margin-bottom:8px;" data-en="Your message">Deine Nachricht</label>
+    <textarea id="kf-message" name="message" required rows="5" placeholder="Schreibe hier deine Nachricht an uns..." data-en-ph="Write your message to us here..." style="width:100%; background:transparent; border:1px solid var(--sand-line); padding:12px; font-family:'Jost',sans-serif; font-size:16px; color:var(--ink); outline:none; resize:vertical;"></textarea>
   </div>
-  <label style="display:flex; align-items:flex-start; gap:10px; margin-bottom:24px; font-size:14px; color:var(--ink-soft); cursor:pointer;">
-    <input type="checkbox" style="margin-top:4px;" />
-    <span data-en="Inform me about the launch of HESPYRA.">Informiere mich über den Start von HESPYRA.</span>
+  <!-- Honeypot: für Menschen unsichtbar, nur Bots füllen es aus -->
+  <div style="position:absolute; left:-9999px; top:-9999px;" aria-hidden="true">
+    <label>Bitte dieses Feld leer lassen<input type="text" name="website" tabindex="-1" autocomplete="off" /></label>
+  </div>
+  <label style="display:flex; align-items:flex-start; gap:10px; margin-bottom:24px; font-size:13px; color:var(--ink-soft); cursor:pointer; line-height:1.55;">
+    <input type="checkbox" name="consent" required style="margin-top:4px;" />
+    <span data-en="I agree that my details will be used to process my enquiry. More in the &lt;a href=&quot;datenschutz.html&quot; style=&quot;color:var(--amber);&quot;&gt;privacy policy&lt;/a&gt;.">Ich bin einverstanden, dass meine Angaben zur Bearbeitung meiner Anfrage verwendet werden. Mehr in der <a href="datenschutz.html" style="color:var(--amber);">Datenschutzerklärung</a>.</span>
   </label>
   <button type="submit" data-en="Send message" style="background:var(--ink); color:var(--cream); border:none; padding:14px 28px; font-family:'Jost',sans-serif; font-size:12px; letter-spacing:0.18em; text-transform:uppercase; cursor:pointer;">Nachricht senden</button>
 </form>
-<p id="kontakt-success" style="display:none; margin-top:24px; color:var(--amber); font-family:'Cormorant Garamond',serif; font-style:italic; font-size:18px;" data-en="Thank you. Your message has been successfully sent. We read every message carefully and will get back to you as soon as possible.">Vielen Dank. Deine Nachricht wurde erfolgreich übermittelt. Wir lesen jede Nachricht aufmerksam und melden uns so schnell wie möglich bei dir.</p>
-<div class="note" data-en="Note: The form is a preview. Before going live it must be connected to a real recipient or backend (sending, GDPR consent, double opt-in for the launch notice).">Hinweis: Das Formular ist eine Vorschau. Vor Live-Gang muss es an einen echten Empfänger bzw. Backend angebunden werden (Versand, DSGVO-Einwilligung, Double-Opt-In für den Launch-Hinweis).</div>
 </main>
 <footer>
   <span>© 2026 HESPYRA</span>
