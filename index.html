@@ -236,28 +236,29 @@
   .hero__media img { width: 100%; height: 100%; object-fit: cover; object-position: 66% 58%; }
 
   @media (max-width: 860px) {
-    #nav { border-bottom-color: var(--sand-line); }
+    #nav { border-bottom-color: transparent; }
+    #nav.scrolled { border-bottom-color: rgba(210,190,159,0.3); }
     /* Reihenfolge: Bild → Eyebrow → Überschrift → Lead → Badges → CTA */
-    .hero { display: flex; flex-direction: column; min-height: auto; gap: 0; background: var(--cream); }
+    .hero { display: flex; flex-direction: column; min-height: auto; gap: 0; background: var(--cream); padding-bottom: 0; }
     .hero .hero__text { display: contents; }
     .hero .hero-spacer { display: none; }
     .hero .hero__media { order: 1; height: auto; min-height: 0; margin: 0 0 0; padding: 0; display: block; background: var(--cream); }
     .hero .hero__media img { width: 100%; height: auto; max-height: 30vh; aspect-ratio: 16/8.6; object-fit: cover; object-position: 64% 60%; }
-    .hero .hero-eyebrow { order: 2; margin: 22px 24px 0; padding: 0; border-top: none; font-size: 9.5px; letter-spacing: 0.26em; line-height: 1.5; }
-    .hero h1 { order: 3; margin: 9px 24px 0; line-height: 1.1; }
+    .hero .hero-eyebrow { order: 2; margin: 28px 24px 0; padding: 0; border-top: none; font-size: 9.5px; letter-spacing: 0.26em; line-height: 1.5; }
+    .hero h1 { order: 3; margin: 13px 24px 0; line-height: 1.1; }
     .hero h1.hero-h1--a { font-size: clamp(22px, 5.6vw, 31px); }
     /* Erste Maskenzeile einzeilig halten */
     .hero h1 .ml { white-space: normal; overflow: visible; height: auto; }
     .hero h1 .ml > span { white-space: normal; transform: none !important; }
     .hero h1 .ml:first-child > span { white-space: nowrap; }
-    .hero .lede { order: 4; margin: 11px 24px 0; font-size: 13.5px; line-height: 1.48; color: var(--ink-soft); }
-    .hero .hero-meta { order: 5; margin: 14px 24px 0; }
-    .hero .hero-facts { order: 5; margin: 12px 24px 0; gap: 6px; max-width: none; }
-    .hero .hero-fact { padding: 6px 12px; gap: 0; flex-direction: column; align-items: flex-start; justify-content: center; text-align: left; border-radius: 11px; }
+    .hero .lede { order: 4; margin: 15px 24px 0; font-size: 13.5px; line-height: 1.5; color: var(--ink-soft); }
+    .hero .hero-meta { order: 5; margin: 18px 24px 0; }
+    .hero .hero-facts { order: 5; margin: 18px 24px 0; gap: 8px; max-width: none; }
+    .hero .hero-fact { padding: 8px 13px; gap: 1px; flex-direction: column; align-items: flex-start; justify-content: center; text-align: left; border-radius: 12px; }
     .hero .hero-fact__k { font-size: 7.5px; letter-spacing: 0.13em; margin-right: 0; }
-    .hero .hero-fact__v { font-size: 11px; line-height: 1.18; }
-    .hero .hero-actions { order: 6; margin: 12px 24px 14px; flex-direction: column; align-items: stretch; gap: 10px; }
-    .hero .hero-cta { padding: 12px 24px; font-size: 10.5px; letter-spacing: 0.16em; justify-content: center; text-align: center; border-color: var(--ink); }
+    .hero .hero-fact__v { font-size: 11.5px; line-height: 1.2; }
+    .hero .hero-actions { order: 6; margin: 20px 24px 14px; flex-direction: column; align-items: stretch; gap: 10px; }
+    .hero .hero-cta { padding: 13px 24px; font-size: 10.5px; letter-spacing: 0.16em; justify-content: center; text-align: center; border-color: var(--ink); }
     .hero .hero-cta .cta-text--full { display: none; }
     .hero .hero-cta .cta-text--short { display: inline; }
     .hero .hero-link { display: none; }
@@ -632,6 +633,15 @@
   .form .row:focus-within { border-bottom-color: var(--amber-soft); }
   .sticky-optin__form:focus-within { border-bottom-color: var(--amber-soft); }
   .form input:focus-visible, .sticky-optin__form input:focus-visible { outline: none; }
+  /* === Finale Mobile-Abstands-Overrides (autoritativ, nach allen Basisregeln) === */
+  @media (max-width: 860px) {
+    .moment { padding-top: 18px !important; padding-bottom: 14px !important; }
+    .composition { padding: 44px 0 !important; }
+    .composition .disclaimer { margin-top: 26px !important; padding-top: 20px !important; }
+    .care--split .care__text { padding: 44px 22px 28px !important; }
+    .care__media--maker { padding: 0 22px 32px !important; }
+    .faq { padding-top: 40px !important; }
+  }
 </style>
 <!-- Umami Analytics — cookiefrei, DSGVO-konform ohne Consent-Banner. Umami Cloud, EU-/Cloud-Instanz. -->
 <script defer src="https://cloud.umami.is/script.js" data-website-id="1ecf682b-8921-492c-9b42-71f46a9cae65"></script>
