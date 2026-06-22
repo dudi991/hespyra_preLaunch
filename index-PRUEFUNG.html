@@ -1,0 +1,1262 @@
+<!DOCTYPE html>
+<html lang="de" class="no-js">
+<head>
+<meta charset="UTF-8" />
+<meta name="robots" content="noindex, nofollow" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="color-scheme" content="only light" />
+<meta name="theme-color" content="#241D22" />
+<meta name="description" content="HESPYRA — ein Abenddrink für den Moment davor. Ein tägliches Pulverritual für Menschen, deren Tag nicht von selbst aufhört. Ohne Melatonin." />
+<meta property="og:title" content="HESPYRA — Für den Moment davor" />
+<meta property="og:description" content="Ein Abenddrink für Menschen, deren Tag nicht von selbst aufhört. Die erste Edition entsteht." />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="de_DE" />
+<meta property="og:url" content="https://www.hespyra.com/" />
+<meta property="og:image" content="https://www.hespyra.com/img/hespyra-share.jpg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<link rel="canonical" href="https://www.hespyra.com/" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="HESPYRA — Für den Moment davor" />
+<meta name="twitter:description" content="Ein Abenddrink für Menschen, deren Tag nicht von selbst aufhört." />
+<meta name="twitter:image" content="https://www.hespyra.com/img/hespyra-share.jpg" />
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23241D22'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-size='22' fill='%239E6B41' text-anchor='middle' font-style='italic'%3EH%3C/text%3E%3C/svg%3E" />
+<title>HESPYRA — Für den Moment davor</title>
+<!-- SCHRIFTEN — Self-Hosting (DSGVO-konform, kein Google-Server-Aufruf).
+     So aktivieren:
+     1. Schriftdateien als WOFF2 in einen Ordner /fonts/ neben diese HTML legen.
+        Benötigt: Cormorant Garamond (400, 500, 400-italic) und Jost (300, 400, 500).
+        Bezugsquelle: https://gwfh.mranftl.com/fonts (Google Webfonts Helper) — dort
+        beide Familien wählen, gewünschte Schnitte, "Modern Browsers (woff2)" laden.
+     2. Dateinamen unten anpassen, falls abweichend.
+     3. Den auskommentierten Google-Fonts-Block darunter gelöscht lassen.
+     Bis dahin (Dateien fehlen noch) den @font-face-Block auskommentiert lassen
+     und stattdessen den Google-Block aktiv lassen. -->
+
+<!-- == VARIANTE A: Self-hosted (vor Launch aktivieren) ==
+<style>
+  @font-face { font-family:'Cormorant Garamond'; font-style:normal; font-weight:400; font-display:swap; src:url('/fonts/cormorant-garamond-400.woff2') format('woff2'); }
+  @font-face { font-family:'Cormorant Garamond'; font-style:normal; font-weight:500; font-display:swap; src:url('/fonts/cormorant-garamond-500.woff2') format('woff2'); }
+  @font-face { font-family:'Cormorant Garamond'; font-style:italic; font-weight:400; font-display:swap; src:url('/fonts/cormorant-garamond-400italic.woff2') format('woff2'); }
+  @font-face { font-family:'Jost'; font-style:normal; font-weight:300; font-display:swap; src:url('/fonts/jost-300.woff2') format('woff2'); }
+  @font-face { font-family:'Jost'; font-style:normal; font-weight:400; font-display:swap; src:url('/fonts/jost-400.woff2') format('woff2'); }
+  @font-face { font-family:'Jost'; font-style:normal; font-weight:500; font-display:swap; src:url('/fonts/jost-500.woff2') format('woff2'); }
+</style>
+== Ende Variante A == -->
+
+<!-- == VARIANTE B: Google Fonts (aktuell aktiv, vor Launch durch A ersetzen) == -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    color-scheme: only light;
+    --cream: #EFE6D6;
+    --cream-deep: #E8D8C2;
+    --sand: #DECBB0;
+    --sand-line: #D2BE9F;
+    --night: #241D22;
+    --night-2: #1E1A20;
+    --ink: #322B24;
+    --ink-soft: #574D3E;
+    --amber: #9E6B41;
+    --amber-soft: #C0966B;
+    --cream-on-night: #ECE3D4;
+    --ink-soft-on-night: #BEB1A1;
+    --comp-soft-on-night: #D9CBB2;
+    --section-y: 140px;
+    --section-y-lg: 160px;
+  }
+  /* Dark-Mode / Force-Dark (Samsung Internet, Android) abfangen: Marke bleibt immer hell */
+  @media (prefers-color-scheme: dark) {
+    :root {
+      color-scheme: only light;
+      --cream: #EFE6D6;
+      --cream-deep: #E8D8C2;
+      --sand: #DECBB0;
+      --sand-line: #D2BE9F;
+      --night: #241D22;
+      --night-2: #1E1A20;
+      --ink: #322B24;
+      --ink-soft: #574D3E;
+      --amber: #9E6B41;
+      --amber-soft: #C0966B;
+      --cream-on-night: #ECE3D4;
+      --ink-soft-on-night: #BEB1A1;
+      --comp-soft-on-night: #D9CBB2;
+    }
+    html, body { background: #EFE6D6 !important; color: #322B24 !important; }
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+  body { background: var(--cream); color: var(--ink); font-family: 'Jost', sans-serif; font-weight: 400; line-height: 1.72; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+  ::selection { background: var(--amber); color: var(--cream); }
+  .serif { font-family: 'Cormorant Garamond', serif; }
+  /* Schlüsselwort-Hervorhebung: gilt für alle Headlines */
+  h1 em, h2 em { font-style: italic; color: var(--amber); }
+  .composition h2 em { color: var(--amber-soft); }
+  h2 { text-wrap: balance; }
+  img { display: block; max-width: 100%; }
+
+  /* Nav */
+  #nav { position: fixed; top: 0; left: 0; right: 0; display: flex; justify-content: space-between; align-items: center; padding: 24px max(44px, calc((53.49vw - 740px) / 2 + 44px)); z-index: 20; transition: background 0.4s, padding 0.4s, border-color 0.4s; border-bottom: 1px solid transparent; }
+  #nav.scrolled { background: rgba(239,230,214,0.88); backdrop-filter: blur(10px); padding: 14px max(44px, calc((53.49vw - 740px) / 2 + 44px)); border-bottom: 1px solid var(--sand-line); }
+  .nav-progress { position: absolute; left: 0; bottom: -1px; height: 1px; width: 0%; background: linear-gradient(to right, var(--amber-soft), var(--amber)); opacity: 0; transition: opacity 0.4s; }
+  #nav.scrolled .nav-progress { opacity: 1; }
+  #nav .wordmark { font-family: 'Cormorant Garamond', serif; font-weight: 500; letter-spacing: 0.15em; font-size: clamp(20px, 2vw, 24px); color: var(--ink); text-decoration: none; user-select: none; transition: color 0.4s; }
+  #nav .nav-right { display: flex; align-items: center; gap: 28px; }
+  #nav .lang { display: flex; align-items: center; gap: 9px; font-size: 12.5px; letter-spacing: 0.12em; background: rgba(239,230,214,0.82); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); padding: 5px 13px; border-radius: 999px; border: 1px solid var(--sand-line); transition: background 0.4s, border-color 0.4s; }
+  #nav.scrolled .lang { background: transparent; backdrop-filter: none; -webkit-backdrop-filter: none; border-color: transparent; padding: 5px 0; }
+  #nav .lang button { background: none; border: none; cursor: pointer; font-family: 'Jost', sans-serif; font-size: 12.5px; font-weight: 500; letter-spacing: 0.12em; color: var(--ink-soft); padding: 2px 0; transition: color 0.3s; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  #nav .lang button.active { color: var(--ink); }
+  #nav .lang button:hover { color: var(--ink); }
+  #nav .lang span { color: var(--ink-soft); font-size: 11px; opacity: 0.55; }
+  @media (max-width: 720px) { #nav, #nav.scrolled { padding: 16px 22px; } #nav .nav-right { gap: 16px; } }
+
+  /* Sticky Optin */
+  .sticky-optin {
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: 18;
+    background: rgba(36,29,34,0.94); backdrop-filter: blur(12px);
+    border-top: 1px solid rgba(192,150,107,0.3);
+    transform: translateY(110%); transition: transform 0.6s cubic-bezier(.2,.7,.2,1);
+    pointer-events: none;
+  }
+  .sticky-optin.visible { transform: translateY(0); pointer-events: auto; }
+  .sticky-optin__inner { max-width: 1140px; margin: 0 auto; padding: 16px 44px; display: flex; align-items: center; gap: 28px; }
+  .sticky-optin__text { display: flex; flex-direction: column; flex: 1; min-width: 0; }
+  .sticky-optin__text .so-title { font-size: 19px; color: var(--cream-on-night); line-height: 1.2; }
+  .sticky-optin__text .so-sub { font-size: 12.5px; color: var(--ink-soft-on-night); }
+  .sticky-optin__form { display: flex; align-items: center; border-bottom: 1px solid var(--cream-on-night); min-width: 320px; }
+  .sticky-optin__form input { flex: 1; background: transparent; border: none; outline: none; font-family: 'Jost', sans-serif; font-weight: 300; font-size: 15px; color: var(--cream-on-night); padding: 8px 4px; }
+  .sticky-optin__form input::placeholder { color: var(--ink-soft-on-night); }
+  .sticky-optin__form button { background: transparent; border: none; cursor: pointer; font-family: 'Jost', sans-serif; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--cream-on-night); padding: 0 6px; transition: color 0.3s; white-space: nowrap; }
+  .sticky-optin__form button:hover { color: var(--amber-soft); }
+  .sticky-optin__close { background: none; border: none; color: var(--ink-soft-on-night); font-size: 26px; line-height: 1; cursor: pointer; padding: 0 0 0 8px; transition: color 0.3s; }
+  .sticky-optin__close:hover { color: var(--cream-on-night); }
+  .sticky-optin.done .so-title { font-style: italic; color: var(--amber-soft); }
+  @media (max-width: 720px) {
+    /* Mobil deaktiviert: kultivierte Ruhe vor Conversion-Druck */
+    .sticky-optin { display: none; }
+  }
+  @media (prefers-reduced-motion: reduce) { .sticky-optin { transition: none; } }
+
+  section { position: relative; z-index: 6; }
+  .wrap { max-width: 1140px; margin: 0 auto; padding: 0 44px; }
+  @media (max-width: 720px) { .wrap { padding: 0 22px; } }
+  .eyebrow { font-size: 12px; letter-spacing: 0.32em; text-transform: uppercase; color: var(--amber); font-weight: 500; }
+  @media (max-width: 860px) { :root { --section-y: 68px; --section-y-lg: 76px; } }
+  /* Mobile-Feinabstände: gezielt Leerraum zwischen Abschnitten reduzieren */
+  @media (max-width: 860px) {
+    .moment { padding-top: 4px; padding-bottom: 18px; }   /* Hero→Moment + Moment-Text→Ritual-Bild enger */
+    .moment__quote { font-size: 24px; line-height: 1.32; }   /* mobil deutlich weniger monumental */
+    .moment__concrete { margin-top: 16px; font-size: 15.5px; line-height: 1.58; }   /* konkreter Kern, mobil etwas kompakter */
+    .moment__foot { margin-top: 11px; font-size: 15.5px; line-height: 1.58; color: var(--ink); }   /* gleiche Schrift/Größe/Farbe wie erster Block */
+    .moment__bg { display: none; }   /* Hintergrundschriftzug auf Mobil ausgeblendet */
+  }
+
+  .reveal { opacity: 0; transform: translateY(28px); transition: opacity 1.1s cubic-bezier(.2,.7,.2,1), transform 1.1s cubic-bezier(.2,.7,.2,1); }
+  .reveal.in { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } html { scroll-behavior: auto; } }
+
+  /* 2 — Hero */
+  .hero { min-height: clamp(640px, 84vh, 780px); background: var(--cream); display: grid; grid-template-columns: 0.95fr 1.05fr; align-items: stretch; gap: 0; position: relative; }
+  .hero__text { padding: 84px 44px 80px max(44px, calc((53.49vw - 740px) / 2 + 44px)); max-width: 820px; width: 100%; display: flex; flex-direction: column; justify-content: center; }
+  .hero h1 { font-size: clamp(52px, 6.0vw, 90px); line-height: 1.04; font-weight: 400; letter-spacing: -0.01em; margin: 14px 0 0; overflow-wrap: break-word; }
+  .hero h1 .ml > span { white-space: normal; }
+  .hero h1.hero-h1--a { font-size: clamp(31px, 3.3vw, 64px); }
+  .hero h1 em { font-style: italic; color: var(--amber); }
+  .hero .lede { margin-top: 18px; font-size: clamp(17px, 1.6vw, 20px); max-width: 490px; color: var(--ink); line-height: 1.68; }
+  .hero-spacer { flex: 1 1 auto; min-height: 20px; max-height: 48px; }
+  /* leise Mikrozeile statt Badge-Kästchen */
+  /* veredelte Microcopy: kleiner, weiter gesperrt, mit feinem Amber-Akzent */
+  .hero-meta { margin-top: 0; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-soft); display: inline-flex; align-items: center; gap: 11px; }
+  .hero-meta::before { content: ""; width: 16px; height: 1px; background: var(--amber); flex-shrink: 0; }
+  /* Produkt-Facts: ruhige, abgerundete Pills, editorial, warme Tönung */
+  .hero-facts { list-style: none; margin: 30px 0 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; max-width: 460px; }
+  .hero-fact { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 3px; padding: 11px 16px; border: 1px solid rgba(158,107,65,0.24); border-radius: 999px; background: rgba(158,107,65,0.045); -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; text-rendering: optimizeLegibility; }
+  .hero-fact__k { font-size: 10px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--amber); }
+  .hero-fact__v { font-family: 'Jost', sans-serif; font-size: 14px; font-weight: 500; line-height: 1.25; letter-spacing: 0.005em; color: var(--ink); }
+  @media (min-width: 861px) { .hero-fact__v { white-space: nowrap; } }
+  /* CTA-Zone: Primary + Sekundärlink enger, auf gemeinsamer Achse */
+  .hero-actions { margin-top: 26px; display: flex; align-items: center; gap: 22px; flex-wrap: wrap; }
+  .hero .hero-cta { align-self: flex-start; display: inline-flex; align-items: center; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--cream); background: var(--ink); text-decoration: none; border: 1px solid var(--ink); padding: 15px 26px; transition: background 0.4s, color 0.4s, border-color 0.4s; }
+  .hero .hero-cta .cta-text--short { display: none; }
+  .hero .hero-cta:hover { background: var(--amber); border-color: var(--amber); color: var(--cream); }
+  /* Sekundärlink ruhiger: keine Dauer-Unterstreichung, dezente Linie erst bei Hover */
+  .hero-link { font-size: 13px; letter-spacing: 0.02em; color: #4A4030; text-decoration: none; padding-bottom: 2px; border-bottom: 1px solid transparent; transition: color 0.3s, border-color 0.3s, opacity 0.3s; opacity: 0.92; }
+  .hero-link:hover { color: var(--ink); border-color: var(--amber); opacity: 1; }
+  .hero .hero-cta:hover { background: var(--amber); border-color: var(--amber); color: var(--cream); }
+
+  /* Mini-Hinweise als leise Hairlines */
+
+
+  /* Hero-Eingangssequenz */
+  .hero-eyebrow, .hero-lede, .hero-meta, .hero-facts, .hero-actions { opacity: 0; transform: translateY(18px); }
+  .hero-h1 .ml > span { display: block; transform: translateY(110%); }
+  .hero.entered .hero-eyebrow { animation: heroRise 1s cubic-bezier(.2,.7,.2,1) 0.15s forwards; }
+  .hero.entered .hero-h1 .ml:nth-child(1) > span { animation: heroLine 1.1s cubic-bezier(.22,.8,.28,1) 0.35s forwards; }
+  .hero.entered .hero-h1 .ml:nth-child(2) > span { animation: heroLine 1.1s cubic-bezier(.22,.8,.28,1) 0.48s forwards; }
+  .hero.entered .hero-h1 .ml:nth-child(3) > span { animation: heroLine 1.1s cubic-bezier(.22,.8,.28,1) 0.61s forwards; }
+  .hero.entered .hero-lede { animation: heroRise 1s cubic-bezier(.2,.7,.2,1) 0.85s forwards; }
+  .hero.entered .hero-meta { animation: heroRise 1s cubic-bezier(.2,.7,.2,1) 1.0s forwards; }
+  .hero.entered .hero-facts { animation: heroRise 1s cubic-bezier(.2,.7,.2,1) 1.0s forwards; }
+  .hero.entered .hero-actions { animation: heroRise 1s cubic-bezier(.2,.7,.2,1) 1.15s forwards; }
+  @keyframes heroRise { to { opacity: 1; transform: none; } }
+  @keyframes heroLine { to { transform: translateY(0); } }
+  .hero-h1 .ml { display: block; overflow: hidden; }
+  /* Nach Animationsstart Maske aufheben, damit lange Headline-Zeilen (z.B. bei Browser-Zoom < 100%) nicht seitlich abgeschnitten werden */
+  .hero.entered .hero-h1 .ml, .hero.instant .hero-h1 .ml, .no-js .hero-h1 .ml { overflow: visible; }
+  @media (prefers-reduced-motion: reduce) { .hero-h1 .ml { overflow: visible; } }
+  @media (prefers-reduced-motion: reduce) {
+    .hero-eyebrow, .hero-lede, .hero-meta, .hero-facts, .hero-actions { opacity: 1; transform: none; }
+    .hero-h1 .ml > span { transform: none; }
+  }
+  .no-js .hero-eyebrow, .no-js .hero-lede, .no-js .hero-meta, .no-js .hero-facts, .no-js .hero-actions { opacity: 1; transform: none; }
+  .no-js .hero-h1 .ml > span { transform: none; }
+  /* Wiederbesuch in derselben Session: Endzustand sofort, keine Eingangsanimation */
+  .hero.instant .hero-eyebrow, .hero.instant .hero-lede, .hero.instant .hero-meta, .hero.instant .hero-facts, .hero.instant .hero-actions { opacity: 1; transform: none; animation: none; }
+  .hero.instant .hero-h1 .ml > span { transform: none; animation: none; }
+  /* Split-Hero — rechte Spalte: vollflächiges Hero-Foto (Produktszene am Tisch) */
+  .hero__media { height: 100%; min-height: clamp(640px, 84vh, 780px); background: var(--cream); display: flex; align-items: stretch; justify-content: center; overflow: hidden; }
+  .hero__media img { width: 100%; height: 100%; object-fit: cover; object-position: 66% 58%; }
+
+  @media (max-width: 860px) {
+    #nav { border-bottom-color: var(--sand-line); }
+    /* Reihenfolge: Eyebrow → Bild → Überschrift → Lead → Mikrozeile → CTA */
+    .hero { display: flex; flex-direction: column; min-height: auto; gap: 0; background: var(--cream); }
+    .hero .hero__text { display: contents; }
+    .hero .hero-spacer { display: none; }
+    .hero .hero-eyebrow { order: 1; margin: 0 24px; padding: 80px 0 0; border-top: none; }
+    .hero .hero__media { order: 2; height: auto; min-height: 0; margin: 22px 0 4px; padding: 0; display: block; background: var(--cream); }
+    .hero .hero__media img { width: 100%; height: auto; max-height: 40vh; aspect-ratio: 16/10.5; object-fit: cover; object-position: 64% 60%; }
+    .hero h1 { order: 3; margin: 18px 24px 0; line-height: 1.12; }
+    .hero h1.hero-h1--a { font-size: clamp(24px, 6.2vw, 34px); }
+    /* Erste Maskenzeile einzeilig halten */
+    .hero h1 .ml { white-space: normal; overflow: visible; height: auto; }
+    .hero h1 .ml > span { white-space: normal; transform: none !important; }
+    .hero h1 .ml:first-child > span { white-space: nowrap; }
+    .hero .lede { order: 4; margin: 16px 24px 0; font-size: 15.5px; line-height: 1.55; }
+    .hero .hero-meta { order: 5; margin: 20px 24px 0; }
+    .hero .hero-facts { order: 5; margin: 22px 24px 0; gap: 9px; max-width: none; }
+    .hero .hero-fact { padding: 10px 12px; gap: 2px; }
+    .hero .hero-fact__v { font-size: 13.5px; }
+    .hero .hero-actions { order: 6; margin: 26px 24px 14px; flex-direction: column; align-items: stretch; gap: 14px; }
+    .hero .hero-cta { padding: 15px 24px; font-size: 11.5px; letter-spacing: 0.14em; justify-content: center; text-align: center; }
+    .hero .hero-cta .cta-text--full { display: none; }
+    .hero .hero-cta .cta-text--short { display: inline; }
+    .hero .hero-link { display: none; }
+  }
+
+  /* 2 — Produkt-Klarheit */
+  .facts { background: var(--cream); border-top: 1px solid var(--sand-line); border-bottom: 1px solid var(--sand-line); padding: 26px 0; }
+  .facts__row { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 0; list-style: none; margin: 0; padding: 0; }
+  .facts__row li { font-family: 'Jost', sans-serif; font-size: 12.5px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink); padding: 5px 24px; position: relative; white-space: nowrap; }
+  .facts__row li:not(:last-child)::after { content: ""; position: absolute; right: 0; top: 50%; transform: translateY(-50%); width: 1px; height: 13px; background: var(--ink-soft); opacity: 0.45; }
+  @media (max-width: 880px) {
+    .facts { padding: 18px 24px; }
+    .facts__row { flex-direction: column; align-items: stretch; gap: 0; max-width: 290px; margin: 0 auto; }
+    .facts__row li { display: flex; align-items: center; gap: 10px; font-size: 11.5px; letter-spacing: 0.05em; padding: 12px 2px; text-align: left; white-space: normal; color: var(--ink); border-bottom: 1px solid var(--sand-line); }
+    .facts__row li:last-child { border-bottom: none; }
+    .facts__row li::before { content: ""; flex-shrink: 0; width: 5px; height: 5px; border-radius: 50%; background: var(--amber); }
+    .facts__row li::after { display: none; }
+  }
+
+  /* 3 — Der Moment davor */
+  .moment { padding: var(--section-y) 0 var(--section-y-lg); position: relative; overflow: hidden; background: var(--cream-deep); }
+  .moment__bg { position: absolute; top: 50%; right: -3%; transform: translateY(-50%); pointer-events: none; z-index: 0; line-height: 1; will-change: transform; }
+  .moment__bg span { font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: clamp(160px, 28vw, 380px); color: var(--amber); opacity: 0.045; letter-spacing: -0.02em; }
+  .moment .wrap { position: relative; z-index: 1; }
+  .moment__quote { font-size: clamp(28px, 4.2vw, 52px); line-height: 1.26; font-weight: 400; letter-spacing: -0.005em; max-width: 920px; }
+  .moment__quote em { font-style: italic; color: var(--amber); }
+  /* zeilenweise Einblendung via Maske */
+  .moment__quote .ml { display: block; overflow: hidden; }
+  .moment__quote .ml > span { display: block; transform: translateY(105%); transition: transform 0.9s cubic-bezier(.22,.8,.28,1); }
+  .moment__quote.in .ml > span { transform: translateY(0); }
+  .moment__quote.in .ml:nth-child(1) > span { transition-delay: 0.05s; }
+  .moment__quote.in .ml:nth-child(2) > span { transition-delay: 0.18s; }
+  .moment__quote.in .ml:nth-child(3) > span { transition-delay: 0.31s; }
+  .moment__quote.in .ml:nth-child(4) > span { transition-delay: 0.44s; }
+  .moment__concrete { margin-top: 34px; max-width: 620px; color: var(--ink); font-size: clamp(19px, 1.9vw, 23px); line-height: 1.58; font-family: 'Cormorant Garamond', serif; }
+  .moment__foot { margin-top: 30px; max-width: 620px; color: var(--ink); font-size: clamp(19px, 1.9vw, 23px); line-height: 1.58; font-family: 'Cormorant Garamond', serif; }
+  @media (prefers-reduced-motion: reduce) {
+    .moment__quote .ml > span { transform: none; transition: none; }
+    .moment__bg { transform: translateY(-50%) !important; }
+  }
+
+  /* 4 — Das Ritual */
+  .ritual { padding: 0 0 var(--section-y); }
+  .ritual__lower { position: relative; overflow: hidden; }
+  .ritual__bg { position: absolute; top: -40px; left: -3%; pointer-events: none; z-index: 0; line-height: 1; will-change: transform; }
+  .ritual__bg span { font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 500; font-size: clamp(140px, 26vw, 360px); color: var(--amber); opacity: 0.045; letter-spacing: -0.01em; }
+  .ritual__lower > .ritual__head, .ritual__lower > .beats { position: relative; z-index: 1; }
+  .ritual__media { position: relative; overflow: hidden; margin-bottom: 104px; }
+  .ritual__media img { width: 100%; height: clamp(360px, 56vh, 620px); object-fit: cover; object-position: center 58%; }
+  .ritual__media::before { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(36,29,34,0.45) 0%, rgba(36,29,34,0.05) 50%, transparent 80%); z-index: 2; pointer-events: none; }
+  .ritual__media .cap { position: absolute; left: 44px; bottom: 34px; z-index: 4; color: var(--cream-on-night); font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: clamp(22px,3vw,34px); text-shadow: 0 2px 10px rgba(20,15,18,0.65), 0 1px 3px rgba(20,15,18,0.4); }
+  .ritual__head { margin-bottom: 52px; }
+  .ritual__head h2 { font-size: clamp(31px, 4vw, 48px); font-weight: 400; line-height: 1.12; max-width: 640px; margin-top: 16px; }
+  .beats { display: grid; grid-template-columns: repeat(3, 1fr); }
+  .beat { padding: 8px 36px 0; border-left: 1px solid var(--sand-line); }
+  .beat:first-child { border-left: none; padding-left: 0; }
+  .beat .num { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 64px; line-height: 1; color: var(--amber); opacity: 0.85; display: block; margin-bottom: 6px; }
+  .beat h3 { font-size: 24px; font-weight: 400; margin: 10px 0 12px; }
+  .beat p { font-size: 19px; color: var(--ink); line-height: 1.6; }
+  @media (max-width: 860px) {
+    .beats { grid-template-columns: 1fr; }
+    .beat { border-left: none; border-top: 1px solid var(--sand-line); padding: 14px 0 0; margin-bottom: 18px; }
+    .beat:first-child { border-top: none; }
+    .beat .num { font-size: 38px; margin-bottom: 2px; }
+    .beat h3 { font-size: 19px; margin: 5px 0 7px; }
+    .beat p { font-size: 14px; }
+    .ritual__media img { height: clamp(240px, 42vh, 380px); }
+    .ritual__media .cap { left: 22px; bottom: 24px; }
+    .ritual__media { margin-bottom: 24px; }   /* Bild → Überschrift enger */
+    .ritual__head { margin-bottom: 18px; }    /* Überschrift → Punkt 1 deutlich enger */
+  }
+
+  /* 5 — Komposition (dunkel) */
+  .composition { background: var(--night); color: var(--cream-on-night); padding: var(--section-y) 0; }
+  .composition .eyebrow { color: var(--amber-soft); }
+  .composition h2 { font-size: clamp(31px, 4vw, 48px); font-weight: 400; line-height: 1.12; margin: 22px 0 30px; max-width: 700px; }
+  .composition .intro { max-width: 560px; color: var(--comp-soft-on-night); font-size: 21px; margin-bottom: 60px; }
+  .comp-layers { display: grid; grid-template-columns: repeat(3, 1fr); gap: 64px 90px; width: 100%; max-width: 1160px; }
+  .layer { padding: 0; }
+  .layer .layer-label { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 28px; color: var(--amber-soft); margin-bottom: 34px; letter-spacing: 0.01em; }
+  .layer .layer-items { list-style: none; }
+  .layer .layer-items li { padding: 0 0 18px; font-size: 19px; color: var(--cream-on-night); line-height: 1.35; }
+  .layer .layer-items li:last-child { padding-bottom: 0; }
+  .layer .layer-items li .dose { color: var(--comp-soft-on-night); font-size: 15px; }
+  .layer .layer-items li .note { display: block; font-size: 13.5px; color: var(--comp-soft-on-night); margin-top: 5px; line-height: 1.5; letter-spacing: 0.01em; opacity: 0.85; }
+  @media (max-width: 920px) {
+    .composition .intro { font-size: 16px; margin-bottom: 28px; }
+    .comp-layers { grid-template-columns: 1fr; gap: 0; max-width: none; }
+    .layer { padding: 24px 0; border-bottom: 1px solid rgba(255,255,255,0.10); }
+    .layer:first-child { padding-top: 0; }
+    .layer:last-child { border-bottom: none; }
+    .layer .layer-label { font-size: 21px; margin-bottom: 14px; }
+    .layer .layer-items li { padding-bottom: 13px; font-size: 16px; }
+    .layer .layer-items li .dose { font-size: 13.5px; }
+    .layer .layer-items li .note { font-size: 12.5px; }
+  }
+  .composition .disclaimer { margin-top: 64px; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.12); font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 17px; line-height: 1.55; color: var(--cream-on-night); width: 100%; max-width: 1160px; }
+  @media (max-width: 860px) { .composition .disclaimer { font-size: 15px; line-height: 1.5; } }
+
+  /* 6 — Ein anderes Glas am Abend */
+  .another-glass { position: relative; overflow: hidden; background: var(--cream); display: grid; grid-template-columns: 1.25fr 1fr; align-items: stretch; }
+  /* Text links, mittig zentriert in der Spalte mit ausreichend Abstand zum Bild */
+  .ag__text { display: flex; flex-direction: column; justify-content: center; justify-self: center; padding: 96px 44px; max-width: 600px; width: 100%; }
+  /* Bild füllt die rechte Spalte randlos bis zur Kante und über die volle Höhe */
+  .ag__media { position: relative; overflow: hidden; min-height: 100%; }
+  .ag__media img { width: 100%; height: 100%; object-fit: cover; object-position: center 62%; display: block; filter: saturate(1.03) contrast(1.02); }
+  @media (max-width: 860px) {
+    .another-glass { grid-template-columns: 1fr; }
+    .ag__media { aspect-ratio: 16/11; min-height: 0; }   /* Bild folgt dem Text (kein order:-1 mehr) */
+    .ag__text { padding: 48px 22px 36px; max-width: none; }
+    .ag-lines p { font-size: 15px; }
+    .ag-lines { gap: 18px; }
+    .ag-close { font-size: 21px; margin-top: 36px; }
+  }
+  .another-glass h2 { font-size: clamp(31px, 4vw, 48px); font-weight: 400; line-height: 1.12; margin: 22px 0 44px; max-width: 100%; }
+  .ag-lines { display: flex; flex-direction: column; gap: 24px; max-width: 100%; }
+  .ag-lines p { font-size: clamp(16px, 1.5vw, 18px); color: var(--ink-soft); font-weight: 400; line-height: 1.55; position: relative; }
+  .ag-close { font-size: clamp(24px, 3vw, 36px); margin-top: 60px; color: var(--ink); max-width: 100%; line-height: 1.3; }
+  .ag-close em { font-style: italic; color: var(--amber); }
+  .culture { position: relative; background: var(--night); color: var(--cream-on-night); overflow: hidden; }
+  .culture__media { position: relative; width: 100%; height: clamp(560px, 88vh, 880px); overflow: hidden; }
+  .culture__media img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center 56%; filter: saturate(1.12) brightness(1.04) contrast(1.01); }
+  .culture__scrim { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(54,36,26,0.28) 0%, rgba(40,28,22,0.12) 18%, rgba(36,26,22,0.06) 30%, rgba(34,24,20,0.18) 44%, rgba(30,20,16,0.86) 100%); }
+  .culture__overlay { position: absolute; left: 0; right: 0; bottom: 0; z-index: 2; max-width: 1140px; margin: 0 auto; padding: 0 44px 78px; }
+  .culture .eyebrow { color: var(--amber-soft); }
+  .culture h2 { font-size: clamp(31px, 4.2vw, 50px); font-weight: 400; line-height: 1.14; margin: 16px 0 18px; max-width: 640px; color: var(--cream-on-night); text-shadow: 0 1px 8px rgba(0,0,0,0.25); }
+  .culture h2 em { color: var(--amber-soft); }
+  .culture .lead { max-width: 520px; color: var(--ink-soft-on-night); font-size: 17px; margin: 0; text-shadow: 0 1px 5px rgba(0,0,0,0.3); }
+  @media (max-width: 720px) {
+    .culture__media { height: clamp(440px, 78vh, 620px); }
+    .culture__scrim { background: linear-gradient(180deg, rgba(54,36,26,0.3) 0%, rgba(40,28,22,0.16) 16%, rgba(36,26,22,0.12) 28%, rgba(34,24,20,0.26) 42%, rgba(30,20,16,0.9) 100%); }
+    .culture__overlay { padding: 0 22px 58px; }
+    .culture h2 { font-size: clamp(24px, 5.6vw, 30px); max-width: 100%; text-shadow: 0 1px 6px rgba(0,0,0,0.35); }
+    .culture .lead { font-size: 14.5px; max-width: 100%; color: rgba(236,227,212,0.95); text-shadow: 0 1px 4px rgba(0,0,0,0.4); }
+  }
+
+  /* 7 — Entwickelt mit Sorgfalt */
+  .care { padding: 0; }
+  .care--split { position: relative; overflow: hidden; background: var(--cream); display: grid; grid-template-columns: 1.5fr 1fr; align-items: stretch; }
+  .care--split .care__text { display: flex; flex-direction: column; justify-content: center; justify-self: center; padding: var(--section-y) 50px; max-width: 620px; width: 100%; }
+  .care--split .care__media { position: relative; overflow: hidden; min-height: 100%; }
+  .care--split .care__media img { width: 100%; height: 100%; object-fit: cover; object-position: center 55%; display: block; filter: saturate(1.04) contrast(1.01); }
+  .care__text h2 { font-size: clamp(31px, 4vw, 48px); font-weight: 400; line-height: 1.13; margin: 18px 0 26px; }
+  .care__text p:not(.eyebrow) { color: var(--ink-soft); font-size: 18px; margin-bottom: 22px; max-width: 520px; }
+  .care__origin { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: clamp(19px, 2vw, 23px) !important; color: var(--ink) !important; max-width: 540px !important; margin-top: 26px !important; padding-top: 22px; border-top: 1px solid var(--sand-line); }
+  .care__principles { margin-top: 44px; border-top: 1px solid var(--sand-line); }
+  .principle { padding: 24px 0; border-bottom: 1px solid var(--sand-line); }
+  .principle:last-child { border-bottom: none; }
+  .principle__label { font-family: 'Cormorant Garamond', serif; font-style: normal; font-size: 18px; font-weight: 500; color: var(--amber); margin-bottom: 6px; display: block; }
+  .principle__text { font-size: 17px; color: var(--ink-soft); line-height: 1.6; max-width: 460px; }
+  @media (max-width: 860px) {
+    .principle__label { font-size: 16px; margin-bottom: 5px; }
+    .principle__text { font-size: 15px; }
+  }
+  .care__maker { background: var(--cream-deep); position: relative; }
+  .care__hero-portrait { width: 100%; height: auto; display: block; aspect-ratio: 4/4.3; object-fit: cover; object-position: center 28%; filter: saturate(1.04) contrast(1.02) brightness(1.01); }
+  .care__maker-body { padding: 30px 40px 38px; }
+  .care__maker .seal { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: clamp(28px, 2.4vw, 34px); line-height: 1.08; color: var(--amber); margin-bottom: 16px; }
+  .care__maker p { font-size: 16px; color: var(--ink-soft); margin-bottom: 0; line-height: 1.6; }
+  .care__maker .creds { display: flex; gap: 14px; align-items: center; margin-top: 24px; flex-wrap: nowrap; }
+  .care__maker .creds::before { content: ""; width: 28px; height: 1px; background: var(--amber); flex: 0 0 28px; opacity: 0.55; }
+  .care__maker .creds .c { display: flex; align-items: baseline; gap: 7px; flex: 0 0 auto; }
+  .care__maker .creds .c .k { font-family: 'Cormorant Garamond', serif; font-size: 14px; color: var(--ink-soft); display: inline; }
+  .care__maker .creds .c .v { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-soft); display: inline; white-space: nowrap; }
+  /* Rechte Spalte: Foto + Card-Inhalt als Einheit, oben ausgerichtet, nah am Text */
+  .care__media--maker { background: var(--cream); display: flex; align-items: center; justify-content: flex-start; padding: var(--section-y) 44px var(--section-y) 36px; }
+  .care__media--maker .care__maker { background: var(--cream-deep); max-width: 500px; width: 100%; border-radius: 2px; overflow: hidden; }
+  .care__media--maker .seal { margin-bottom: 16px; }
+  @media (max-width: 860px) {
+    .care__media--maker { padding: 0 22px 40px; }
+    .care__media--maker .care__maker { max-width: none; }
+    .care__maker-body { padding: 26px 22px 30px; }
+    .care__media--maker .seal { font-size: 26px; }
+  }
+  @media (max-width: 860px) {
+    .care--split { grid-template-columns: 1fr; }
+    .care--split .care__text { padding: 56px 22px 32px; max-width: none; }
+    .care--split .care__media:not(.care__media--maker) { aspect-ratio: 16/11; min-height: 0; }
+    .care--split .care__media:not(.care__media--maker) img { aspect-ratio: 16/11; object-position: center 50%; }
+    .care--split .care__media--maker { aspect-ratio: auto; }
+    .care__hero-portrait { aspect-ratio: 4/2.8; object-position: center 24%; }
+    .care__text p:not(.eyebrow) { font-size: 15.5px; margin-bottom: 12px; }
+    .care__origin { font-size: 17px !important; line-height: 1.5 !important; margin-top: 16px !important; padding-top: 16px; }
+    .care__principles { margin-top: 18px; }
+    .principle { padding: 13px 0; }
+    .care__maker .seal { font-size: 24px; margin-bottom: 12px; }
+    .care__maker p { font-size: 14.5px; }
+    .care__maker .creds { gap: 12px; margin-top: 18px; }
+    .care__maker .creds .c .k { font-size: 14px; }
+    .care__maker .creds .c .v { font-size: 10.5px; }
+  }
+
+  /* 8 — FAQ */
+  .faq { padding: 0 0 var(--section-y); background: #EBE0CE; }   /* minimal wärmer/sandiger als --cream, setzt FAQ als eigene Sektion ab */
+  @media (min-width: 861px) { .faq { padding-top: 88px; } }   /* eigener Rhythmus, klarer Sektionsanfang ohne Trennlinie */
+  .faq__head { margin-bottom: 50px; padding-top: 0; max-width: 760px; }
+  @media (max-width: 860px) { .faq { padding-top: 56px; } }
+  .faq__head h2 { font-size: clamp(31px, 4vw, 48px); font-weight: 400; line-height: 1.12; margin-top: 16px; max-width: 600px; }
+  .faq__list { border-top: 1px solid var(--sand-line); max-width: 880px; }
+  .faq-item { border-bottom: 1px solid var(--sand-line); transition: border-color 0.3s; }
+  .faq-item:hover { border-bottom-color: var(--amber-soft); }
+  .faq-q { width: 100%; background: none; border: none; cursor: pointer; text-align: left; font-family: 'Cormorant Garamond', serif; font-size: clamp(20px, 2.4vw, 27px); color: var(--ink); padding: 26px 40px 26px 0; position: relative; display: flex; justify-content: space-between; align-items: center; gap: 20px; transition: color 0.3s, padding-left 0.35s cubic-bezier(.2,.7,.2,1); }
+  @media (hover: hover) {
+    .faq-q:hover { color: var(--amber); padding-left: 12px; }
+  }
+  .faq-item.open .faq-q { color: var(--amber); padding-left: 12px; }
+  .faq-q .ic { position: relative; width: 15px; height: 15px; flex-shrink: 0; }
+  .faq-q .ic::before, .faq-q .ic::after { content: ""; position: absolute; background: var(--amber); transition: transform 0.45s cubic-bezier(.2,.7,.2,1); }
+  .faq-q .ic::before { left: 0; top: 50%; width: 100%; height: 1px; transform: translateY(-50%); }
+  .faq-q .ic::after { top: 0; left: 50%; width: 1px; height: 100%; transform: translateX(-50%); }
+  .faq-item.open .faq-q .ic::after { transform: translateX(-50%) scaleY(0); }
+  .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.5s cubic-bezier(.2,.7,.2,1); }
+  .faq-a__inner { padding: 0 60px 28px 0; color: var(--ink-soft); font-size: 17px; max-width: 620px; line-height: 1.75; }
+  @media (max-width: 720px) { .faq-a__inner { padding-right: 0; font-size: 16px; } }
+
+  /* 9 — Waitlist (dunkler Abschluss) */
+  .optin { background: var(--night); color: var(--cream-on-night); padding: var(--section-y-lg) 0 var(--section-y-lg); text-align: center; position: relative; overflow: hidden; }
+  .optin::before { content: ""; position: absolute; bottom: -40%; left: 50%; transform: translateX(-50%); width: 80%; height: 100%; background: radial-gradient(circle, rgba(158,107,65,0.2), transparent 60%); pointer-events: none; }
+  .optin .eyebrow { color: var(--amber-soft); position: relative; }
+  .optin h2 { font-size: clamp(36px, 6vw, 70px); font-weight: 400; line-height: 1.04; max-width: 760px; margin: 22px auto 0; position: relative; }
+  .optin h2 em { font-style: italic; color: var(--amber-soft); }
+  .optin .sub { margin: 30px auto 0; max-width: 480px; color: var(--ink-soft-on-night); font-size: 18px; position: relative; }
+  .optin-echo { margin: 26px auto 0; font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 19px; color: var(--amber-soft); position: relative; }
+  .form { margin: 48px auto 0; max-width: 440px; display: flex; flex-direction: column; gap: 14px; position: relative; min-height: 96px; }
+  .form .row { display: flex; border-bottom: 1px solid var(--cream-on-night); }
+  .form input { flex: 1; min-width: 0; background: transparent; border: none; outline: none; font-family: 'Jost', sans-serif; font-weight: 300; font-size: 17px; color: var(--cream-on-night); padding: 14px 4px; }
+  .form input::placeholder { color: var(--ink-soft-on-night); }
+  .form button { background: transparent; border: none; cursor: pointer; font-family: 'Jost', sans-serif; font-size: 13px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: #D8AD7E; padding: 0 4px 0 16px; transition: color 0.3s; white-space: nowrap; }
+  .form button:hover { color: var(--cream-on-night); }
+  .form .note { font-size: 13.5px; color: rgba(236,227,212,0.82); margin-top: 2px; line-height: 1.5; }
+  .form__success { font-size: 18px; color: var(--amber-soft); font-family: 'Cormorant Garamond', serif; font-style: italic; min-height: 24px; }
+  .access-line { margin: 36px auto 0; display: inline-flex; align-items: center; gap: 14px; font-size: 11.5px; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(236,227,212,0.78); position: relative; transition: opacity 0.6s; }
+  .access-line span.dot { width: 5px; height: 5px; border-radius: 50%; background: var(--amber-soft); display: inline-block; }
+  @media (max-width: 720px) {
+    .optin .sub { font-size: 17px; }
+    .access-line { font-size: 9.5px; letter-spacing: 0.18em; max-width: 92%; justify-content: center; text-align: center; }
+    .access-line span.dot { display: none; }
+    /* OLED-Banding: weicher Glow zeigt auf Mobil sichtbare Kanten */
+    .optin::before { display: none; }
+  }
+  .waitlist-count { margin: 22px auto 0; font-size: 13px; letter-spacing: 0.04em; color: var(--ink-soft-on-night); position: relative; min-height: 18px; }
+  .waitlist-count strong { font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 500; font-size: 18px; color: var(--amber-soft); }
+
+  /* Erfolgsanimation */
+  .form { position: relative; }
+  .form__success-panel {
+    position: absolute; inset: 0;
+    display: flex; flex-direction: column; align-items: center; justify-content: flex-start;
+    gap: 18px; opacity: 0; pointer-events: none;
+    transform: translateY(8px);
+    transition: opacity 0.7s ease, transform 0.7s cubic-bezier(.2,.7,.2,1);
+  }
+  .form.is-success .form__success-panel { opacity: 1; transform: none; pointer-events: auto; }
+  .form.is-success .row, .form.is-success .note { opacity: 0; pointer-events: none; transition: opacity 0.5s; }
+
+  .success-check { width: 54px; height: 54px; position: relative; }
+  .success-check svg { width: 100%; height: 100%; overflow: visible; }
+  .success-check .ring { fill: none; stroke: var(--amber-soft); stroke-width: 1.5; opacity: 0.5;
+    stroke-dasharray: 163; stroke-dashoffset: 163; transform: rotate(-90deg); transform-origin: center; }
+  .success-check .tick { fill: none; stroke: var(--amber-soft); stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round;
+    stroke-dasharray: 40; stroke-dashoffset: 40; }
+  .form.is-success .success-check .ring { animation: drawRing 0.9s cubic-bezier(.3,.7,.3,1) 0.1s forwards; }
+  .form.is-success .success-check .tick { animation: drawTick 0.5s cubic-bezier(.6,.1,.4,1) 0.7s forwards; }
+  @keyframes drawRing { to { stroke-dashoffset: 0; opacity: 0.9; } }
+  @keyframes drawTick { to { stroke-dashoffset: 0; } }
+
+  /* warmer Lichtpuls */
+  .success-glow {
+    position: absolute; top: 12px; left: 50%; width: 200px; height: 200px;
+    transform: translate(-50%, -50%) scale(0.2); border-radius: 50%;
+    background: radial-gradient(circle, rgba(192,150,107,0.5), transparent 60%);
+    opacity: 0; pointer-events: none;
+  }
+  .form.is-success .success-glow { animation: glowPulse 1.6s ease-out 0.2s forwards; }
+  @keyframes glowPulse {
+    0% { opacity: 0; transform: translate(-50%,-50%) scale(0.2); }
+    30% { opacity: 1; }
+    100% { opacity: 0; transform: translate(-50%,-50%) scale(2.4); }
+  }
+
+  .success-headline { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 25px; color: var(--cream-on-night); opacity: 0; }
+  .success-sub { font-size: 13.5px; color: var(--ink-soft-on-night); max-width: 320px; opacity: 0; }
+  .form.is-success .success-headline { animation: fadeUp 0.7s ease 0.9s forwards; }
+  .form.is-success .success-sub { animation: fadeUp 0.7s ease 1.15s forwards; }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+
+  @media (prefers-reduced-motion: reduce) {
+    .form.is-success .success-check .ring,
+    .form.is-success .success-check .tick { animation: none; stroke-dashoffset: 0; }
+    .form.is-success .success-glow { display: none; }
+    .form.is-success .success-headline,
+    .form.is-success .success-sub { animation: none; opacity: 1; }
+  }
+
+  /* 10 — Footer */
+  footer { padding: 32px 0; background: var(--cream); border-top: 1px solid var(--sand-line); }
+  .footer__inner { display: flex; justify-content: space-between; align-items: center; padding: 0 max(44px, calc((53.49vw - 740px) / 2 + 44px)); width: 100%; }
+  footer .footer__brand { display: flex; align-items: center; gap: 16px; }
+  footer .footer__brand .wordmark { font-family: 'Cormorant Garamond', serif; font-weight: 500; letter-spacing: 0.15em; font-size: clamp(20px, 2vw, 24px); color: var(--ink); text-decoration: none; cursor: pointer; transition: opacity 0.3s; user-select: none; }
+  footer .footer__brand .wordmark:hover { opacity: 0.8; }
+  footer .footer__line { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 16px; color: var(--amber); margin: 0; line-height: 1; }
+  footer .footer__nav { display: flex; gap: 28px; align-items: center; }
+  footer .footer__nav a { font-size: 13px; letter-spacing: 0.08em; color: var(--ink-soft); text-decoration: none; transition: color 0.3s; }
+  footer .footer__nav a:hover { color: var(--amber); }
+  footer .footer__copy { font-size: 12px; letter-spacing: 0.04em; color: var(--ink-soft); }
+  @media (max-width: 760px) {
+    footer { padding: 22px 0; }
+    .footer__inner { flex-direction: column; gap: 12px; text-align: center; padding: 0 22px; }
+    footer .footer__brand { flex-direction: row; flex-wrap: wrap; gap: 9px; align-items: baseline; justify-content: center; }
+    footer .footer__nav { flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 8px 16px; }
+    footer .footer__copy { font-size: 11px; opacity: 0.75; }
+  }
+
+
+  /* 11 — Analog Media Style (Tests 1, 2, 3) */
+  .analog-media {
+    position: relative;
+    overflow: hidden;
+  }
+  .analog-media img,
+  .analog-media video {
+    filter: saturate(0.93) contrast(0.97) sepia(0.015);
+    transition: transform 1.2s cubic-bezier(0.2, 0.7, 0.2, 1), filter 0.8s ease;
+  }
+  .analog-media:hover img,
+  .analog-media:hover video {
+    filter: saturate(1) contrast(1) sepia(0);
+  }
+  /* Sanfter Zoom beim Hover */
+  .analog-media:hover img,
+  .analog-media:hover video {
+    transform: scale(1.025);
+  }
+  
+  /* SVG Grain Overlay */
+  .analog-media::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 2;
+    opacity: 0.045;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    animation: grainAnimation 1s steps(4) infinite;
+  }
+
+  @keyframes grainAnimation {
+    0%, 100% { transform: translate(0, 0); }
+    10% { transform: translate(-1%, -1%); }
+    20% { transform: translate(-2%, 1%); }
+    30% { transform: translate(1%, -2%); }
+    40% { transform: translate(-1%, 3%); }
+    50% { transform: translate(-2%, 1%); }
+    60% { transform: translate(1%, 2%); }
+    70% { transform: translate(3%, -2%); }
+    80% { transform: translate(-1%, 1%); }
+    90% { transform: translate(2%, -3%); }
+  }
+  @media (prefers-reduced-motion: reduce) { .analog-media::after { animation: none; } }
+
+
+  /* Skip-Link: für Tastatur/Screenreader unsichtbar bis fokussiert, dann sichtbar */
+  .skip-link { position: absolute; left: 16px; top: -60px; z-index: 100; background: var(--night); color: var(--cream); font-size: 13px; letter-spacing: 0.06em; padding: 12px 20px; text-decoration: none; transition: top 0.25s ease; }
+  .skip-link:focus { top: 16px; outline: 2px solid var(--amber); outline-offset: 2px; }
+  :focus-visible { outline: 2px solid var(--amber); outline-offset: 3px; border-radius: 1px; }
+  /* Auf dunklem Grund hellerer Fokusring */
+  .composition :focus-visible, .optin :focus-visible, .sticky-optin :focus-visible { outline-color: var(--amber-soft); }
+  /* Inputs: Fokus als Linienverstärkung statt Outline */
+  .form .row:focus-within { border-bottom-color: var(--amber-soft); }
+  .sticky-optin__form:focus-within { border-bottom-color: var(--amber-soft); }
+  .form input:focus-visible, .sticky-optin__form input:focus-visible { outline: none; }
+</style>
+<!-- Umami Analytics — cookiefrei, DSGVO-konform ohne Consent-Banner. Umami Cloud, EU-/Cloud-Instanz. -->
+<script defer src="https://cloud.umami.is/script.js" data-website-id="1ecf682b-8921-492c-9b42-71f46a9cae65"></script>
+
+<!-- Strukturierte Daten (JSON-LD): hilft Suchmaschinen, HESPYRA als Marke/Produkt zu verstehen.
+     Bewusst OHNE Preis, Bewertung oder Verfügbarkeitsversprechen — das Produkt ist in Entwicklung.
+     Vor Launch: alle "https://hespyra.com" durch die echte Domain ersetzen. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.hespyra.com/#organization",
+      "name": "HESPYRA",
+      "url": "https://www.hespyra.com/",
+      "description": "HESPYRA ist eine Evening-Ritual-Marke aus Deutschland. Ein Abenddrink für den Moment davor — für den Übergang vom Tag in einen ruhigeren Abend.",
+      "founder": {
+        "@type": "Person",
+        "name": "Dominik Schwab"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Wegäcker 11",
+        "postalCode": "91301",
+        "addressLocality": "Forchheim",
+        "addressCountry": "DE"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.hespyra.com/#website",
+      "url": "https://www.hespyra.com/",
+      "name": "HESPYRA",
+      "inLanguage": "de-DE",
+      "publisher": { "@id": "https://www.hespyra.com/#organization" }
+    },
+    {
+      "@type": "Product",
+      "@id": "https://www.hespyra.com/#product",
+      "name": "HESPYRA Evening Ritual",
+      "brand": { "@id": "https://www.hespyra.com/#organization" },
+      "description": "Ein täglicher Abenddrink als Pulverdrink mit Kakao und Vanille. Ohne Melatonin. Für den Übergang vom Tag in einen ruhigeren Abend.",
+      "category": "Nahrungsergänzungsmittel",
+      "releaseDate": "2026"
+    }
+  ]
+}
+</script>
+</head>
+<body id="top">
+
+<div style="background:#7A2E2E;color:#fff;font-family:'Jost',sans-serif;font-size:14px;line-height:1.5;text-align:center;padding:12px 16px;letter-spacing:0.02em;">
+  <strong>ENTWURF – NUR ZUR RECHTLICHEN PRÜFUNG.</strong> Diese Seite ist nicht veröffentlicht. Die Darstellung der Inhaltsstoffe ist ein ungeprüfter Vorschlag und steht unter dem Vorbehalt anwaltlicher Freigabe.
+</div>
+
+<a href="#hauptinhalt" class="skip-link" data-en="Skip to content">Zum Inhalt springen</a>
+
+<!-- Sticky Optin -->
+<div class="sticky-optin" id="stickyOptin" aria-hidden="true">
+  <div class="sticky-optin__inner">
+    <div class="sticky-optin__text">
+      <span class="so-title serif" data-en="Join the first edition">Die erste Edition begleiten</span>
+      <span class="so-sub" data-en="One message when the evening begins.">Eine Nachricht, wenn der Abend beginnt.</span>
+    </div>
+    <form class="sticky-optin__form" id="stickyForm" action="https://tf125fca5.emailsys1a.net/238/9119/938578f21b/subscribe/form.html" method="post" target="rm_iframe" novalidate>
+      <input type="email" id="stickyEmail" name="email" placeholder="E-Mail-Adresse" autocomplete="email" required aria-label="E-Mail-Adresse" />
+      <button type="submit" data-en="Sign up">Eintragen</button>
+    </form>
+    <button class="sticky-optin__close" id="stickyClose" aria-label="Schließen">×</button>
+  </div>
+</div>
+
+<!-- 1 — Nav -->
+<nav id="nav">
+  <div class="nav-progress" id="navProgress" aria-hidden="true"></div>
+  <a href="#top" class="wordmark" aria-label="HESPYRA — zum Seitenanfang">HESPYRA</a>
+  <div class="nav-right">
+    <div class="lang" role="group" aria-label="Sprache">
+      <button class="active" aria-current="true">DE</button><span>/</span><button>EN</button>
+    </div>
+  </div>
+</nav>
+
+<!-- 2 — Hero -->
+<main id="hauptinhalt">
+<section class="hero">
+
+  <div class="hero__text">
+    <p class="eyebrow hero-eyebrow" data-en="The day doesn't always end on its own">Der Tag endet nicht immer von selbst</p>
+
+    <h1 class="serif hero-h1 hero-h1--a">
+      <span class="ml"><span data-en="Not for sleep.">Nicht für den Schlaf.</span></span>
+      <span class="ml"><span data-en="For the <em>moment before.</em>">Für den <em>Moment davor.</em></span></span>
+    </h1>
+
+    <p class="lede hero-lede hero-lede--a" data-en="HESPYRA is an evening ritual as a powder drink — stirred in, warm or cold, for the moment between day and evening.">HESPYRA ist ein Abendritual als Pulverdrink — zum Anrühren, warm oder kalt, für den Moment zwischen Tag und Abend.</p>
+
+    <ul class="hero-facts" aria-label="Produkt-Facts">
+      <li class="hero-fact"><span class="hero-fact__k" data-en="Without">Ohne</span><span class="hero-fact__v">Melatonin</span></li>
+      <li class="hero-fact"><span class="hero-fact__k">30</span><span class="hero-fact__v" data-en="Evening portions">Portionen</span></li>
+      <li class="hero-fact"><span class="hero-fact__k" data-en="Enjoyable">Genießbar</span><span class="hero-fact__v" data-en="Warm or cold">Warm oder kalt angerührt</span></li>
+      <li class="hero-fact"><span class="hero-fact__k" data-en="With">Mit</span><span class="hero-fact__v">Magnesium &amp; L-Theanin</span></li>
+    </ul>
+
+    <div class="hero-spacer" aria-hidden="true"></div>
+
+
+    <div class="hero-actions">
+      <a href="#warteliste" class="hero-cta"><span class="cta-text cta-text--full" data-en="Join the first edition waitlist">Zur Warteliste der ersten Edition</span><span class="cta-text cta-text--short" data-en="Join the waitlist">Zur Warteliste</span></a>
+      <a href="#composition-anchor" class="hero-link" data-en="To the composition">Zur Komposition</a>
+    </div>
+  </div>
+
+  <div class="hero__media">
+    <img class="hero__product" src="img/heroHome.webp" width="1402" height="1122" sizes="(max-width:860px) 100vw, 52vw" alt="HESPYRA Evening Ritual auf einem Holztisch am frühen Abend — Dose, ein Glas des angerührten Drinks und ein Holzscoop mit Kakaopulver, warmes Licht durch große Fenster" fetchpriority="high" decoding="async" />
+  </div>
+</section>
+
+<!-- 3 — Der Moment davor -->
+<section class="moment" id="moment">
+  <div class="moment__bg" aria-hidden="true"><span id="momentBgWord">21:00</span></div>
+  <div class="wrap">
+    <p class="eyebrow reveal" style="margin-bottom:20px;" data-en="The moment before">Der Moment davor</p>
+    <h2 class="moment__quote serif">
+      <span class="ml"><span data-en="The day is over.">Der Tag ist vorbei.</span></span>
+      <span class="ml"><span data-en="But not <em>within you.</em>">Aber nicht <em>in dir.</em></span></span>
+    </h2>
+    <p class="moment__concrete reveal" data-en="You're home, but your head keeps going. One more email in the back of your mind, one more thought about tomorrow. Your body is tired — switching off is another matter.">Du bist zuhause, aber der Kopf macht weiter. Noch eine Mail im Hinterkopf, noch ein Gedanke an morgen. Der Körper ist müde — abschalten ist trotzdem eine andere Sache.</p>
+    <p class="moment__foot reveal" data-en="The evening is here. But inwardly you're still caught in conversations and thoughts that don't stop. You haven't arrived yet. HESPYRA begins right there: in the moment when the day doesn't simply end on its own.">Der Abend ist da. Aber innerlich bist du noch in Gesprächen und Gedanken, die nicht aufhören. Du bist noch nicht angekommen. HESPYRA beginnt genau dort: in dem Moment, in dem der Tag nicht einfach von selbst endet.</p>
+  </div>
+</section>
+
+
+<!-- 4 — Das Ritual -->
+<section class="ritual" id="ritual-anchor">
+  <div class="ritual__media analog-media reveal">
+    <img src="img/hespyra_ritual-1024.webp" srcset="img/hespyra_ritual-760.webp 760w, img/hespyra_ritual-1024.webp 1024w, img/hespyra_ritual-1500.webp 1500w" sizes="100vw" width="1500" height="1500" decoding="async" alt="HESPYRA-Abendritual: Kakaopulver wird aus einem Holzlöffel in ein Glas gerührt, daneben die Dose, in warmem Abendlicht am Fenster" />
+    <div class="cap" data-en="Release. Gather. Arrive.">Lösen. Sammeln. Ankommen.</div>
+  </div>
+  <div class="wrap ritual__lower">
+    <div class="ritual__bg" aria-hidden="true"><span id="ritualBgWord">Ritual</span></div>
+    <div class="ritual__head">
+      <p class="eyebrow reveal" data-en="The Ritual">Das Ritual</p>
+      <h2 class="serif reveal" data-en="A glass that marks the <em>transition.</em>">Ein Glas, das den <em>Übergang</em>&nbsp;markiert.</h2>
+    </div>
+    <div class="beats stagger-group">
+      <div class="beat reveal">
+        <div class="num">i</div>
+        <h3 class="serif" data-en="Release">Lösen</h3>
+        <p data-en="Not carrying everything from the day with you. A spoon in water or plant milk — slowly stirred as the first gesture at the end of the day.">Nicht alles aus dem Tag mitnehmen. Ein Löffel in Wasser oder Pflanzenmilch — langsam verrührt als erste Geste zum Tagesende.</p>
+      </div>
+      <div class="beat reveal">
+        <div class="num">ii</div>
+        <h3 class="serif" data-en="Gather">Sammeln</h3>
+        <p data-en="From reacting back to yourself. The warm glass in your hands, cacao and vanilla giving the moment a quiet depth.">Vom Reagieren zurück zu dir. Das warme Glas in den Händen, Kakao und Vanille geben dem Moment eine ruhige Tiefe.</p>
+      </div>
+      <div class="beat reveal">
+        <div class="num">iii</div>
+        <h3 class="serif" data-en="Arrive">Ankommen</h3>
+        <p data-en="Sipped slowly, the evening begins. A glass that marks the transition — day after day, in the same quiet way.">Langsam getrunken, beginnt der Abend. Ein Glas, das den Übergang markiert — Tag für Tag, auf dieselbe ruhige Weise.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5 — Komposition (dunkel) -->
+<section class="composition" id="composition-anchor">
+  <div class="wrap">
+    <p class="eyebrow reveal" data-en="The Composition">Die Komposition</p>
+    <h2 class="serif reveal" data-en="A &lt;em&gt;composition&lt;/em&gt; for the evening.">Eine <em>Komposition</em> für&nbsp;den&nbsp;Abend.</h2>
+    <p class="intro reveal" data-en="What's in HESPYRA is openly named: selected raw materials, clear dosages, no proprietary blends.">Was in HESPYRA steckt, wird offen benannt: ausgewählte Rohstoffe, klare Dosierungen, keine proprietären Mischungen.</p>
+    <div class="comp-layers stagger-group">
+      <div class="layer reveal">
+        <div class="layer-label" data-en="Botanical Depth">Pflanzliche Tiefe</div>
+        <ul class="layer-items">
+          <li>Safran<span class="note" data-en="From Spain, in Affron® quality.">Aus Spanien, in Affron®-Qualität.</span></li>
+          <li>Ashwagandha<span class="note" data-en="Root extract, KSM-66®.">Wurzelextrakt, KSM-66®.</span></li>
+          <li>Reishi<span class="note" data-en="Ganoderma lucidum.">Ganoderma lucidum.</span></li>
+        </ul>
+      </div>
+      <div class="layer reveal">
+        <div class="layer-label" data-en="Selected Compounds">Ausgewählte Stoffe</div>
+        <ul class="layer-items">
+          <li>L-Theanin<span class="note" data-en="Suntheanine®.">Suntheanine®.</span></li>
+          <li>Phosphatidylserin<span class="note" data-en="SerinAid®.">SerinAid®.</span></li>
+        </ul>
+      </div>
+      <div class="layer reveal">
+        <div class="layer-label" data-en="Foundation &amp; Taste">Grundlage &amp; Geschmack</div>
+        <ul class="layer-items">
+          <li>Magnesium<span class="note" data-en="Bisglycinate &amp; taurate.">Bisglycinat &amp; Taurat.</span></li>
+          <li>Kakao</li>
+          <li>Vanille</li>
+        </ul>
+      </div>
+    </div>
+    <p class="disclaimer reveal" data-en="Selected branded raw materials, transparently disclosed. No proprietary blends. No hidden fillers.">Ausgewählte Marken-Rohstoffe, transparent offengelegt. Keine proprietären Mischungen. Keine versteckten Füllstoffe.</p>
+  </div>
+</section>
+
+<!-- 6 — Ein anderes Glas am Abend -->
+<section class="another-glass" id="another-glass">
+  <div class="ag__text">
+    <p class="eyebrow reveal" data-en="A Different Glass">Ein anderes Glas</p>
+    <h2 class="serif reveal" data-en="Not every evening needs <em>more</em> distraction.">Nicht jeder Abend braucht <em>mehr</em>&nbsp;Ablenkung.</h2>
+    <div class="ag-lines">
+      <p class="reveal" data-en="It doesn't always take another glass of wine.">Nicht immer braucht es noch ein Glas Wein.</p>
+      <p class="reveal" data-en="Not every evening has to disappear into scrolling.">Nicht jeder Abend muss im Scrollen verschwinden.</p>
+      <p class="reveal" data-en="Sometimes a different glass is enough: warm, intentional, repeatable.">Manchmal genügt ein anderes Glas: warm, bewusst, wiederholbar.</p>
+    </div>
+    <p class="ag-close serif reveal" data-en="HESPYRA is not about giving up. It is a different <em>beginning.</em>">HESPYRA ist kein Verzicht. Es ist ein anderer <em>Anfang.</em></p>
+  </div>
+  <div class="ag__media analog-media reveal">
+    <img src="img/hespyra_anderes_glas-1024.webp" srcset="img/hespyra_anderes_glas-640.webp 640w, img/hespyra_anderes_glas-1024.webp 1024w" sizes="(max-width:860px) 100vw, 50vw" width="1024" height="1024" alt="Ein anderes Glas am Abend: HESPYRA Evening Ritual auf einem Holztisch im warmen Licht eines ruhigen Wohnzimmers am Abend" decoding="async" />
+  </div>
+</section>
+
+<!-- 7 — Abendkultur (immersives Full-Bleed-Bild) -->
+<section class="culture" id="culture">
+  <div class="culture__media reveal">
+    <img src="img/hespyra_balcony_clean-900.webp" srcset="img/hespyra_balcony_clean-480.webp 480w, img/hespyra_balcony_clean-900.webp 900w" sizes="100vw" width="900" height="900" alt="Ein ruhiger Abend für sich: Blick über die Stadt im warmen Sonnenuntergang von einer stillen Terrasse" decoding="async" />
+    <div class="culture__scrim" aria-hidden="true"></div>
+  </div>
+  <div class="culture__overlay">
+    <p class="eyebrow reveal" data-en="Your own evening">Der eigene Abend</p>
+    <h2 class="serif reveal" data-en="The evening belongs to &lt;em&gt;you&lt;/em&gt; again.">Der Abend gehört wieder&nbsp;<em>dir</em>.</h2>
+    <p class="lead reveal" data-en="Not just the remainder of the day. But a space of your own: for a conversation, a book, a glance outside — or a moment that belongs only to you.">Nicht nur der Rest des Tages. Sondern ein eigener Raum: für ein Gespräch, ein Buch, einen Blick nach draußen — oder einen Moment, der nur dir gehört.</p>
+  </div>
+</section>
+
+<!-- 7 — Entwickelt mit Sorgfalt -->
+<section class="care care--split">
+  <div class="care__text">
+        <p class="eyebrow reveal" data-en="Developed with Care">Entwickelt mit Sorgfalt</p>
+        <h2 class="serif reveal" data-en="The &lt;em&gt;opposite&lt;/em&gt; of a quick fix.">Das <em>Gegenteil</em> einer schnellen&nbsp;Lösung.</h2>
+        <p class="reveal" data-en="HESPYRA grows from the conviction that an evening ritual does not need to be loud — developed calmly, as a conscious beginning, not a quick effect.">HESPYRA entsteht aus der Überzeugung, dass ein Abendritual nicht laut auftreten muss — entwickelt mit Ruhe, als bewusster Beginn, nicht als schneller Effekt.</p>
+        <p class="care__origin reveal" data-en="Developed from conversations with people whose day lasts longer in their head than in their calendar — not from a trend briefing.">Entwickelt aus Gesprächen mit Menschen, deren Tag im Kopf länger dauert als im Kalender — nicht aus einem Trendbriefing.</p>
+        <div class="care__principles">
+          <div class="principle reveal">
+            <div class="principle__label" data-en="Without melatonin">Ohne Melatonin</div>
+            <div class="principle__text" data-en="Deliberately formulated without melatonin.">Bewusst ohne Melatonin formuliert.</div>
+          </div>
+          <div class="principle reveal">
+            <div class="principle__label" data-en="No switching off">Kein Ausschalten</div>
+            <div class="principle__text" data-en="Not to mask the day. But to give it a calmer transition.">Nicht, um den Tag zu verdecken. Sondern um ihm einen ruhigeren Übergang zu geben.</div>
+          </div>
+          <div class="principle reveal">
+            <div class="principle__label" data-en="No loud promises">Keine lauten Versprechen</div>
+            <div class="principle__text" data-en="Transparency in the composition. Restraint in the claims.">Transparenz in der Komposition. Zurückhaltung in der Behauptung.</div>
+          </div>
+        </div>
+  </div>
+  <!-- Rechte Spalte: großes Porträt oben, darunter Trust-Card-Inhalt als Einheit. -->
+  <div class="care__media care__media--maker reveal">
+    <div class="care__maker">
+      <img class="care__hero-portrait" src="img/hespyra_christian_portrait-1000.webp" srcset="img/hespyra_christian_portrait-640.webp 640w, img/hespyra_christian_portrait-1000.webp 1000w" sizes="(max-width:860px) 100vw, 46vw" width="1000" height="1100" decoding="async" alt="Christian Baker, Gründer von Profound Formulas" />
+      <div class="care__maker-body">
+        <div class="seal serif" data-en="Formulated with<br>Profound Formulas">Formuliert mit<br>Profound Formulas</div>
+        <p data-en="Behind the formula is Christian Baker, founder of Profound Formulas. Over sixteen years he has developed formulas for international brands — bringing the same care to a product that deliberately stays quiet.">Hinter der Rezeptur steht Christian Baker, Gründer von Profound Formulas. In über sechzehn Jahren hat er Rezepturen für internationale Marken entwickelt — und bringt dieselbe Sorgfalt in ein Produkt ein, das bewusst leise bleibt.</p>
+        <div class="creds">
+          <div class="c"><span class="k serif">16</span><span class="v" data-en="years of experience">Jahre Erfahrung</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+  </div>
+</section>
+
+<!-- 8 — FAQ -->
+<section class="faq" id="faq-anchor">
+  <div class="wrap">
+    <div class="faq__head">
+      <p class="eyebrow reveal" data-en="Questions">Fragen</p>
+      <h2 class="serif reveal" data-en="Worth knowing before the <em>evening</em> begins.">Was sich zu wissen lohnt, bevor der <em>Abend</em>&nbsp;beginnt.</h2>
+    </div>
+    <div class="faq__list reveal" id="faqList">
+      <div class="faq-item open">
+        <button class="faq-q" data-en="Is HESPYRA a sleep product? <span class=&quot;ic&quot; aria-hidden=&quot;true&quot;></span>">Ist HESPYRA ein Schlafprodukt? <span class="ic" aria-hidden="true"></span></button>
+        <div class="faq-a"><div class="faq-a__inner" data-en="Not in the classic sense. HESPYRA begins earlier: in the transition from day to evening — before sleep even becomes a topic.">Nicht im klassischen Sinn. HESPYRA setzt früher an: im Übergang vom Tag in den Abend — bevor Schlaf überhaupt zum Thema wird.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" data-en="Does HESPYRA contain melatonin? <span class=&quot;ic&quot; aria-hidden=&quot;true&quot;></span>">Enthält HESPYRA Melatonin? <span class="ic" aria-hidden="true"></span></button>
+        <div class="faq-a"><div class="faq-a__inner" data-en="No. HESPYRA is made entirely without melatonin — by conviction, not just for the first edition.">Nein. HESPYRA kommt vollständig ohne Melatonin aus — aus Überzeugung, nicht nur in der ersten Edition.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" data-en="Is HESPYRA just cacao with magnesium? <span class=&quot;ic&quot; aria-hidden=&quot;true&quot;></span>">Ist HESPYRA einfach Kakao mit Magnesium? <span class="ic" aria-hidden="true"></span></button>
+        <div class="faq-a"><div class="faq-a__inner" data-en="No. HESPYRA is designed as an evening ritual: with warm aroma, a transparent composition and a deliberately developed formula. Details on the final composition will follow with the first edition.">Nein. HESPYRA ist als Abendritual konzipiert: mit warmem Aroma, transparenter Komposition und einer bewusst entwickelten Rezeptur. Details zur finalen Zusammensetzung folgen mit der ersten Edition.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" data-en="Why a powder drink instead of capsules? <span class=&quot;ic&quot; aria-hidden=&quot;true&quot;></span>">Warum ein Pulverdrink statt Kapseln? <span class="ic" aria-hidden="true"></span></button>
+        <div class="faq-a"><div class="faq-a__inner" data-en="Because the moment matters. HESPYRA is not just meant to be taken, but to mark the evening visibly and tangibly: glass, taste, preparation, pause.">Weil der Moment zählt. HESPYRA soll nicht nur eingenommen werden, sondern den Abend sichtbar und spürbar markieren: Glas, Geschmack, Zubereitung, Pause.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" data-en="When do you drink HESPYRA? <span class=&quot;ic&quot; aria-hidden=&quot;true&quot;></span>">Wann trinkt man HESPYRA? <span class="ic" aria-hidden="true"></span></button>
+        <div class="faq-a"><div class="faq-a__inner" data-en="In the evening, when the day is allowed to end — for example after dinner, after the children are in bed, or before the quiet part of the evening.">Am Abend, wenn der Tag enden darf — zum Beispiel nach dem Essen, nachdem die Kinder im Bett sind oder vor dem ruhigen Teil des Abends.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" data-en="What does HESPYRA taste like? <span class=&quot;ic&quot; aria-hidden=&quot;true&quot;></span>">Wie schmeckt HESPYRA? <span class="ic" aria-hidden="true"></span></button>
+        <div class="faq-a"><div class="faq-a__inner" data-en="Warm, grown-up, rounded. Cacao and vanilla — not too sweet, not medicinal, not like a classic protein shake.">Warm, erwachsen, rund. Kakao und Vanille — nicht zu süß, nicht medizinisch, nicht wie ein klassischer Proteinshake.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" data-en="What does first edition mean? <span class=&quot;ic&quot; aria-hidden=&quot;true&quot;></span>">Was bedeutet erste Edition? <span class="ic" aria-hidden="true"></span></button>
+        <div class="faq-a"><div class="faq-a__inner" data-en="HESPYRA deliberately starts with a first edition. Those who sign up accompany the beginning and receive insights into development, taste, formula and launch.">HESPYRA startet bewusst mit einer ersten Edition. Wer sich einträgt, begleitet den Anfang und erhält Einblicke in Entwicklung, Geschmack, Rezeptur und Launch.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 9 — Waitlist (dunkler Abschluss) -->
+<section class="optin" id="warteliste">
+  <div class="wrap">
+    <p class="eyebrow reveal" data-en="First Edition">Erste Edition</p>
+    <h2 class="serif reveal" data-en="The first edition of HESPYRA is <em>taking shape.</em>">Die erste Edition von HESPYRA <em>entsteht.</em></h2>
+    <p class="sub reveal" data-en="For people whose day doesn't end on its own. Join the beginning — with insights into development, taste and launch.">Für Menschen, deren Tag nicht von selbst aufhört. Begleite den Anfang — mit Einblicken in Entwicklung, Geschmack und Launch.</p>
+    <p class="optin-echo reveal" data-en="The beginning of an evening that belongs to you again.">Der Anfang eines Abends, der wieder dir gehört.</p>
+    <form class="form reveal" id="optinForm" action="https://tf125fca5.emailsys1a.net/238/9119/938578f21b/subscribe/form.html" method="post" target="rm_iframe" novalidate>
+      <div class="success-glow" aria-hidden="true"></div>
+      <div class="row">
+        <input type="email" id="email" name="email" placeholder="Deine E-Mail-Adresse" autocomplete="email" required aria-label="E-Mail-Adresse" />
+        <button type="submit">Eintragen</button>
+      </div>
+      <p class="note" data-en="No newsletter noise. Just one message when the time comes.">Kein Newsletter-Lärm. Nur eine Nachricht, wenn es so weit ist.</p>
+      <div class="form__success-panel" role="status" aria-live="polite">
+        <div class="success-check" aria-hidden="true">
+          <svg viewBox="0 0 56 56">
+            <circle class="ring" cx="28" cy="28" r="26"></circle>
+            <path class="tick" d="M17 29 L25 37 L40 20"></path>
+          </svg>
+        </div>
+        <div class="success-headline" data-en="Welcome to the transition.">Willkommen im Übergang.</div>
+        <div class="success-sub" data-en="We will reach out quietly when the first edition is ready. Until then: a calm evening.">Wir melden uns leise, wenn die erste Edition bereitsteht. Bis dahin: einen ruhigen Abend.</div>
+      </div>
+    </form>
+    <div class="access-line reveal" aria-hidden="true" data-en="<span class=&quot;dot&quot;></span>No discount hype · No loud countdown"><span class="dot"></span>Kein Rabatt-Hype · Kein lauter Countdown</div>
+    <!-- Listen-Zähler: echte Zahl in data-count eintragen. Bei 0 wird die Zeile automatisch ausgeblendet. -->
+    <p class="waitlist-count reveal" id="waitlistCount" data-count="0" aria-live="polite"></p>
+  </div>
+</section>
+
+<!-- 10 — Footer -->
+</main>
+<footer>
+  <div class="footer__inner">
+    <div class="footer__brand">
+      <a href="#top" class="wordmark" aria-label="HESPYRA — zum Seitenanfang">HESPYRA</a>
+      <span class="footer__line serif">Evening Ritual</span>
+    </div>
+    <nav class="footer__nav" aria-label="Footer">
+      <a href="ueber-uns.html" data-en="About">Über uns</a>
+      <a href="kontakt.html" data-en="Contact">Kontakt</a>
+      <a href="datenschutz.html" data-en="Privacy">Datenschutz</a>
+      <a href="impressum.html" data-en="Imprint">Impressum</a>
+    </nav>
+    <span class="footer__copy">© 2026 HESPYRA</span>
+  </div>
+</footer>
+
+<script>
+  document.documentElement.classList.remove('no-js');
+
+  // Umami-Event-Helper: sendet ein Event nur, wenn Umami geladen ist (sonst still).
+  // So bleibt die Seite voll funktionsfähig, auch bevor die Umami-Werte gesetzt sind.
+  function track(name, data) {
+    try { if (window.umami) { data ? window.umami.track(name, data) : window.umami.track(name); } } catch (e) {}
+  }
+  // Hero-Eingangssequenz starten (nach Font-Load, mit Fallback) — nur einmal pro Besuch
+  const heroEl = document.querySelector('.hero');
+  let heroSeen = false;
+  try { heroSeen = sessionStorage.getItem('hespyra_hero_seen') === '1'; } catch (e) { /* Storage blockiert: Sequenz läuft normal */ }
+
+  const markHeroSeen = () => { try { sessionStorage.setItem('hespyra_hero_seen', '1'); } catch (e) {} };
+
+  if (heroSeen) {
+    // Bereits gesehen: Endzustand sofort zeigen, ohne Animation
+    if (heroEl) heroEl.classList.add('entered', 'instant');
+  } else {
+    const startHero = () => {
+      if (heroEl) heroEl.classList.add('entered');
+      markHeroSeen();
+    };
+    if (document.fonts && document.fonts.ready) {
+      Promise.race([
+        document.fonts.ready,
+        new Promise((res) => setTimeout(res, 400))
+      ]).then(() => requestAnimationFrame(startHero));
+    } else {
+      setTimeout(startHero, 120);
+    }
+  }
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.14 });
+  // Gestaffeltes Einblenden: Kinder von .stagger-group blenden klar nacheinander ein
+  document.querySelectorAll('.stagger-group').forEach((group) => {
+    group.querySelectorAll(':scope > .reveal').forEach((child, i) => {
+      child.style.transitionDelay = (i * 140) + 'ms';
+    });
+  });
+  document.querySelectorAll('.reveal').forEach((el) => { io.observe(el); });
+
+  // Moment-Sektion: zeilenweise Einblendung des Kernsatzes
+  const momentQuote = document.querySelector('.moment__quote');
+  if (momentQuote) {
+    const mio = new IntersectionObserver((entries) => {
+      entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); mio.unobserve(e.target); } });
+    }, { threshold: 0.4 });
+    mio.observe(momentQuote);
+  }
+
+  // Parallax für große Hintergrundwörter (subtil)
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const parallaxTargets = [
+    { section: document.getElementById('moment'), word: document.getElementById('momentBgWord'), base: 'translateY(-50%)', amp: 80 },
+    { section: document.querySelector('.ritual__lower'), word: document.getElementById('ritualBgWord'), base: '', amp: 60 },
+    { section: document.getElementById('culture'), word: document.getElementById('cultureBgWord'), base: '', amp: 70 }
+  ].filter(t => t.section && t.word);
+
+  if (!reduceMotion && parallaxTargets.length) {
+    let ticking = false;
+    const parallax = () => {
+      const vh = window.innerHeight;
+      parallaxTargets.forEach(t => {
+        const rect = t.section.getBoundingClientRect();
+        if (rect.top < vh && rect.bottom > 0) {
+          const progress = (vh - rect.top) / (vh + rect.height);
+          const shift = (progress - 0.5) * t.amp;
+          t.word.parentElement.style.transform = `${t.base} translateX(${shift}px)`.trim();
+        }
+      });
+      ticking = false;
+    };
+    window.addEventListener('scroll', () => {
+      if (!ticking) { requestAnimationFrame(parallax); ticking = true; }
+    }, { passive: true });
+    parallax();
+  }
+
+  const nav = document.getElementById('nav');
+  const navProgress = document.getElementById('navProgress');
+  const onScroll = () => {
+    nav.classList.toggle('scrolled', window.scrollY > 80);
+    if (navProgress) {
+      const h = document.documentElement.scrollHeight - window.innerHeight;
+      const p = h > 0 ? (window.scrollY / h) * 100 : 0;
+      navProgress.style.width = p + '%';
+    }
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-item').forEach((item) => {
+    const q = item.querySelector('.faq-q');
+    const a = item.querySelector('.faq-a');
+    // Vorab geöffnetes Item: Höhe initial setzen
+    if (item.classList.contains('open')) {
+      requestAnimationFrame(() => { a.style.maxHeight = a.scrollHeight + 'px'; });
+    }
+    q.addEventListener('click', () => {
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach((other) => {
+        other.classList.remove('open');
+        other.querySelector('.faq-a').style.maxHeight = null;
+      });
+      if (!isOpen) { item.classList.add('open'); a.style.maxHeight = a.scrollHeight + 'px'; }
+    });
+  });
+
+  // CTA-Klicks tracken
+  (function(){
+    var heroCta = document.querySelector('.hero-cta');
+    if (heroCta) heroCta.addEventListener('click', function(){ track('cta-click', { location: 'hero' }); });
+    var heroLink = document.querySelector('.hero-link');
+    if (heroLink) heroLink.addEventListener('click', function(){ track('composition-click', { location: 'hero' }); });
+  })();
+
+  // Sprach-Engine: tauscht Texte mit data-en-Attribut, DE ist das Original im HTML
+  (function initLanguage() {
+    const langButtons = document.querySelectorAll('#nav .lang button');
+    // Originaltexte (DE) einmalig sichern
+    document.querySelectorAll('[data-en]').forEach((el) => {
+      el.setAttribute('data-de', el.innerHTML);
+    });
+    // Platzhalter-Texte (DE) sichern
+    document.querySelectorAll('[data-en-ph]').forEach((el) => {
+      el.setAttribute('data-de-ph', el.getAttribute('placeholder') || '');
+    });
+    // Alt-Texte sichern
+    document.querySelectorAll('[data-en-alt]').forEach((el) => {
+      el.setAttribute('data-de-alt', el.getAttribute('alt') || '');
+    });
+
+    function setLang(lang) {
+      document.documentElement.lang = lang;
+      document.querySelectorAll('[data-en]').forEach((el) => {
+        const v = el.getAttribute(lang === 'en' ? 'data-en' : 'data-de');
+        if (v !== null) el.innerHTML = v;
+      });
+      document.querySelectorAll('[data-en-ph]').forEach((el) => {
+        const v = el.getAttribute(lang === 'en' ? 'data-en-ph' : 'data-de-ph');
+        if (v !== null) el.setAttribute('placeholder', v);
+      });
+      document.querySelectorAll('[data-en-alt]').forEach((el) => {
+        const v = el.getAttribute(lang === 'en' ? 'data-en-alt' : 'data-de-alt');
+        if (v !== null) el.setAttribute('alt', v);
+      });
+      langButtons.forEach((b) => {
+        const isActive = b.textContent.trim().toLowerCase() === lang;
+        b.classList.toggle('active', isActive);
+        if (isActive) b.setAttribute('aria-current', 'true');
+        else b.removeAttribute('aria-current');
+      });
+      try { sessionStorage.setItem('hespyra_lang', lang); } catch (e) {}
+    }
+
+    langButtons.forEach((b) => {
+      b.addEventListener('click', () => setLang(b.textContent.trim().toLowerCase()));
+    });
+
+    // Sprache bestimmen: 1) bewusste Wahl dieser Sitzung, sonst 2) Browsersprache, sonst 3) Deutsch
+    let saved = null;
+    try { saved = sessionStorage.getItem('hespyra_lang'); } catch (e) {}
+    if (saved === 'en' || saved === 'de') {
+      // Nutzer hat in dieser Sitzung bewusst gewählt — Wahl respektieren
+      setLang(saved);
+    } else {
+      // Keine bewusste Wahl: aus der Browsersprache ableiten
+      let browserLang = 'de';
+      try { browserLang = (navigator.language || navigator.userLanguage || 'de').toLowerCase(); } catch (e) {}
+      // Alles, was nicht klar Deutsch ist, bekommt Englisch (internationaler Default)
+      if (browserLang.indexOf('de') !== 0) setLang('en');
+    }
+  })();
+
+  // Listen-Zähler: zählt sanft hoch, sobald sichtbar. Bei data-count="0" ausgeblendet.
+  const countEl = document.getElementById('waitlistCount');
+  if (countEl) {
+    const target = parseInt(countEl.getAttribute('data-count'), 10) || 0;
+    if (target <= 0) {
+      countEl.style.display = 'none';
+    } else {
+      const countIO = new IntersectionObserver((entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            const dur = 1400, start = performance.now();
+            const tick = (now) => {
+              const p = Math.min(1, (now - start) / dur);
+              const eased = 1 - Math.pow(1 - p, 3);
+              const val = Math.floor(eased * target);
+              countEl.innerHTML = 'Bereits <strong>' + val.toLocaleString('de-DE') + '</strong> auf der Liste für die erste Edition.';
+              if (p < 1) requestAnimationFrame(tick);
+            };
+            requestAnimationFrame(tick);
+            countIO.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.6 });
+      countIO.observe(countEl);
+    }
+  }
+
+  // Sticky Optin: erscheint nach erstem Drittel, verschwindet im Waitlist-Bereich
+  const sticky = document.getElementById('stickyOptin');
+  const stickyClose = document.getElementById('stickyClose');
+  const optinSection = document.getElementById('warteliste');
+  let stickyDismissed = false;
+  const stickyScroll = () => {
+    if (stickyDismissed) return;
+    const scrolled = window.scrollY;
+    const triggerPoint = (document.documentElement.scrollHeight - window.innerHeight) * 0.55;
+    const optinTop = optinSection.getBoundingClientRect().top;
+    const inOptin = optinTop < window.innerHeight && optinTop > -optinSection.offsetHeight;
+    if (scrolled > triggerPoint && !inOptin) {
+      sticky.classList.add('visible');
+      sticky.setAttribute('aria-hidden', 'false');
+    } else {
+      sticky.classList.remove('visible');
+      sticky.setAttribute('aria-hidden', 'true');
+    }
+  };
+  window.addEventListener('scroll', stickyScroll, { passive: true });
+  stickyClose.addEventListener('click', () => {
+    stickyDismissed = true;
+    sticky.classList.remove('visible');
+    sticky.setAttribute('aria-hidden', 'true');
+  });
+
+  // Sticky-Formular: bestätigt inline, leitet sonst zum Hauptformular
+  const stickyForm = document.getElementById('stickyForm');
+  stickyForm.addEventListener('submit', (ev) => {
+    const val = document.getElementById('stickyEmail').value;
+    const ok = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val);
+    if (!ok) { ev.preventDefault(); document.getElementById('stickyEmail').focus(); return; }
+    // Gültig: POST an rapidmail läuft echt (target=iframe). Wir ersetzen das Formular
+    // NICHT sofort, sonst bräche der Versand ab — erst nach kurzem Timeout.
+    sticky.classList.add('done');
+    track('waitlist-signup', { source: 'sticky' });
+    setTimeout(() => {
+      stickyForm.innerHTML = '<span style="font-family:\'Cormorant Garamond\',serif;font-style:italic;color:var(--amber-soft);font-size:16px;">Willkommen im Übergang.</span>';
+    }, 400);
+    setTimeout(() => { sticky.classList.remove('visible'); stickyDismissed = true; }, 2600);
+  });
+
+  const form = document.getElementById('optinForm');
+  const emailInput = document.getElementById('email');
+
+  function showError(msg) {
+    let err = form.querySelector('.form-error');
+    if (!err) {
+      err = document.createElement('p');
+      err.className = 'note form-error';
+      err.style.color = 'var(--amber-soft)';
+      form.querySelector('.note').after(err);
+    }
+    err.textContent = msg;
+  }
+
+  form.addEventListener('submit', (ev) => {
+    const valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.value);
+    if (!valid) {
+      ev.preventDefault();
+      showError('Bitte gib eine gültige E-Mail-Adresse ein.');
+      emailInput.focus();
+      return;
+    }
+    // Gültig: echten POST an rapidmail (Ziel: verstecktes iframe) NICHT verhindern.
+    // Double-Opt-in wird von rapidmail ausgelöst; der Nutzer bleibt dank iframe auf der Seite.
+    const errEl = form.querySelector('.form-error');
+    if (errEl) errEl.remove();
+
+    // Erfolgsanimation auslösen (läuft parallel zum Absenden)
+    form.classList.add('is-success');
+    track('waitlist-signup', { source: 'hero-form' });
+
+    // Knappheitszeile sanft ausblenden
+    const access = document.querySelector('.access-line');
+    if (access) access.style.opacity = '0';
+  });
+</script>
+<!-- Verstecktes Ziel für die rapidmail-Formular-Übermittlung: hält den Nutzer auf der Seite,
+     während der echte POST an rapidmail geht (Double-Opt-in läuft dort). Kein API-Key, kein Backend. -->
+<iframe name="rm_iframe" id="rm_iframe" title="rapidmail" style="position:absolute;width:0;height:0;border:0;left:-9999px;" aria-hidden="true"></iframe>
+</body>
+</html>
