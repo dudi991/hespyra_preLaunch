@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="color-scheme" content="light" />
+<meta name="color-scheme" content="only light" />
 <meta name="theme-color" content="#241D22" />
 <meta name="description" content="HESPYRA — ein Abenddrink für den Moment davor. Ein tägliches Pulverritual für Menschen, deren Tag nicht von selbst aufhört. Ohne Melatonin." />
 <meta property="og:title" content="HESPYRA — Für den Moment davor" />
@@ -49,7 +49,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
 <style>
   :root {
-    color-scheme: light;
+    color-scheme: only light;
     --cream: #EFE6D6;
     --cream-deep: #E8D8C2;
     --sand: #DECBB0;
@@ -65,6 +65,26 @@
     --comp-soft-on-night: #D9CBB2;
     --section-y: 140px;
     --section-y-lg: 160px;
+  }
+  /* Dark-Mode / Force-Dark (Samsung Internet, Android) abfangen: Marke bleibt immer hell */
+  @media (prefers-color-scheme: dark) {
+    :root {
+      color-scheme: only light;
+      --cream: #EFE6D6;
+      --cream-deep: #E8D8C2;
+      --sand: #DECBB0;
+      --sand-line: #D2BE9F;
+      --night: #241D22;
+      --night-2: #1E1A20;
+      --ink: #322B24;
+      --ink-soft: #574D3E;
+      --amber: #9E6B41;
+      --amber-soft: #C0966B;
+      --cream-on-night: #ECE3D4;
+      --ink-soft-on-night: #BEB1A1;
+      --comp-soft-on-night: #D9CBB2;
+    }
+    html, body { background: #EFE6D6 !important; color: #322B24 !important; }
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
@@ -141,8 +161,8 @@
   .hero { min-height: clamp(640px, 84vh, 780px); background: var(--cream); display: grid; grid-template-columns: 0.95fr 1.05fr; align-items: stretch; gap: 0; position: relative; }
   .hero__text { padding: 84px 44px 80px max(44px, calc((53.49vw - 740px) / 2 + 44px)); max-width: 820px; width: 100%; display: flex; flex-direction: column; justify-content: center; }
   .hero h1 { font-size: clamp(52px, 6.0vw, 90px); line-height: 1.04; font-weight: 400; letter-spacing: -0.01em; margin: 14px 0 0; overflow-wrap: break-word; }
-  .hero h1 .ml > span { white-space: nowrap; }
-  .hero h1.hero-h1--a { font-size: clamp(31px, 3.8vw, 70px); }
+  .hero h1 .ml > span { white-space: normal; }
+  .hero h1.hero-h1--a { font-size: clamp(31px, 3.3vw, 64px); }
   .hero h1 em { font-style: italic; color: var(--amber); }
   .hero .lede { margin-top: 18px; font-size: clamp(17px, 1.6vw, 20px); max-width: 490px; color: var(--ink); line-height: 1.68; }
   .hero-spacer { flex: 1 1 auto; min-height: 20px; max-height: 48px; }
@@ -151,10 +171,10 @@
   .hero-meta { margin-top: 0; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-soft); display: inline-flex; align-items: center; gap: 11px; }
   .hero-meta::before { content: ""; width: 16px; height: 1px; background: var(--amber); flex-shrink: 0; }
   /* Produkt-Facts: ruhige, abgerundete Pills, editorial, warme Tönung */
-  .hero-facts { list-style: none; margin: 30px 0 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; max-width: 520px; }
+  .hero-facts { list-style: none; margin: 30px 0 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; max-width: 460px; }
   .hero-fact { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 4px; padding: 15px 18px; border: 1px solid rgba(158,107,65,0.38); border-radius: 999px; background: rgba(158,107,65,0.06); -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; text-rendering: optimizeLegibility; }
   .hero-fact__k { font-size: 11px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--amber); }
-  .hero-fact__v { font-family: 'Jost', sans-serif; font-size: 15px; font-weight: 500; line-height: 1.25; letter-spacing: 0.005em; color: var(--ink); }
+  .hero-fact__v { font-family: 'Jost', sans-serif; font-size: 15px; font-weight: 500; line-height: 1.25; letter-spacing: 0.005em; color: var(--ink); white-space: nowrap; }
   /* CTA-Zone: Primary + Sekundärlink enger, auf gemeinsamer Achse */
   .hero-actions { margin-top: 26px; display: flex; align-items: center; gap: 22px; flex-wrap: wrap; }
   .hero .hero-cta { align-self: flex-start; display: inline-flex; align-items: center; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--cream); background: var(--ink); text-decoration: none; border: 1px solid var(--ink); padding: 15px 26px; transition: background 0.4s, color 0.4s, border-color 0.4s; }
@@ -182,6 +202,9 @@
   @keyframes heroRise { to { opacity: 1; transform: none; } }
   @keyframes heroLine { to { transform: translateY(0); } }
   .hero-h1 .ml { display: block; overflow: hidden; }
+  /* Nach Animationsstart Maske aufheben, damit lange Headline-Zeilen (z.B. bei Browser-Zoom < 100%) nicht seitlich abgeschnitten werden */
+  .hero.entered .hero-h1 .ml, .hero.instant .hero-h1 .ml, .no-js .hero-h1 .ml { overflow: visible; }
+  @media (prefers-reduced-motion: reduce) { .hero-h1 .ml { overflow: visible; } }
   @media (prefers-reduced-motion: reduce) {
     .hero-eyebrow, .hero-lede, .hero-meta, .hero-facts, .hero-actions { opacity: 1; transform: none; }
     .hero-h1 .ml > span { transform: none; }
@@ -201,7 +224,7 @@
     .hero { display: flex; flex-direction: column; min-height: auto; gap: 0; background: var(--cream); }
     .hero .hero__text { display: contents; }
     .hero .hero-spacer { display: none; }
-    .hero .hero-eyebrow { order: 1; margin: 0 24px; padding: 64px 0 0; border-top: none; }
+    .hero .hero-eyebrow { order: 1; margin: 0 24px; padding: 80px 0 0; border-top: none; }
     .hero .hero__media { order: 2; height: auto; min-height: 0; margin: 22px 0 4px; padding: 0; display: block; background: var(--cream); }
     .hero .hero__media img { width: 100%; height: auto; max-height: 40vh; aspect-ratio: 16/10.5; object-fit: cover; object-position: 64% 60%; }
     .hero h1 { order: 3; margin: 18px 24px 0; line-height: 1.12; }
