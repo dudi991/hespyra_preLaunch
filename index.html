@@ -147,9 +147,9 @@
   /* Mobile-Feinabstände: gezielt Leerraum zwischen Abschnitten reduzieren */
   @media (max-width: 860px) {
     .moment { padding-top: 4px; padding-bottom: 18px; }   /* Hero→Moment + Moment-Text→Ritual-Bild enger */
-    .moment__quote { font-size: 24px; line-height: 1.32; }   /* mobil deutlich weniger monumental */
-    .moment__concrete { margin-top: 16px; font-size: 15.5px; line-height: 1.58; }   /* konkreter Kern, mobil etwas kompakter */
-    .moment__foot { margin-top: 11px; font-size: 15.5px; line-height: 1.58; color: var(--ink); }   /* gleiche Schrift/Größe/Farbe wie erster Block */
+    .moment__quote { font-size: 22px; line-height: 1.3; }   /* mobil deutlich weniger monumental */
+    .moment__concrete { margin-top: 14px; font-size: 15px; line-height: 1.55; }   /* konkreter Kern, mobil etwas kompakter */
+    .moment__foot { margin-top: 10px; font-size: 15px; line-height: 1.55; color: var(--ink); }   /* gleiche Schrift/Größe/Farbe wie erster Block */
     .moment__bg { display: none; }   /* Hintergrundschriftzug auf Mobil ausgeblendet */
   }
 
@@ -221,27 +221,27 @@
 
   @media (max-width: 860px) {
     #nav { border-bottom-color: var(--sand-line); }
-    /* Reihenfolge: Eyebrow → Bild → Überschrift → Lead → Mikrozeile → CTA */
+    /* Reihenfolge: Bild → Eyebrow → Überschrift → Lead → Badges → CTA */
     .hero { display: flex; flex-direction: column; min-height: auto; gap: 0; background: var(--cream); }
     .hero .hero__text { display: contents; }
     .hero .hero-spacer { display: none; }
-    .hero .hero-eyebrow { order: 1; margin: 0 24px; padding: 56px 0 0; border-top: none; font-size: 10px; letter-spacing: 0.26em; line-height: 1.5; }
-    .hero .hero__media { order: 2; height: auto; min-height: 0; margin: 14px 0 4px; padding: 0; display: block; background: var(--cream); }
-    .hero .hero__media img { width: 100%; height: auto; max-height: 34vh; aspect-ratio: 16/9.2; object-fit: cover; object-position: 64% 60%; }
-    .hero h1 { order: 3; margin: 12px 24px 0; line-height: 1.12; }
-    .hero h1.hero-h1--a { font-size: clamp(24px, 6.2vw, 34px); }
+    .hero .hero__media { order: 1; height: auto; min-height: 0; margin: 0 0 0; padding: 0; display: block; background: var(--cream); }
+    .hero .hero__media img { width: 100%; height: auto; max-height: 32vh; aspect-ratio: 16/9; object-fit: cover; object-position: 64% 60%; }
+    .hero .hero-eyebrow { order: 2; margin: 26px 24px 0; padding: 0; border-top: none; font-size: 10px; letter-spacing: 0.26em; line-height: 1.5; }
+    .hero h1 { order: 3; margin: 10px 24px 0; line-height: 1.1; }
+    .hero h1.hero-h1--a { font-size: clamp(23px, 5.8vw, 32px); }
     /* Erste Maskenzeile einzeilig halten */
     .hero h1 .ml { white-space: normal; overflow: visible; height: auto; }
     .hero h1 .ml > span { white-space: normal; transform: none !important; }
     .hero h1 .ml:first-child > span { white-space: nowrap; }
-    .hero .lede { order: 4; margin: 12px 24px 0; font-size: 14.5px; line-height: 1.55; color: var(--ink-soft); }
+    .hero .lede { order: 4; margin: 12px 24px 0; font-size: 14px; line-height: 1.5; color: var(--ink-soft); }
     .hero .hero-meta { order: 5; margin: 16px 24px 0; }
-    .hero .hero-facts { order: 5; margin: 16px 24px 0; gap: 8px; max-width: none; }
-    .hero .hero-fact { padding: 7px 12px; gap: 1px; }
-    .hero .hero-fact__k { font-size: 8.5px; letter-spacing: 0.14em; }
-    .hero .hero-fact__v { font-size: 12px; }
-    .hero .hero-actions { order: 6; margin: 18px 24px 14px; flex-direction: column; align-items: stretch; gap: 14px; }
-    .hero .hero-cta { padding: 14px 24px; font-size: 11.5px; letter-spacing: 0.14em; justify-content: center; text-align: center; }
+    .hero .hero-facts { order: 5; margin: 16px 24px 0; gap: 7px; max-width: none; }
+    .hero .hero-fact { padding: 9px 14px; gap: 2px; flex-direction: column; align-items: flex-start; justify-content: center; text-align: left; border-radius: 14px; }
+    .hero .hero-fact__k { font-size: 8.5px; letter-spacing: 0.14em; margin-right: 0; }
+    .hero .hero-fact__v { font-size: 12.5px; }
+    .hero .hero-actions { order: 6; margin: 18px 24px 16px; flex-direction: column; align-items: stretch; gap: 10px; }
+    .hero .hero-cta { padding: 15px 24px; font-size: 11.5px; letter-spacing: 0.14em; justify-content: center; text-align: center; }
     .hero .hero-cta .cta-text--full { display: none; }
     .hero .hero-cta .cta-text--short { display: inline; }
     .hero .hero-link { display: none; }
