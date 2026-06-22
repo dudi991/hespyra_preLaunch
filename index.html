@@ -146,7 +146,7 @@
   @media (max-width: 860px) { :root { --section-y: 68px; --section-y-lg: 76px; } }
   /* Mobile-Feinabstände: gezielt Leerraum zwischen Abschnitten reduzieren */
   @media (max-width: 860px) {
-    .moment { padding-top: 12px; padding-bottom: 18px; }   /* Hero→Moment + Moment-Text→Ritual-Bild enger */
+    .moment { padding-top: 4px; padding-bottom: 18px; }   /* Hero→Moment + Moment-Text→Ritual-Bild enger */
     .moment__quote { font-size: 24px; line-height: 1.32; }   /* mobil deutlich weniger monumental */
     .moment__concrete { margin-top: 16px; font-size: 15.5px; line-height: 1.58; }   /* konkreter Kern, mobil etwas kompakter */
     .moment__foot { margin-top: 11px; font-size: 15.5px; line-height: 1.58; color: var(--ink); }   /* gleiche Schrift/Größe/Farbe wie erster Block */
@@ -172,9 +172,10 @@
   .hero-meta::before { content: ""; width: 16px; height: 1px; background: var(--amber); flex-shrink: 0; }
   /* Produkt-Facts: ruhige, abgerundete Pills, editorial, warme Tönung */
   .hero-facts { list-style: none; margin: 30px 0 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; max-width: 460px; }
-  .hero-fact { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 4px; padding: 15px 18px; border: 1px solid rgba(158,107,65,0.38); border-radius: 999px; background: rgba(158,107,65,0.06); -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; text-rendering: optimizeLegibility; }
-  .hero-fact__k { font-size: 11px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--amber); }
-  .hero-fact__v { font-family: 'Jost', sans-serif; font-size: 15px; font-weight: 500; line-height: 1.25; letter-spacing: 0.005em; color: var(--ink); white-space: nowrap; }
+  .hero-fact { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 3px; padding: 11px 16px; border: 1px solid rgba(158,107,65,0.24); border-radius: 999px; background: rgba(158,107,65,0.045); -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; text-rendering: optimizeLegibility; }
+  .hero-fact__k { font-size: 10px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--amber); }
+  .hero-fact__v { font-family: 'Jost', sans-serif; font-size: 14px; font-weight: 500; line-height: 1.25; letter-spacing: 0.005em; color: var(--ink); }
+  @media (min-width: 861px) { .hero-fact__v { white-space: nowrap; } }
   /* CTA-Zone: Primary + Sekundärlink enger, auf gemeinsamer Achse */
   .hero-actions { margin-top: 26px; display: flex; align-items: center; gap: 22px; flex-wrap: wrap; }
   .hero .hero-cta { align-self: flex-start; display: inline-flex; align-items: center; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--cream); background: var(--ink); text-decoration: none; border: 1px solid var(--ink); padding: 15px 26px; transition: background 0.4s, color 0.4s, border-color 0.4s; }
@@ -236,9 +237,9 @@
     .hero .lede { order: 4; margin: 16px 24px 0; font-size: 15.5px; line-height: 1.55; }
     .hero .hero-meta { order: 5; margin: 20px 24px 0; }
     .hero .hero-facts { order: 5; margin: 22px 24px 0; gap: 9px; max-width: none; }
-    .hero .hero-fact { padding: 12px 14px; gap: 3px; }
-    .hero .hero-fact__v { font-size: 14.5px; }
-    .hero .hero-actions { order: 6; margin: 26px 24px 22px; flex-direction: column; align-items: stretch; gap: 14px; }
+    .hero .hero-fact { padding: 10px 12px; gap: 2px; }
+    .hero .hero-fact__v { font-size: 13.5px; }
+    .hero .hero-actions { order: 6; margin: 26px 24px 14px; flex-direction: column; align-items: stretch; gap: 14px; }
     .hero .hero-cta { padding: 15px 24px; font-size: 11.5px; letter-spacing: 0.14em; justify-content: center; text-align: center; }
     .hero .hero-cta .cta-text--full { display: none; }
     .hero .hero-cta .cta-text--short { display: inline; }
