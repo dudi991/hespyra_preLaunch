@@ -2,7 +2,6 @@
 <html lang="de" class="no-js">
 <head>
 <meta charset="UTF-8" />
-<meta name="robots" content="noindex, nofollow" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="color-scheme" content="only light" />
 <meta name="theme-color" content="#241D22" />
@@ -127,7 +126,12 @@
   #nav .lang button.active { color: var(--ink); }
   #nav .lang button:hover { color: var(--ink); }
   #nav .lang span { color: var(--ink-soft); font-size: 11px; opacity: 0.55; }
-  @media (max-width: 720px) { #nav { padding: 12px 22px; } #nav.scrolled { padding: 8px 22px; } #nav .nav-right { gap: 16px; } }
+  @media (max-width: 720px) { #nav { padding: 12px 22px; } #nav.scrolled { padding: 8px 22px; } #nav .nav-right { gap: 16px; }
+    #nav .lang { background: transparent; backdrop-filter: none; -webkit-backdrop-filter: none; border-color: transparent; padding: 5px 0; }
+    #nav .lang button, #nav .lang span { font-size: 11.5px; }
+    #nav::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 220%; background: linear-gradient(to bottom, rgba(239,230,214,0.92) 0%, rgba(239,230,214,0.55) 50%, rgba(239,230,214,0) 100%); z-index: -1; pointer-events: none; transition: opacity 0.4s; }
+    #nav.scrolled::before { opacity: 0; }
+  }
 
   /* Sticky Optin */
   .sticky-optin {
@@ -244,21 +248,21 @@
     .hero .hero__text { display: contents; }
     .hero .hero-spacer { display: none; }
     .hero .hero__media { order: 1; height: auto; min-height: 0; margin: 0 0 0; padding: 0; display: block; background: var(--cream); }
-    .hero .hero__media img { width: 100%; height: auto; max-height: 30vh; aspect-ratio: 16/8.6; object-fit: cover; object-position: 64% 60%; }
-    .hero .hero-eyebrow { order: 2; margin: 28px 24px 0; padding: 0; border-top: none; font-size: 9.5px; letter-spacing: 0.26em; line-height: 1.5; }
-    .hero h1 { order: 3; margin: 13px 24px 0; line-height: 1.1; }
-    .hero h1.hero-h1--a { font-size: clamp(22px, 5.6vw, 31px); }
+    .hero .hero__media img { width: 100%; height: auto; max-height: 34dvh; aspect-ratio: 16/9.2; object-fit: cover; object-position: 64% 60%; }
+    .hero .hero-eyebrow { order: 2; margin: 18px 24px 0; padding: 0; border-top: none; font-size: 9px; letter-spacing: 0.22em; line-height: 1.45; color: var(--amber); opacity: 0.92; }
+    .hero h1 { order: 3; margin: 10px 24px 0; line-height: 1.08; }
+    .hero h1.hero-h1--a { font-size: clamp(26px, 7vw, 34px); }
     /* Erste Maskenzeile einzeilig halten */
     .hero h1 .ml { white-space: normal; overflow: visible; height: auto; }
     .hero h1 .ml > span { white-space: normal; transform: none !important; }
     .hero h1 .ml:first-child > span { white-space: nowrap; }
-    .hero .lede { order: 4; margin: 15px 24px 0; font-size: 13.5px; line-height: 1.5; color: var(--ink-soft); }
-    .hero .hero-meta { order: 5; margin: 18px 24px 0; }
-    .hero .hero-facts { order: 5; margin: 18px 24px 0; gap: 8px; max-width: none; }
+    .hero .lede { order: 4; margin: 12px 24px 0; font-size: 13.5px; line-height: 1.48; color: var(--ink-soft); }
+    .hero .hero-meta { order: 5; margin: 16px 24px 0; }
+    .hero .hero-facts { order: 5; margin: 16px 24px 0; gap: 8px; max-width: none; }
     .hero .hero-fact { padding: 8px 13px; gap: 1px; flex-direction: column; align-items: flex-start; justify-content: center; text-align: left; border-radius: 12px; }
     .hero .hero-fact__k { font-size: 7.5px; letter-spacing: 0.13em; margin-right: 0; }
     .hero .hero-fact__v { font-size: 11.5px; line-height: 1.2; }
-    .hero .hero-actions { order: 6; margin: 20px 24px 14px; flex-direction: column; align-items: stretch; gap: 10px; }
+    .hero .hero-actions { order: 6; margin: 12px 24px 18px; flex-direction: column; align-items: stretch; gap: 10px; }
     .hero .hero-cta { padding: 13px 24px; font-size: 10.5px; letter-spacing: 0.16em; justify-content: center; text-align: center; border-color: var(--ink); }
     .hero .hero-cta .cta-text--full { display: none; }
     .hero .hero-cta .cta-text--short { display: inline; }
@@ -695,9 +699,6 @@
 </head>
 <body id="top">
 
-<div style="background:#7A2E2E;color:#fff;font-family:'Jost',sans-serif;font-size:14px;line-height:1.5;text-align:center;padding:12px 16px;letter-spacing:0.02em;">
-  <strong>ENTWURF – NUR ZUR RECHTLICHEN PRÜFUNG.</strong> Diese Seite ist nicht veröffentlicht. Die Darstellung der Inhaltsstoffe ist ein ungeprüfter Vorschlag und steht unter dem Vorbehalt anwaltlicher Freigabe.
-</div>
 
 <a href="#hauptinhalt" class="skip-link" data-en="Skip to content">Zum Inhalt springen</a>
 
