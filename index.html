@@ -84,7 +84,8 @@
   #nav.scrolled .nav-progress { opacity: 1; }
   #nav .wordmark { font-family: 'Cormorant Garamond', serif; font-weight: 500; letter-spacing: 0.15em; font-size: clamp(20px, 2vw, 24px); color: var(--ink); text-decoration: none; user-select: none; transition: color 0.4s; }
   #nav .nav-right { display: flex; align-items: center; gap: 28px; }
-  #nav .lang { display: flex; align-items: center; gap: 9px; font-size: 12.5px; letter-spacing: 0.12em; }
+  #nav .lang { display: flex; align-items: center; gap: 9px; font-size: 12.5px; letter-spacing: 0.12em; background: rgba(239,230,214,0.82); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); padding: 5px 13px; border-radius: 999px; border: 1px solid var(--sand-line); transition: background 0.4s, border-color 0.4s; }
+  #nav.scrolled .lang { background: transparent; backdrop-filter: none; -webkit-backdrop-filter: none; border-color: transparent; padding: 5px 0; }
   #nav .lang button { background: none; border: none; cursor: pointer; font-family: 'Jost', sans-serif; font-size: 12.5px; font-weight: 500; letter-spacing: 0.12em; color: var(--ink-soft); padding: 2px 0; transition: color 0.3s; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
   #nav .lang button.active { color: var(--ink); }
   #nav .lang button:hover { color: var(--ink); }
@@ -149,6 +150,11 @@
   /* veredelte Microcopy: kleiner, weiter gesperrt, mit feinem Amber-Akzent */
   .hero-meta { margin-top: 0; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-soft); display: inline-flex; align-items: center; gap: 11px; }
   .hero-meta::before { content: ""; width: 16px; height: 1px; background: var(--amber); flex-shrink: 0; }
+  /* Produkt-Facts: ruhige, abgerundete Pills, editorial, warme Tönung */
+  .hero-facts { list-style: none; margin: 30px 0 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; max-width: 520px; }
+  .hero-fact { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 4px; padding: 15px 18px; border: 1px solid rgba(158,107,65,0.38); border-radius: 999px; background: rgba(158,107,65,0.06); -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; text-rendering: optimizeLegibility; }
+  .hero-fact__k { font-size: 11px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--amber); }
+  .hero-fact__v { font-family: 'Jost', sans-serif; font-size: 15px; font-weight: 500; line-height: 1.25; letter-spacing: 0.005em; color: var(--ink); }
   /* CTA-Zone: Primary + Sekundärlink enger, auf gemeinsamer Achse */
   .hero-actions { margin-top: 26px; display: flex; align-items: center; gap: 22px; flex-wrap: wrap; }
   .hero .hero-cta { align-self: flex-start; display: inline-flex; align-items: center; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--cream); background: var(--ink); text-decoration: none; border: 1px solid var(--ink); padding: 15px 26px; transition: background 0.4s, color 0.4s, border-color 0.4s; }
@@ -163,7 +169,7 @@
 
 
   /* Hero-Eingangssequenz */
-  .hero-eyebrow, .hero-lede, .hero-meta, .hero-actions { opacity: 0; transform: translateY(18px); }
+  .hero-eyebrow, .hero-lede, .hero-meta, .hero-facts, .hero-actions { opacity: 0; transform: translateY(18px); }
   .hero-h1 .ml > span { display: block; transform: translateY(110%); }
   .hero.entered .hero-eyebrow { animation: heroRise 1s cubic-bezier(.2,.7,.2,1) 0.15s forwards; }
   .hero.entered .hero-h1 .ml:nth-child(1) > span { animation: heroLine 1.1s cubic-bezier(.22,.8,.28,1) 0.35s forwards; }
@@ -171,22 +177,23 @@
   .hero.entered .hero-h1 .ml:nth-child(3) > span { animation: heroLine 1.1s cubic-bezier(.22,.8,.28,1) 0.61s forwards; }
   .hero.entered .hero-lede { animation: heroRise 1s cubic-bezier(.2,.7,.2,1) 0.85s forwards; }
   .hero.entered .hero-meta { animation: heroRise 1s cubic-bezier(.2,.7,.2,1) 1.0s forwards; }
-  .hero.entered .hero-actions { animation: heroRise 1s cubic-bezier(.2,.7,.2,1) 1.1s forwards; }
+  .hero.entered .hero-facts { animation: heroRise 1s cubic-bezier(.2,.7,.2,1) 1.0s forwards; }
+  .hero.entered .hero-actions { animation: heroRise 1s cubic-bezier(.2,.7,.2,1) 1.15s forwards; }
   @keyframes heroRise { to { opacity: 1; transform: none; } }
   @keyframes heroLine { to { transform: translateY(0); } }
   .hero-h1 .ml { display: block; overflow: hidden; }
   @media (prefers-reduced-motion: reduce) {
-    .hero-eyebrow, .hero-lede, .hero-meta, .hero-actions { opacity: 1; transform: none; }
+    .hero-eyebrow, .hero-lede, .hero-meta, .hero-facts, .hero-actions { opacity: 1; transform: none; }
     .hero-h1 .ml > span { transform: none; }
   }
-  .no-js .hero-eyebrow, .no-js .hero-lede, .no-js .hero-meta, .no-js .hero-actions { opacity: 1; transform: none; }
+  .no-js .hero-eyebrow, .no-js .hero-lede, .no-js .hero-meta, .no-js .hero-facts, .no-js .hero-actions { opacity: 1; transform: none; }
   .no-js .hero-h1 .ml > span { transform: none; }
   /* Wiederbesuch in derselben Session: Endzustand sofort, keine Eingangsanimation */
-  .hero.instant .hero-eyebrow, .hero.instant .hero-lede, .hero.instant .hero-meta, .hero.instant .hero-actions { opacity: 1; transform: none; animation: none; }
+  .hero.instant .hero-eyebrow, .hero.instant .hero-lede, .hero.instant .hero-meta, .hero.instant .hero-facts, .hero.instant .hero-actions { opacity: 1; transform: none; animation: none; }
   .hero.instant .hero-h1 .ml > span { transform: none; animation: none; }
-  /* Split-Hero — rechte Spalte: Produkt auf Weiß, per Multiply nahtlos auf Creme (Weiß→transparent, Schatten bleiben) */
-  .hero__media { height: 100%; min-height: clamp(640px, 84vh, 780px); background: var(--cream); display: flex; align-items: center; justify-content: center; overflow: hidden; }
-  .hero__media img { width: 100%; height: 100%; max-height: 94vh; object-fit: contain; object-position: 14% 64%; mix-blend-mode: multiply; }
+  /* Split-Hero — rechte Spalte: vollflächiges Hero-Foto (Produktszene am Tisch) */
+  .hero__media { height: 100%; min-height: clamp(640px, 84vh, 780px); background: var(--cream); display: flex; align-items: stretch; justify-content: center; overflow: hidden; }
+  .hero__media img { width: 100%; height: 100%; object-fit: cover; object-position: 66% 58%; }
 
   @media (max-width: 860px) {
     #nav { border-bottom-color: var(--sand-line); }
@@ -194,10 +201,10 @@
     .hero { display: flex; flex-direction: column; min-height: auto; gap: 0; background: var(--cream); }
     .hero .hero__text { display: contents; }
     .hero .hero-spacer { display: none; }
-    .hero .hero-eyebrow { order: 1; margin: 0 24px; padding: 74px 0 0; border-top: none; }
-    .hero .hero__media { order: 2; height: auto; min-height: 0; margin: 0 0 6px; padding: 0; display: flex; justify-content: center; background: var(--cream); }
-    .hero .hero__media img { width: auto; max-width: 80%; height: auto; max-height: 31vh; object-fit: contain; object-position: center center; }
-    .hero h1 { order: 3; margin: 4px 24px 0; line-height: 1.12; }
+    .hero .hero-eyebrow { order: 1; margin: 0 24px; padding: 64px 0 0; border-top: none; }
+    .hero .hero__media { order: 2; height: auto; min-height: 0; margin: 22px 0 4px; padding: 0; display: block; background: var(--cream); }
+    .hero .hero__media img { width: 100%; height: auto; max-height: 40vh; aspect-ratio: 16/10.5; object-fit: cover; object-position: 64% 60%; }
+    .hero h1 { order: 3; margin: 18px 24px 0; line-height: 1.12; }
     .hero h1.hero-h1--a { font-size: clamp(24px, 6.2vw, 34px); }
     /* Erste Maskenzeile einzeilig halten */
     .hero h1 .ml { white-space: normal; overflow: visible; height: auto; }
@@ -205,8 +212,11 @@
     .hero h1 .ml:first-child > span { white-space: nowrap; }
     .hero .lede { order: 4; margin: 16px 24px 0; font-size: 15.5px; line-height: 1.55; }
     .hero .hero-meta { order: 5; margin: 20px 24px 0; }
-    .hero .hero-actions { order: 6; margin: 10px 24px 16px; flex-direction: column; align-items: flex-start; gap: 14px; }
-    .hero .hero-cta { padding: 13px 22px; font-size: 11px; letter-spacing: 0.13em; }
+    .hero .hero-facts { order: 5; margin: 22px 24px 0; gap: 9px; max-width: none; }
+    .hero .hero-fact { padding: 12px 14px; gap: 3px; }
+    .hero .hero-fact__v { font-size: 14.5px; }
+    .hero .hero-actions { order: 6; margin: 26px 24px 22px; flex-direction: column; align-items: stretch; gap: 14px; }
+    .hero .hero-cta { padding: 15px 24px; font-size: 11.5px; letter-spacing: 0.14em; justify-content: center; text-align: center; }
     .hero .hero-cta .cta-text--full { display: none; }
     .hero .hero-cta .cta-text--short { display: inline; }
     .hero .hero-link { display: none; }
@@ -284,23 +294,26 @@
   .composition .eyebrow { color: var(--amber-soft); }
   .composition h2 { font-size: clamp(31px, 4vw, 48px); font-weight: 400; line-height: 1.12; margin: 22px 0 30px; max-width: 700px; }
   .composition .intro { max-width: 560px; color: var(--comp-soft-on-night); font-size: 21px; margin-bottom: 60px; }
-  .comp-layers { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; }
-  .layer { padding: 36px 30px 38px; border-left: 1px solid rgba(255,255,255,0.12); }
-  .layer:first-child { border-left: none; padding-left: 0; }
-  .layer .layer-label { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 26px; color: var(--amber-soft); margin-bottom: 20px; }
+  .comp-layers { display: grid; grid-template-columns: repeat(3, 1fr); gap: 64px 90px; width: 100%; max-width: 1160px; }
+  .layer { padding: 0; }
+  .layer .layer-label { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 28px; color: var(--amber-soft); margin-bottom: 34px; letter-spacing: 0.01em; }
   .layer .layer-items { list-style: none; }
-  .layer .layer-items li { padding: 16px 0; border-bottom: none; font-size: 18.5px; color: var(--cream-on-night); min-height: 98px; box-sizing: border-box; }
-  .layer .layer-items li span { display: block; font-size: 15px; color: var(--comp-soft-on-night); margin-top: 2px; }
+  .layer .layer-items li { padding: 0 0 18px; font-size: 19px; color: var(--cream-on-night); line-height: 1.35; }
+  .layer .layer-items li:last-child { padding-bottom: 0; }
+  .layer .layer-items li .dose { color: var(--comp-soft-on-night); font-size: 15px; }
+  .layer .layer-items li .note { display: block; font-size: 13.5px; color: var(--comp-soft-on-night); margin-top: 5px; line-height: 1.5; letter-spacing: 0.01em; opacity: 0.85; }
   @media (max-width: 920px) {
     .composition .intro { font-size: 16px; margin-bottom: 28px; }
-    .comp-layers { grid-template-columns: 1fr; }
-    .layer { border-left: none; border-top: 1px solid rgba(255,255,255,0.12); padding: 18px 0; }
-    .layer:first-child { border-top: none; }
-    .layer .layer-label { font-size: 21px; margin-bottom: 8px; }
-    .layer .layer-items li { min-height: 0; padding: 8px 0; font-size: 14px; }
-    .layer .layer-items li span { font-size: 12px; }
+    .comp-layers { grid-template-columns: 1fr; gap: 0; max-width: none; }
+    .layer { padding: 24px 0; border-bottom: 1px solid rgba(255,255,255,0.10); }
+    .layer:first-child { padding-top: 0; }
+    .layer:last-child { border-bottom: none; }
+    .layer .layer-label { font-size: 21px; margin-bottom: 14px; }
+    .layer .layer-items li { padding-bottom: 13px; font-size: 16px; }
+    .layer .layer-items li .dose { font-size: 13.5px; }
+    .layer .layer-items li .note { font-size: 12.5px; }
   }
-  .composition .disclaimer { margin-top: 52px; padding-top: 28px; border-top: 1px solid rgba(255,255,255,0.12); font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 17px; line-height: 1.55; color: var(--cream-on-night); max-width: 640px; }
+  .composition .disclaimer { margin-top: 64px; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.12); font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 17px; line-height: 1.55; color: var(--cream-on-night); width: 100%; max-width: 1160px; }
   @media (max-width: 860px) { .composition .disclaimer { font-size: 15px; line-height: 1.5; } }
 
   /* 6 — Ein anderes Glas am Abend */
@@ -342,8 +355,8 @@
 
   /* 7 — Entwickelt mit Sorgfalt */
   .care { padding: 0; }
-  .care--split { position: relative; overflow: hidden; background: var(--cream); display: grid; grid-template-columns: 1.15fr 1fr; align-items: stretch; }
-  .care--split .care__text { display: flex; flex-direction: column; justify-content: center; justify-self: center; padding: var(--section-y) 44px; max-width: 600px; width: 100%; }
+  .care--split { position: relative; overflow: hidden; background: var(--cream); display: grid; grid-template-columns: 1.5fr 1fr; align-items: stretch; }
+  .care--split .care__text { display: flex; flex-direction: column; justify-content: center; justify-self: center; padding: var(--section-y) 50px; max-width: 620px; width: 100%; }
   .care--split .care__media { position: relative; overflow: hidden; min-height: 100%; }
   .care--split .care__media img { width: 100%; height: 100%; object-fit: cover; object-position: center 55%; display: block; filter: saturate(1.04) contrast(1.01); }
   .care__text h2 { font-size: clamp(31px, 4vw, 48px); font-weight: 400; line-height: 1.13; margin: 18px 0 26px; }
@@ -358,31 +371,42 @@
     .principle__label { font-size: 16px; margin-bottom: 5px; }
     .principle__text { font-size: 15px; }
   }
-  .care__maker { background: var(--cream-deep); padding: 40px 36px; position: relative; }
-  .care__maker-top { display: flex; align-items: center; gap: 20px; margin-bottom: 20px; }
-  .care__portrait { width: 68px; height: 68px; border-radius: 6px; object-fit: cover; flex-shrink: 0; filter: grayscale(0.2) sepia(0.06) contrast(1.03) brightness(0.98); border: 1px solid rgba(158,107,65,0.22); }
-  .care__maker .seal { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: clamp(28px,3.4vw,40px); line-height: 1.05; color: var(--amber); margin-bottom: 0; }
-  .care__maker p { font-size: 17px; color: var(--ink-soft); margin-bottom: 16px; }
-  .care__maker .creds { display: flex; gap: 28px; margin-top: 24px; flex-wrap: wrap; }
-  .care__maker .creds .c .k { font-family: 'Cormorant Garamond', serif; font-size: 27px; color: var(--amber); display: block; }
-  .care__maker .creds .c .v { font-size: 11.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-soft); }
+  .care__maker { background: var(--cream-deep); position: relative; }
+  .care__hero-portrait { width: 100%; height: auto; display: block; aspect-ratio: 4/4.3; object-fit: cover; object-position: center 28%; filter: saturate(1.04) contrast(1.02) brightness(1.01); }
+  .care__maker-body { padding: 30px 40px 38px; }
+  .care__maker .seal { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: clamp(28px, 2.4vw, 34px); line-height: 1.08; color: var(--amber); margin-bottom: 16px; }
+  .care__maker p { font-size: 16px; color: var(--ink-soft); margin-bottom: 0; line-height: 1.6; }
+  .care__maker .creds { display: flex; gap: 14px; align-items: center; margin-top: 24px; flex-wrap: nowrap; }
+  .care__maker .creds::before { content: ""; width: 28px; height: 1px; background: var(--amber); flex: 0 0 28px; opacity: 0.55; }
+  .care__maker .creds .c { display: flex; align-items: baseline; gap: 7px; flex: 0 0 auto; }
+  .care__maker .creds .c .k { font-family: 'Cormorant Garamond', serif; font-size: 14px; color: var(--ink-soft); display: inline; }
+  .care__maker .creds .c .v { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-soft); display: inline; white-space: nowrap; }
+  /* Rechte Spalte: Foto + Card-Inhalt als Einheit, oben ausgerichtet, nah am Text */
+  .care__media--maker { background: var(--cream); display: flex; align-items: center; justify-content: flex-start; padding: var(--section-y) 44px var(--section-y) 36px; }
+  .care__media--maker .care__maker { background: var(--cream-deep); max-width: 500px; width: 100%; border-radius: 2px; overflow: hidden; }
+  .care__media--maker .seal { margin-bottom: 16px; }
+  @media (max-width: 860px) {
+    .care__media--maker { padding: 0 22px 40px; }
+    .care__media--maker .care__maker { max-width: none; }
+    .care__maker-body { padding: 26px 22px 30px; }
+    .care__media--maker .seal { font-size: 26px; }
+  }
   @media (max-width: 860px) {
     .care--split { grid-template-columns: 1fr; }
     .care--split .care__text { padding: 56px 22px 32px; max-width: none; }
-    .care--split .care__media { aspect-ratio: 16/11; min-height: 0; }
-    .care--split .care__media img { aspect-ratio: 16/11; object-position: center 50%; }
+    .care--split .care__media:not(.care__media--maker) { aspect-ratio: 16/11; min-height: 0; }
+    .care--split .care__media:not(.care__media--maker) img { aspect-ratio: 16/11; object-position: center 50%; }
+    .care--split .care__media--maker { aspect-ratio: auto; }
+    .care__hero-portrait { aspect-ratio: 4/2.8; object-position: center 24%; }
     .care__text p:not(.eyebrow) { font-size: 15.5px; margin-bottom: 12px; }
     .care__origin { font-size: 17px !important; line-height: 1.5 !important; margin-top: 16px !important; padding-top: 16px; }
     .care__principles { margin-top: 18px; }
     .principle { padding: 13px 0; }
-    .care__maker { padding: 20px 18px; }
-    .care__maker-top { gap: 14px; margin-bottom: 14px; }
-    .care__portrait { width: 52px; height: 52px; border-radius: 5px; }
-    .care__maker .seal { font-size: 23px; margin-bottom: 12px; }
-    .care__maker p { font-size: 14.5px; margin-bottom: 10px; }
-    .care__maker .creds { gap: 16px; margin-top: 14px; }
-    .care__maker .creds .c .k { font-size: 22px; }
-    .care__maker .creds .c .v { font-size: 11px; }
+    .care__maker .seal { font-size: 24px; margin-bottom: 12px; }
+    .care__maker p { font-size: 14.5px; }
+    .care__maker .creds { gap: 12px; margin-top: 18px; }
+    .care__maker .creds .c .k { font-size: 14px; }
+    .care__maker .creds .c .v { font-size: 10.5px; }
   }
 
   /* 8 — FAQ */
@@ -616,6 +640,7 @@
 </head>
 <body id="top">
 
+
 <a href="#hauptinhalt" class="skip-link" data-en="Skip to content">Zum Inhalt springen</a>
 
 <!-- Sticky Optin -->
@@ -649,39 +674,33 @@
 <section class="hero">
 
   <div class="hero__text">
-    <p class="eyebrow hero-eyebrow" data-en="A ritual for after work">Ein Ritual für den Feierabend</p>
+    <p class="eyebrow hero-eyebrow" data-en="The day doesn't always end on its own">Der Tag endet nicht immer von selbst</p>
 
     <h1 class="serif hero-h1 hero-h1--a">
       <span class="ml"><span data-en="Not for sleep.">Nicht für den Schlaf.</span></span>
       <span class="ml"><span data-en="For the <em>moment before.</em>">Für den <em>Moment davor.</em></span></span>
     </h1>
 
-    <p class="lede hero-lede hero-lede--a" data-en="HESPYRA is a warm cacao evening drink — a daily powder ritual without melatonin, for the transition from the day into a quieter evening.">HESPYRA ist ein warmer Kakao-Abenddrink — ein tägliches Pulverritual ohne Melatonin, für den Übergang vom Tag in einen ruhigeren Abend.</p>
+    <p class="lede hero-lede hero-lede--a" data-en="HESPYRA is an evening ritual as a powder drink — stirred in, warm or cold, for the moment between day and evening.">HESPYRA ist ein Abendritual als Pulverdrink — zum Anrühren, warm oder kalt, für den Moment zwischen Tag und Abend.</p>
+
+    <ul class="hero-facts" aria-label="Produkt-Facts">
+      <li class="hero-fact"><span class="hero-fact__k" data-en="Without">Ohne</span><span class="hero-fact__v">Melatonin</span></li>
+      <li class="hero-fact"><span class="hero-fact__k">30</span><span class="hero-fact__v" data-en="Evening portions">Portionen</span></li>
+      <li class="hero-fact"><span class="hero-fact__k" data-en="Enjoyable">Genießbar</span><span class="hero-fact__v" data-en="Warm or cold">Warm oder kalt angerührt</span></li>
+      <li class="hero-fact"><span class="hero-fact__k" data-en="With">Mit</span><span class="hero-fact__v">Magnesium &amp; L-Theanin</span></li>
+    </ul>
 
     <div class="hero-spacer" aria-hidden="true"></div>
 
 
     <div class="hero-actions">
-      <a href="#warteliste" class="hero-cta"><span class="cta-text cta-text--full" data-en="Early access to the first edition">Früher Zugang zur ersten Edition</span><span class="cta-text cta-text--short" data-en="Join the first edition">Erste Edition begleiten</span></a>
+      <a href="#warteliste" class="hero-cta"><span class="cta-text cta-text--full" data-en="Join the first edition waitlist">Zur Warteliste der ersten Edition</span><span class="cta-text cta-text--short" data-en="Join the waitlist">Zur Warteliste</span></a>
       <a href="#composition-anchor" class="hero-link" data-en="To the composition">Zur Komposition</a>
     </div>
   </div>
 
   <div class="hero__media">
-    <img class="hero__product" src="img/hespyra_hero_multiply-1100.webp" srcset="img/hespyra_hero_multiply-760.webp 760w, img/hespyra_hero_multiply-1100.webp 1100w, img/hespyra_hero_multiply-1500.webp 1500w" sizes="(max-width:860px) 100vw, 50vw" width="1498" height="1628" alt="HESPYRA Evening Ritual — Dose, ein Glas des Drinks und ein Holzlöffel mit Pulver auf warmem Creme" fetchpriority="high" />
-  </div>
-</section>
-
-<!-- 2 — Produkt-Klarheit (Powder-Blindspot) -->
-<section class="facts" aria-label="Das Produkt auf einen Blick">
-  <div class="wrap">
-    <ul class="facts__row reveal">
-      <li data-en="Powder in the tin">Pulver in der Dose</li>
-      <li data-en="Cacao &amp; vanilla">Kakao &amp; Vanille</li>
-      <li data-en="30 evening servings">30 Abendportionen</li>
-      <li data-en="Stirred warm or cold">Warm oder kalt angerührt</li>
-      <li data-en="Without melatonin">Ohne Melatonin</li>
-    </ul>
+    <img class="hero__product" src="img/heroHome.webp" width="1402" height="1122" sizes="(max-width:860px) 100vw, 52vw" alt="HESPYRA Evening Ritual auf einem Holztisch am frühen Abend — Dose, ein Glas des angerührten Drinks und ein Holzscoop mit Kakaopulver, warmes Licht durch große Fenster" fetchpriority="high" decoding="async" />
   </div>
 </section>
 
@@ -737,31 +756,33 @@
   <div class="wrap">
     <p class="eyebrow reveal" data-en="The Composition">Die Komposition</p>
     <h2 class="serif reveal" data-en="A &lt;em&gt;composition&lt;/em&gt; for the evening.">Eine <em>Komposition</em> für&nbsp;den&nbsp;Abend.</h2>
-    <p class="intro reveal" data-en="HESPYRA is more than a cacao drink: warm flavour, joined with a deliberately chosen, transparent composition. Not meant to switch you off, but a conscious ritual for the moment before.">HESPYRA ist mehr als ein Kakao-Drink: warmer Geschmack, verbunden mit einer bewusst gewählten, transparenten Zusammensetzung. Nicht zum Ausschalten gedacht, sondern als bewusstes Ritual für den Moment davor.</p>
+    <p class="intro reveal" data-en="What's in HESPYRA is openly named: selected raw materials, clear dosages, no proprietary blends.">Was in HESPYRA steckt, wird offen benannt: ausgewählte Rohstoffe, klare Dosierungen, keine proprietären Mischungen.</p>
     <div class="comp-layers stagger-group">
-      <div class="layer reveal">
-        <div class="layer-label" data-en="Mineral Foundation">Mineralische Grundlage</div>
-        <ul class="layer-items">
-          <li>Magnesium <span data-en="Magnesium contributes to the normal functioning of the nervous system.">Magnesium trägt zu einer normalen Funktion des Nervensystems bei.</span></li>
-          <li><span data-en="Forms &amp; dosage">Formen &amp; Dosierung</span> <span data-en="Made visible once the formula is final.">Sichtbar gemacht, sobald die Rezeptur final ist.</span></li>
-        </ul>
-      </div>
       <div class="layer reveal">
         <div class="layer-label" data-en="Botanical Depth">Pflanzliche Tiefe</div>
         <ul class="layer-items">
-          <li><span data-en="Selected plant compounds">Ausgewählte Pflanzenstoffe</span> <span data-en="Carefully chosen as part of the first edition.">Sorgfältig gewählt als Teil der ersten Edition.</span></li>
-          <li><span data-en="Disclosure at launch">Offenlegung zum Launch</span> <span data-en="All components are made transparent before release.">Alle Bestandteile werden vor Veröffentlichung transparent gemacht.</span></li>
+          <li>Safran<span class="note" data-en="From Spain, in Affron® quality.">Aus Spanien, in Affron®-Qualität.</span></li>
+          <li>Ashwagandha<span class="note" data-en="Root extract, KSM-66®.">Wurzelextrakt, KSM-66®.</span></li>
+          <li>Reishi<span class="note" data-en="Ganoderma lucidum.">Ganoderma lucidum.</span></li>
         </ul>
       </div>
       <div class="layer reveal">
-        <div class="layer-label" data-en="Warm Notes">Warme Noten</div>
+        <div class="layer-label" data-en="Selected Compounds">Ausgewählte Stoffe</div>
         <ul class="layer-items">
-          <li><span data-en="Cacao">Kakao</span> <span data-en="Warmth and substance, not too sweet.">Wärme und Substanz, nicht zu süß.</span></li>
-          <li><span data-en="Vanilla">Vanille</span> <span data-en="So the ritual becomes repeatable every evening.">Damit das Ritual jeden Abend wiederholbar wird.</span></li>
+          <li>L-Theanin<span class="note" data-en="Suntheanine®.">Suntheanine®.</span></li>
+          <li>Phosphatidylserin<span class="note" data-en="SerinAid®.">SerinAid®.</span></li>
+        </ul>
+      </div>
+      <div class="layer reveal">
+        <div class="layer-label" data-en="Foundation &amp; Taste">Grundlage &amp; Geschmack</div>
+        <ul class="layer-items">
+          <li>Magnesium<span class="note" data-en="Bisglycinate &amp; taurate.">Bisglycinat &amp; Taurat.</span></li>
+          <li>Kakao</li>
+          <li>Vanille</li>
         </ul>
       </div>
     </div>
-    <p class="disclaimer reveal" data-en="The final formula will be fully disclosed before launch — including forms and dosages. No proprietary blends. No hidden fillers.">Die finale Rezeptur wird vor dem Launch vollständig offengelegt — inklusive Formen und Dosierungen. Keine proprietären Mischungen. Keine versteckten Füllstoffe.</p>
+    <p class="disclaimer reveal" data-en="Selected branded raw materials, transparently disclosed. No proprietary blends. No hidden fillers.">Ausgewählte Marken-Rohstoffe, transparent offengelegt. Keine proprietären Mischungen. Keine versteckten Füllstoffe.</p>
   </div>
 </section>
 
@@ -778,7 +799,7 @@
     <p class="ag-close serif reveal" data-en="HESPYRA is not about giving up. It is a different <em>beginning.</em>">HESPYRA ist kein Verzicht. Es ist ein anderer <em>Anfang.</em></p>
   </div>
   <div class="ag__media analog-media reveal">
-    <img src="img/hespyra_anderes_glas-1024.webp" srcset="img/hespyra_anderes_glas-640.webp 640w, img/hespyra_anderes_glas-1024.webp 1024w" sizes="(max-width:860px) 100vw, 50vw" width="1024" height="1024" alt="Ein anderes Glas am Abend: HESPYRA Evening Ritual auf einem Holztisch im warmen Licht des Wohnzimmers" decoding="async" />
+    <img src="img/hespyra_anderes_glas-1024.webp" srcset="img/hespyra_anderes_glas-640.webp 640w, img/hespyra_anderes_glas-1024.webp 1024w" sizes="(max-width:860px) 100vw, 50vw" width="1024" height="1024" alt="Ein anderes Glas am Abend: HESPYRA Evening Ritual auf einem Holztisch im warmen Licht eines ruhigen Wohnzimmers am Abend" decoding="async" />
   </div>
 </section>
 
@@ -817,9 +838,18 @@
           </div>
         </div>
   </div>
-  <!-- Rechte Spalte: Ritualbild randlos (vorübergehend statt Maker-Card; Backup separat gesichert). -->
-  <div class="care__media reveal">
-    <img src="img/hespyra_ritual-1024.webp" srcset="img/hespyra_ritual-760.webp 760w, img/hespyra_ritual-1024.webp 1024w, img/hespyra_ritual-1500.webp 1500w" sizes="(max-width: 860px) 100vw, 45vw" width="1500" height="1500" decoding="async" alt="HESPYRA-Abendritual: Kakaopulver wird in ein Glas gerührt, daneben die Dose, in warmem Abendlicht" />
+  <!-- Rechte Spalte: großes Porträt oben, darunter Trust-Card-Inhalt als Einheit. -->
+  <div class="care__media care__media--maker reveal">
+    <div class="care__maker">
+      <img class="care__hero-portrait" src="img/hespyra_christian_portrait-1000.webp" srcset="img/hespyra_christian_portrait-640.webp 640w, img/hespyra_christian_portrait-1000.webp 1000w" sizes="(max-width:860px) 100vw, 46vw" width="1000" height="1100" decoding="async" alt="Christian Baker, Gründer von Profound Formulas" />
+      <div class="care__maker-body">
+        <div class="seal serif" data-en="Formulated with<br>Profound Formulas">Formuliert mit<br>Profound Formulas</div>
+        <p data-en="Behind the formula is Christian Baker, founder of Profound Formulas. Over sixteen years he has developed formulas for international brands — bringing the same care to a product that deliberately stays quiet.">Hinter der Rezeptur steht Christian Baker, Gründer von Profound Formulas. In über sechzehn Jahren hat er Rezepturen für internationale Marken entwickelt — und bringt dieselbe Sorgfalt in ein Produkt ein, das bewusst leise bleibt.</p>
+        <div class="creds">
+          <div class="c"><span class="k serif">16</span><span class="v" data-en="years of experience">Jahre Erfahrung</span></div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
   </div>
