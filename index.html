@@ -193,10 +193,11 @@
   .hero-meta { margin-top: 0; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-soft); display: inline-flex; align-items: center; gap: 11px; }
   .hero-meta::before { content: ""; width: 16px; height: 1px; background: var(--amber); flex-shrink: 0; }
   /* Produkt-Facts: ruhige, abgerundete Pills, editorial, warme Tönung */
-  .hero-facts { list-style: none; margin: 26px 0 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; max-width: 440px; }
-  .hero-fact { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 2px; padding: 10px 16px; border: 1px solid rgba(158,107,65,0.2); border-radius: 999px; background: rgba(158,107,65,0.04); -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; text-rendering: optimizeLegibility; }
+  .hero-facts { list-style: none; margin: 26px 0 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; max-width: 480px; }
+  .hero-fact { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 2px; padding: 10px 16px; border: 1px solid rgba(158,107,65,0.12); border-radius: 14px; background: rgba(158,107,65,0.05); -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; text-rendering: optimizeLegibility; }
   .hero-fact__k { font-size: 9.5px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--amber); }
-  .hero-fact__v { font-family: 'Jost', sans-serif; font-size: 13.5px; font-weight: 400; line-height: 1.25; letter-spacing: 0.01em; color: var(--ink); }
+  .hero-fact__v { font-family: 'Jost', sans-serif; font-size: 15px; font-weight: 500; line-height: 1.3; letter-spacing: 0.005em; color: var(--ink); }
+  .hero-fact__v .hf-accent { color: var(--amber); font-weight: 500; }
   @media (min-width: 861px) { .hero-fact__v { white-space: nowrap; } }
   /* CTA-Zone: Primary + Sekundärlink enger, auf gemeinsamer Achse */
   .hero-actions { margin-top: 28px; display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
@@ -207,6 +208,7 @@
   .hero-link { font-size: 13px; letter-spacing: 0.02em; color: #4A4030; text-decoration: none; padding-bottom: 2px; border-bottom: 1px solid transparent; transition: color 0.3s, border-color 0.3s, opacity 0.3s; opacity: 0.92; }
   .hero-link:hover { color: var(--ink); border-color: var(--amber); opacity: 1; }
   .hero .hero-cta:hover { background: var(--amber); border-color: var(--amber); color: var(--cream); }
+  .hero-note { margin-top: 16px; max-width: 440px; font-family: 'Jost', sans-serif; font-size: 13px; line-height: 1.6; color: var(--ink-soft); }
 
   /* Mini-Hinweise als leise Hairlines */
 
@@ -262,8 +264,9 @@
     .hero .hero-facts { order: 5; margin: 16px 24px 0; gap: 8px; max-width: none; }
     .hero .hero-fact { padding: 8px 13px; gap: 1px; flex-direction: column; align-items: flex-start; justify-content: center; text-align: left; border-radius: 12px; }
     .hero .hero-fact__k { font-size: 7.5px; letter-spacing: 0.13em; margin-right: 0; }
-    .hero .hero-fact__v { font-size: 12.5px; line-height: 1.2; }
+    .hero .hero-fact__v { font-size: 12.5px; line-height: 1.2; hyphens: auto; -webkit-hyphens: auto; overflow-wrap: break-word; }
     .hero .hero-actions { order: 6; margin: 12px 24px 18px; flex-direction: column; align-items: stretch; gap: 10px; }
+    .hero .hero-note { order: 7; margin: 0 24px 20px; font-size: 12.5px; line-height: 1.55; max-width: none; }
     .hero .hero-cta { padding: 13px 24px; font-size: 10.5px; letter-spacing: 0.16em; justify-content: center; text-align: center; border-color: var(--ink); border-radius: 12px; }
     .hero .hero-cta .cta-text--full { display: none; }
     .hero .hero-cta .cta-text--short { display: inline; }
@@ -720,9 +723,6 @@
 </head>
 <body id="top">
 
-<div style="background:#7A2E2E;color:#fff;font-family:'Jost',sans-serif;font-size:14px;line-height:1.5;text-align:center;padding:12px 16px;letter-spacing:0.02em;">
-  <strong>ENTWURF – NUR ZUR RECHTLICHEN PRÜFUNG.</strong> Diese Seite ist nicht veröffentlicht. Die Darstellung der Inhaltsstoffe ist ein ungeprüfter Vorschlag und steht unter dem Vorbehalt anwaltlicher Freigabe.
-</div>
 
 <a href="#hauptinhalt" class="skip-link" data-en="Skip to content">Zum Inhalt springen</a>
 
@@ -757,29 +757,30 @@
 <section class="hero">
 
   <div class="hero__text">
-    <p class="eyebrow hero-eyebrow" data-en="Cacao evening drink to stir up">Kakao-Abenddrink zum Anrühren</p>
+    <p class="eyebrow hero-eyebrow" data-en="Evening ritual in powder form">Abendritual in Pulverform</p>
 
     <h1 class="serif hero-h1 hero-h1--a">
-      <span class="ml"><span data-en="For the moment">Für den Moment,</span></span>
-      <span class="ml"><span data-en="<em>that's yours.</em>">der <em>dir gehört.</em></span></span>
+      <span class="ml"><span data-en="Your own beginning">Ein eigener Anfang</span></span>
+      <span class="ml"><span data-en="for your <em>evening.</em>">für deinen <em>Abend.</em></span></span>
     </h1>
 
-    <p class="lede hero-lede hero-lede--a" data-en="With magnesium and carefully selected plant compounds.">Mit Magnesium und sorgfältig ausgewählten Pflanzenstoffen.</p>
+    <p class="lede hero-lede hero-lede--a" data-en="A carefully composed recipe to stir up — warm or cold, with cacao &amp; vanilla.">Eine sorgfältig komponierte Rezeptur zum Anrühren — warm oder kalt, mit Kakao &amp; Vanille.</p>
 
     <ul class="hero-facts" aria-label="Produkt-Facts">
-      <li class="hero-fact"><span class="hero-fact__k" data-en="Cacao &amp; vanilla">Kakao</span><span class="hero-fact__v" data-en="&amp; vanilla">&amp; Vanille</span></li>
-      <li class="hero-fact"><span class="hero-fact__k">30</span><span class="hero-fact__v" data-en="Evening portions">Portionen</span></li>
-      <li class="hero-fact"><span class="hero-fact__k" data-en="Enjoyable">Genießbar</span><span class="hero-fact__v" data-en="Warm or cold">Warm oder kalt</span></li>
-      <li class="hero-fact"><span class="hero-fact__k" data-en="As">Als</span><span class="hero-fact__v" data-en="Powder drink">Pulverdrink</span></li>
+      <li class="hero-fact"><span class="hero-fact__v" data-en="<span class=&quot;hf-accent&quot;>30</span> portions"><span class="hf-accent">30</span> Portionen</span></li>
+      <li class="hero-fact"><span class="hero-fact__v" data-en="<span class=&quot;hf-accent&quot;>Warm</span> or cold"><span class="hf-accent">Warm</span> oder kalt</span></li>
+      <li class="hero-fact"><span class="hero-fact__v" data-en="<span class=&quot;hf-accent&quot;>Magnesium</span> in the recipe"><span class="hf-accent">Magnesium</span> in der Rezeptur</span></li>
+      <li class="hero-fact"><span class="hero-fact__v" data-en="Food supplement">Nahrungsergänzungsmittel</span></li>
     </ul>
 
     <div class="hero-spacer" aria-hidden="true"></div>
 
 
     <div class="hero-actions">
-      <a href="#warteliste" class="hero-cta"><span class="cta-text cta-text--full" data-en="Join the first edition waitlist">Zur Warteliste der ersten Edition</span><span class="cta-text cta-text--short" data-en="Join the waitlist">Zur Warteliste</span></a>
+      <a href="#warteliste" class="hero-cta"><span class="cta-text cta-text--full" data-en="Join the first edition waitlist">Zur Warteliste der ersten Edition</span><span class="cta-text cta-text--short" data-en="Join the waitlist">Zur Warteliste der ersten Edition</span></a>
       <a href="#composition-anchor" class="hero-link" data-en="To the composition">Zur Komposition</a>
     </div>
+    <p class="hero-note" data-en="Get insights into development, taste and launch — and be the first to know when HESPYRA is ready.">Erhalte Einblicke in Entwicklung, Geschmack und Launch — und erfahre zuerst, wenn HESPYRA bereitsteht.</p>
   </div>
 
   <div class="hero__media">
