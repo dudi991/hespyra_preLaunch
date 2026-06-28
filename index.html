@@ -156,8 +156,15 @@
   .sticky-optin__close:hover { color: var(--cream-on-night); }
   .sticky-optin.done .so-title { font-style: italic; color: var(--amber-soft); }
   @media (max-width: 720px) {
-    /* Mobil deaktiviert: kultivierte Ruhe vor Conversion-Druck */
-    .sticky-optin { display: none; }
+    /* Mobil aktiv ab 55% Scrolltiefe — kompaktes Layout */
+    .sticky-optin__inner { padding: 10px 16px; gap: 10px; flex-wrap: wrap; }
+    .sticky-optin__text { flex: 1 1 100%; padding-right: 28px; }
+    .sticky-optin__text .so-title { font-size: 15px; }
+    .sticky-optin__text .so-sub { font-size: 11px; }
+    .sticky-optin__form { flex: 1 1 auto; min-width: 0; }
+    .sticky-optin__form input { font-size: 14px; padding: 7px 4px; }
+    .sticky-optin__form button { font-size: 10.5px; letter-spacing: 0.16em; }
+    .sticky-optin__close { position: absolute; top: 8px; right: 12px; font-size: 22px; padding: 0; }
   }
   @media (prefers-reduced-motion: reduce) { .sticky-optin { transition: none; } }
 
@@ -734,7 +741,7 @@
       <span class="so-sub" data-en="One message when the evening begins.">Eine Nachricht, wenn der Abend beginnt.</span>
     </div>
     <form class="sticky-optin__form" id="stickyForm" action="https://tf125fca5.emailsys1a.net/238/9119/938578f21b/subscribe/form.html" method="post" target="rm_iframe" novalidate>
-      <input type="email" id="stickyEmail" name="email" placeholder="E-Mail-Adresse" autocomplete="email" required aria-label="E-Mail-Adresse" />
+      <input type="email" id="stickyEmail" name="email" placeholder="E-Mail-Adresse" data-en-ph="Email address" autocomplete="email" required aria-label="E-Mail-Adresse" />
       <button type="submit" data-en="Sign up">Eintragen</button>
     </form>
     <button class="sticky-optin__close" id="stickyClose" aria-label="Schließen">×</button>
@@ -989,8 +996,8 @@
     <form class="form reveal" id="optinForm" action="https://tf125fca5.emailsys1a.net/238/9119/938578f21b/subscribe/form.html" method="post" target="rm_iframe" novalidate>
       <div class="success-glow" aria-hidden="true"></div>
       <div class="row">
-        <input type="email" id="email" name="email" placeholder="Deine E-Mail-Adresse" autocomplete="email" required aria-label="E-Mail-Adresse" />
-        <button type="submit">Eintragen</button>
+        <input type="email" id="email" name="email" placeholder="Deine E-Mail-Adresse" data-en-ph="Your email address" autocomplete="email" required aria-label="E-Mail-Adresse" />
+        <button type="submit" data-en="Sign up">Eintragen</button>
       </div>
       <p class="note" data-en="No newsletter noise. Just one message when the time comes.">Kein Newsletter-Lärm. Nur eine Nachricht, wenn es so weit ist.</p>
       <div class="form__success-panel" role="status" aria-live="polite">
@@ -1233,18 +1240,20 @@
     }
   }
 
-  // Sticky Optin: erscheint nach erstem Drittel, verschwindet im Waitlist-Bereich
+  // Sticky Optin: erscheint sobald der Hero aus dem Bild ist, verschwindet im Waitlist-Bereich
   const sticky = document.getElementById('stickyOptin');
   const stickyClose = document.getElementById('stickyClose');
   const optinSection = document.getElementById('warteliste');
+  const heroSection = document.querySelector('.hero');
   let stickyDismissed = false;
   const stickyScroll = () => {
     if (stickyDismissed) return;
-    const scrolled = window.scrollY;
-    const triggerPoint = (document.documentElement.scrollHeight - window.innerHeight) * 0.55;
+    // Trigger: Hero-Unterkante ist über den oberen Viewport-Rand gescrollt (Hero komplett aus dem Bild)
+    const heroBottom = heroSection ? heroSection.getBoundingClientRect().bottom : window.innerHeight;
+    const heroGone = heroBottom <= 0;
     const optinTop = optinSection.getBoundingClientRect().top;
     const inOptin = optinTop < window.innerHeight && optinTop > -optinSection.offsetHeight;
-    if (scrolled > triggerPoint && !inOptin) {
+    if (heroGone && !inOptin) {
       sticky.classList.add('visible');
       sticky.setAttribute('aria-hidden', 'false');
     } else {
