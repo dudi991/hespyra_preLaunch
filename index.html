@@ -786,6 +786,17 @@
     color: var(--cream);
   }
   .wl-success__sub { font-size: 14.5px; line-height: 1.6; color: var(--cream-soft); max-width: 360px; }
+  .wl-success__share { margin-top: 22px; }
+  .wl-share__ask { margin: 0 0 12px; font-size: 13.5px; color: var(--cream-soft); }
+  .wl-share__actions { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+  .wl-share__btn {
+    display: inline-flex; align-items: center; padding: 10px 18px;
+    background: transparent; border: 1px solid rgba(239,231,214,0.28); border-radius: 999px;
+    color: var(--cream); font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 500;
+    letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; cursor: pointer;
+    transition: border-color 0.25s, color 0.25s;
+  }
+  .wl-share__btn:hover { border-color: var(--accent-on-dark); color: var(--accent-on-dark); }
 
   /* ============================================================
      10 · FOOTER
@@ -889,13 +900,15 @@
   @keyframes drawRing { to { stroke-dashoffset: 0; opacity: 0.9; } }
   @keyframes drawTick { to { stroke-dashoffset: 0; } }
   .wl-success__title, .wl-success__sub { opacity: 0; }
+  .wl-success__share { opacity: 0; }
   .wl-form.is-success .wl-success__title { animation: fadeUp 0.7s ease 0.85s forwards; }
   .wl-form.is-success .wl-success__sub   { animation: fadeUp 0.7s ease 1.1s forwards; }
+  .wl-form.is-success .wl-success__share { animation: fadeUp 0.7s ease 1.35s forwards; }
   @keyframes fadeUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
   @media (prefers-reduced-motion: reduce) {
     .wl-form.is-success .wl-check .ring, .wl-form.is-success .wl-check .tick { animation: none; stroke-dashoffset: 0; }
     .wl-success__glow { display: none; }
-    .wl-success__title, .wl-success__sub { opacity: 1; animation: none; }
+    .wl-success__title, .wl-success__sub, .wl-success__share { opacity: 1; animation: none; }
   }
 
   /* — Einblendbarer CTA-Balken unten (erscheint nach dem Hero) — */
@@ -1839,6 +1852,13 @@
         </div>
         <div class="wl-success__title" data-en="Lovely to have you.">Schön, dass du dabei bist.</div>
         <div class="wl-success__sub" data-en="We’ll be in touch.">Wir melden uns.</div>
+        <div class="wl-success__share">
+          <p class="wl-share__ask" data-en="Know someone who loves their evenings?">Kennst du jemanden, der seine Abende liebt?</p>
+          <div class="wl-share__actions">
+            <a class="wl-share__btn" id="shareWhatsApp" href="#" target="_blank" rel="noopener" data-en="Share via WhatsApp">Per WhatsApp teilen</a>
+            <button class="wl-share__btn" id="shareCopy" type="button" data-en="Copy link">Link kopieren</button>
+          </div>
+        </div>
       </div>
     </form>
   </div>
@@ -2130,6 +2150,37 @@
       form.classList.add('is-success');
       track('waitlist-signup', { source: 'cta-form' });
     });
+  })();
+
+  // Empfehlungs-Schleife in der Erfolgsmeldung: WhatsApp-Teilen + Link kopieren.
+  // Domain wird dynamisch gelesen (kein Hardcoding), Rapidmail-Formular bleibt unberührt.
+  (function initShare() {
+    const wa = document.getElementById('shareWhatsApp');
+    const copy = document.getElementById('shareCopy');
+    if (!wa && !copy) return;
+    const pageUrl = () => location.origin + location.pathname;
+    const shareText = () => (document.documentElement.lang === 'en')
+      ? 'HESPYRA — an evening supplement you actually look forward to. The first edition is in the making: '
+      : 'HESPYRA — Nahrungsergänzung für den Abend, auf die man sich freut. Die erste Edition entsteht gerade: ';
+    if (wa) {
+      const setHref = () => { wa.href = 'https://wa.me/?text=' + encodeURIComponent(shareText() + pageUrl()); };
+      setHref();
+      wa.addEventListener('click', () => { setHref(); track('waitlist-share', { method: 'whatsapp' }); });
+    }
+    if (copy) {
+      copy.addEventListener('click', () => {
+        const done = () => {
+          const en = document.documentElement.lang === 'en';
+          const prev = copy.textContent;
+          copy.textContent = en ? 'Copied' : 'Kopiert';
+          setTimeout(() => { copy.textContent = prev; }, 1800);
+        };
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(pageUrl()).then(done).catch(done);
+        } else { done(); }
+        track('waitlist-share', { method: 'copy' });
+      });
+    }
   })();
 </script>
 
