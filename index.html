@@ -1167,6 +1167,41 @@
     .wl-lead { margin-bottom: 30px; }
     .site-footer { padding-top: 60px; padding-bottom: 44px; }
   }
+
+  /* ============================================================
+     MOBILE FINAL POLISH — ausschließlich ≤768px.
+     Ändert NICHTS an Desktop (kein Basis-/min-width-Selektor).
+     Ruhiger, kürzer, weniger repetitiv. Keine neue Copy/Struktur.
+     ============================================================ */
+  /* Desktop-/Mobile-Textvarianten: Standard = Desktop sichtbar.
+     display:contents hält die Absätze als direkte Kinder (Reveal/Selektoren unverändert). */
+  .m-only { display: none; }
+  .d-only { display: contents; }
+  /* Einzelabsätze mit Variante brauchen eine echte Box (contents würde die Box entfernen) */
+  p.m-only { display: none; }
+  p.d-only { display: block; }
+  @media (max-width: 768px) {
+    /* 1 · Announcement-Topbar mobil ausblenden (keine konkurrierenden CTAs am Anfang) */
+    .announce { display: none; }
+
+    /* 2 · Hero: repetitive Fact-Cards ausblenden, verbleibende zwei als gleich große 2er-Reihe */
+    .hero-badge--m-hide { display: none; }
+    .hero-badges { grid-template-columns: 1fr 1fr; }
+
+    /* 3 · Sticky Opt-in kompakter, verdeckt weniger Content (Verhalten via bestehendem JS) */
+    .sticky-optin__inner { padding: 7px 12px; }
+    .sticky-optin__text .so-title { font-size: 13.5px; }
+
+    /* 4·5·6 · Copy-Varianten umschalten: Mobile kurz, Desktop-Text bleibt im DOM */
+    .m-only { display: contents; }
+    .d-only { display: none; }
+    p.m-only { display: block; }
+    p.d-only { display: none; }
+
+    /* 7 · Spacing/Rhythm: nur eindeutig großzügige Übergänge moderat beruhigen,
+       Premium-Luft bleibt erhalten. */
+    .hero__text { padding-bottom: 8px; }          /* Hero → Produktbild etwas enger */
+  }
 </style>
 </head>
 
@@ -1224,8 +1259,8 @@
       <p class="lede" data-en="With cacao, real vanilla, magnesium and carefully selected plant extracts – for an evening you genuinely look forward to.">Mit Kakao, echter Vanille, Magnesium und sorgfältig ausgewählten Pflanzenextrakten – für einen Abend, auf den du dich wirklich freust.</p>
 
       <ul class="hero-badges" aria-label="Produkt-Merkmale">
-        <li class="hero-badge"><span class="hero-badge__ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg></span><span data-en="<b>20 sec.</b> ready"><b>20 Sek.</b> bereit</span></li>
-        <li class="hero-badge"><span class="hero-badge__ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M14 13.4V6a2 2 0 0 0-4 0v7.4a4 4 0 1 0 4 0z"/><path d="M12 9v5.5"/></svg></span><span data-en="<b>Warm</b> or cold"><b>Warm</b> oder kalt</span></li>
+        <li class="hero-badge hero-badge--m-hide"><span class="hero-badge__ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg></span><span data-en="<b>20 sec.</b> ready"><b>20 Sek.</b> bereit</span></li>
+        <li class="hero-badge hero-badge--m-hide"><span class="hero-badge__ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M14 13.4V6a2 2 0 0 0-4 0v7.4a4 4 0 1 0 4 0z"/><path d="M12 9v5.5"/></svg></span><span data-en="<b>Warm</b> or cold"><b>Warm</b> oder kalt</span></li>
         <li class="hero-badge"><span class="hero-badge__ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="7" y="7" width="10" height="10" rx="2"/><path d="M5 5l14 14"/></svg></span><span data-en="<b>No</b> added sugar"><b>Ohne</b> Zuckerzusatz</span></li>
         <li class="hero-badge"><span class="hero-badge__ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="5.5" width="16" height="15" rx="2"/><path d="M4 10h16"/><path d="M8 3.5v4M16 3.5v4"/></svg></span><span data-en="<b>30 days</b> supply"><b>30 Tage</b> Vorrat</span></li>
       </ul>
@@ -1285,7 +1320,8 @@
       <h2 class="section__title serif">
         <span data-en="Deep cacao. ">Tiefer Kakao. </span><em data-en="Real vanilla.">Echte Vanille.</em>
       </h2>
-      <p class="taste__lead" data-en="Most supplements you simply take. HESPYRA is different: full, dark cacao and real vanilla give the formula a warm, grown-up character — round, mild and pleasantly creamy.">Die meisten Nahrungsergänzungen nimmt man einfach ein. HESPYRA ist anders: voller, dunkler Kakao und echte Vanille geben der Formel einen warmen, erwachsenen Charakter — rund, mild und angenehm cremig.</p>
+      <p class="taste__lead d-only" data-en="Most supplements you simply take. HESPYRA is different: full, dark cacao and real vanilla give the formula a warm, grown-up character — round, mild and pleasantly creamy.">Die meisten Nahrungsergänzungen nimmt man einfach ein. HESPYRA ist anders: voller, dunkler Kakao und echte Vanille geben der Formel einen warmen, erwachsenen Charakter — rund, mild und angenehm cremig.</p>
+      <p class="taste__lead m-only" data-en="Dark cacao and real vanilla give the formula a round, grown-up character.">Dunkler Kakao und echte Vanille geben der Formel einen runden, erwachsenen Charakter.</p>
     </div>
     <div class="taste-icons">
       <div class="taste-ico">
@@ -1415,9 +1451,15 @@
       <h2 class="section__title serif">
         <span data-en="Developed from 16 years of ">Entwickelt aus 16 Jahren </span><em data-en="formulation experience.">Formulierungserfahrung.</em>
       </h2>
+      <div class="d-only">
       <p data-en="HESPYRA isn’t developed in a marketing office. The formula was created together with <strong>Christian Baker</strong> — founder of <em>Profound Formulas</em> and a formulator who has developed supplements for leading brands worldwide for over 16 years.">HESPYRA entsteht nicht in einem Marketingbüro. Die Formel wurde gemeinsam mit <strong>Christian Baker</strong> entwickelt — Gründer von <em>Profound Formulas</em> und Formulierer, der seit über 16 Jahren Nahrungsergänzung für führende Marken weltweit entwickelt.</p>
       <p data-en="That experience defines every detail: which raw materials are used, in which form and in which dosage — so that the composition holds up not just on the label, but in its quality.">Diese Erfahrung bestimmt jedes Detail: welche Rohstoffe verwendet werden, in welcher Form und in welcher Dosierung — damit die Zusammensetzung nicht nur auf dem Etikett überzeugt, sondern in ihrer Qualität.</p>
       <p data-en="For you, that means: a formula you can rely on — built on expertise, not on marketing.">Für dich heißt das: eine Formel, auf die du dich verlassen kannst — auf Basis von Fachwissen, nicht von Marketing.</p>
+      </div>
+      <div class="m-only">
+      <p data-en="HESPYRA was developed together with Christian Baker — founder of Profound Formulas and a formulator with over 16 years of experience.">HESPYRA wurde gemeinsam mit Christian Baker entwickelt — Gründer von Profound Formulas und Formulierer mit über 16 Jahren Erfahrung.</p>
+      <p data-en="That experience shapes the choice of raw materials, their forms and dosages — for a composition built on expertise, not marketing.">Diese Erfahrung prägt die Auswahl der Rohstoffe, ihre Formen und Dosierungen — für eine Zusammensetzung auf Basis von Fachwissen statt Marketing.</p>
+      </div>
 
       <div class="trust-stats">
         <div class="trust-stat">
@@ -1668,10 +1710,17 @@
       <h2 class="section__title serif">
         <span data-en="Supplements that do their job — ">Nahrungsergänzung, die ihren Zweck erfüllt — </span><em data-en="and that you enjoy.">und die man gerne trinkt.</em>
       </h2>
+      <div class="d-only">
       <p data-en="Many supplements do their job. But only a few are something you genuinely look forward to.">Viele Nahrungsergänzungen erfüllen ihren Zweck. Aber nur wenige sind etwas, auf das man sich wirklich freut.</p>
       <p data-en="After long working days I was home, but often not quite in the evening yet. I found plenty that was functional. But hardly anything I genuinely looked forward to in the evening.">Nach langen Arbeitstagen war ich zwar zuhause, aber innerlich oft noch nicht ganz im Feierabend. Ich fand vieles, das funktional war. Aber kaum etwas, auf das ich mich abends wirklich gefreut hätte.</p>
       <p data-en="So I set out to close exactly that gap: a high-quality formula that doesn’t feel like an obligation — but like something to look forward to in the evening.">Also begann ich, genau diese Lücke zu schließen: eine hochwertige Formel, die nicht nach Pflicht aussieht – sondern nach etwas, auf das man sich am Abend freut.</p>
       <p data-en="HESPYRA grew out of that: an evening supplement thought through functionally — and still enjoyable to drink.">HESPYRA ist daraus entstanden: Nahrungsergänzung für den Abend, die funktional gedacht ist – und trotzdem gerne getrunken wird.</p>
+      </div>
+      <div class="m-only">
+      <p data-en="Many supplements do their job. But only a few are something you genuinely look forward to.">Viele Nahrungsergänzungen erfüllen ihren Zweck. Aber nur wenige sind etwas, auf das man sich wirklich freut.</p>
+      <p data-en="After long working days I was home, but often not quite in the evening yet. I found plenty that was functional — but hardly anything I genuinely looked forward to in the evening.">Nach langen Arbeitstagen war ich zwar zuhause, aber innerlich oft noch nicht ganz im Feierabend. Ich fand vieles, das funktional war — aber kaum etwas, auf das ich mich abends wirklich gefreut hätte.</p>
+      <p data-en="Out of that gap, HESPYRA was born: a high-quality formula that doesn’t look like an obligation, but like something that becomes a welcome part of the evening.">Aus dieser Lücke entstand HESPYRA: eine hochwertige Formel, die nicht nach Pflicht aussieht, sondern nach etwas, das gerne Teil des Abends wird.</p>
+      </div>
     </div>
 
     <div class="founder__visual">
