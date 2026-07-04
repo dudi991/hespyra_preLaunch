@@ -243,6 +243,7 @@
     align-self: center; margin: 16px 0 0; font-size: 12.5px; line-height: 1.5;
     color: var(--ink-soft); text-align: center; white-space: nowrap;
   }
+  .hero-footnote__accent { color: inherit; }
 
   .hero__media { position: relative; overflow: hidden; min-height: clamp(620px, 82vh, 760px); }
   .hero__media img {
@@ -268,16 +269,28 @@
     .hero__media img { object-position: center 55%; }
   }
   @media (max-width: 560px) {
-    .hero__text { padding: 36px 26px 0; }
-    .hero h1 { font-size: clamp(30px, 8vw, 40px); margin: 0 0 14px; }
-    .hero .lede { margin: 0 0 18px; }
-    .hero-badges { grid-template-columns: 1fr 1fr; gap: 9px; margin: 0 0 20px; }
-    .hero-badge { padding: 11px 13px; font-size: 13px; gap: 8px; }
-    .hero-badge__ico { width: 16px; height: 16px; }
-    .hero-cta { width: 100%; padding: 18px 22px; }
+    #nav { padding: 10px 20px; }
+    .hero__text { padding: 22px 26px 0; }
+    .hero .eyebrow { font-size: 10.5px; letter-spacing: 0.16em; margin: 0 0 12px; }
+    .hero h1 { font-size: clamp(27px, 7.2vw, 36px); margin: 0 0 12px; }
+    .hero .lede { margin: 0 0 18px; font-size: 15px; line-height: 1.48; }
+    .hero-badges {
+      display: flex; align-items: center; flex-wrap: wrap; gap: 8px 14px;
+      margin: 0 0 22px;
+    }
+    .hero-badge {
+      padding: 0; background: none; border: none; border-radius: 0;
+      gap: 7px; font-size: 13.5px; color: var(--ink-soft); width: auto;
+    }
+    .hero-badge__ico { width: 15px; height: 15px; }
+    .hero-badge:nth-child(4)::before {
+      content: '·'; margin-right: 14px; color: var(--ink-mute);
+    }
+    .hero-cta { width: 100%; padding: 15px 18px; font-size: 11px; white-space: nowrap; }
     .hero-cta__label { text-align: center; }
-    .hero-footnote { white-space: normal; max-width: 300px; }
-    .hero__media { aspect-ratio: 4 / 3; max-height: none; margin-top: 26px; }
+    .hero-footnote { white-space: normal; max-width: 300px; font-size: 12px; margin-top: 12px; }
+    .hero-footnote__accent { display: block; margin-top: 2px; color: var(--accent); }
+    .hero__media { aspect-ratio: 4 / 3; max-height: none; margin-top: 14px; }
     .hero__media img { object-position: center 56%; }
   }
 
@@ -1323,7 +1336,7 @@
 
       <div class="hero-actions">
         <a href="#warteliste" class="hero-cta"><span class="hero-cta__label" data-en="Secure your spot on the waitlist">Platz auf der Warteliste sichern</span><span class="hero-cta__arrow" aria-hidden="true">→</span></a>
-        <p class="hero-footnote" data-en="Early access to the limited first edition. Free and without obligation.">Früher Zugang zur limitierten ersten Edition. Kostenlos und unverbindlich.</p>
+        <p class="hero-footnote"><span data-en="Early access to the limited first edition.">Früher Zugang zur limitierten ersten Edition.</span> <span class="hero-footnote__accent" data-en="Free &amp; without obligation.">Kostenlos &amp; unverbindlich.</span></p>
       </div>
     </div>
   </div>
