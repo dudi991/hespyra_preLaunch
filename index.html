@@ -272,6 +272,9 @@
     .hero__media img { object-position: center 55%; }
   }
   @media (max-width: 560px) {
+    /* Glow kleiner, damit er bei voller Skalierung nicht über den Viewport ragt
+       (verhindert horizontales Verschieben nach dem Eintrag, ohne Buttons abzuschneiden) */
+    .wl-success__glow { width: 130px; height: 130px; }
     #nav { padding: 10px 20px; }
     .hero__text { padding: 22px 26px 0; }
     .hero .eyebrow { font-size: 10.5px; letter-spacing: 0.16em; margin: 0 0 12px; }
@@ -805,7 +808,7 @@
   .wl-benefit__text { display: flex; flex-direction: column; gap: 4px; }
   .wl-benefit__title { font-size: 15px; font-weight: 500; color: var(--cream); }
   .wl-benefit__sub { font-size: 13.5px; line-height: 1.5; color: var(--cream-soft); }
-  .wl-form { position: relative; margin: 0 auto; overflow: hidden; }
+  .wl-form { position: relative; margin: 0 auto; }
   .wl-row {
     display: flex; gap: 10px; max-width: 780px; margin: 0 auto 12px;
     flex-wrap: wrap; justify-content: center;
@@ -839,8 +842,8 @@
     opacity: 0; transform: translateY(8px); pointer-events: none;
     transition: opacity 0.5s ease, transform 0.5s ease;
   }
-  .wl-form.is-success .wl-row { opacity: 0; pointer-events: none; }
-  .wl-form.is-success .wl-success { opacity: 1; transform: none; pointer-events: auto; }
+  .wl-form.is-success .wl-row { opacity: 0; pointer-events: none; position: absolute; inset: 0; }
+  .wl-form.is-success .wl-success { opacity: 1; transform: none; pointer-events: auto; position: relative; }
   .wl-stack.is-success .wl-microcopy-group,
   .wl-stack.is-success .wl-benefits { display: none; }
   .wl-success__title {
@@ -1041,6 +1044,9 @@
     .wl-row { flex-direction: column; }
     .wl-row input[type="email"] { width: 100%; }
     .wl-row button { width: 100%; white-space: normal; }
+    /* Glow kleiner halten, damit er skaliert (2.5x) nicht über den Viewport ragt
+       und kein horizontales Verschieben der Seite verursacht. */
+    .wl-success__glow { width: 130px; height: 130px; }
     .wl-benefit__sub { display: none; }
   }
 
