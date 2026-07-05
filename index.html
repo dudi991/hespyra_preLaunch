@@ -1270,6 +1270,9 @@
     }
     .wl-benefit { flex: 1; max-width: 260px; }
     .wl-microcopy-group { order: 3; margin-top: 28px; text-align: center; }
+    /* d-only nutzt global display:contents — das würde die order-Regel aushebeln.
+       Für die Waitlist-Microcopy brauchen wir eine echte Box, damit order:3 greift. */
+    .wl-microcopy-group.d-only { display: block; }
     .site-footer { padding-top: 60px; padding-bottom: 44px; }
   }
 
