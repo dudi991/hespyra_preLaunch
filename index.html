@@ -633,37 +633,58 @@
     .cmp2__row, .cmp2__col--other .cmp2__row { padding: 0; border: none; }
 
     /* Wir bauen die Cards aus JS-gepaarten Zeilen (siehe .cmp2--mobile) */
-    .cmp2--mobile { display: grid; grid-template-columns: 1fr; gap: 12px; }
+    .cmp2--mobile { display: grid; grid-template-columns: 1fr; gap: 12px; counter-reset: cmpcard; }
     .cmp2-card {
-      display: grid; grid-template-columns: 1fr; row-gap: 18px;
-      background: rgba(255,255,255,0.22); border: 1px solid rgba(44,38,34,0.07);
-      border-radius: 16px; padding: 20px 18px;
+      counter-increment: cmpcard;
+      display: grid; grid-template-columns: 1fr;
+      background: rgba(255,255,255,0.28); border: 1px solid rgba(44,38,34,0.07);
+      border-radius: 16px; overflow: hidden;
     }
-    .cmp2-card__side { min-width: 0; display: flex; flex-direction: column; position: relative; padding-top: 26px; }
+    .cmp2-card__side { min-width: 0; position: relative; }
     .cmp2-card__side * { overflow-wrap: break-word; word-break: break-word; hyphens: auto; }
-    /* kleines Label über jeder Seite (HESPYRA / KLASSISCH) */
+
+    /* HESPYRA = dominanter oberer Hauptbereich; Text rechts von Nummer+Icon */
+    .cmp2-card__side--h { padding: 15px 18px 15px 84px; }
+    /* KLASSISCH = kompakterer, leicht getönter Referenzbereich darunter */
+    .cmp2-card__side--o {
+      padding: 12px 18px 13px 84px;
+      background: rgba(44,38,34,0.035);
+      border-top: 1px solid rgba(44,38,34,0.08);
+    }
+
+    /* Serifen-Nummer (01/02/03) ganz links, nur beim HESPYRA-Block */
+    .cmp2-card__side--h::after {
+      content: counter(cmpcard, decimal-leading-zero);
+      position: absolute; left: 20px; top: 15px;
+      font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 500;
+      color: var(--accent); line-height: 1;
+    }
+    /* kleines Label (HESPYRA / KLASSISCH) oben im Textbereich */
     .cmp2-card__side::before {
-      position: absolute; top: 0; left: 0; font-size: 9.5px; font-weight: 500;
-      letter-spacing: 0.14em; text-transform: uppercase;
+      display: block; font-size: 9.5px; font-weight: 500;
+      letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 5px;
     }
     .cmp2-card__side--h::before { content: "HESPYRA"; color: var(--accent); }
     .cmp2-card__side--o::before { content: "Klassisch"; color: #8A7D6B; }
-    /* dezente Trennlinie zwischen den beiden Blöcken (statt „vs") */
-    .cmp2-card__side--o { padding-top: 44px; border-top: 1px solid rgba(44,38,34,0.10); margin-top: 4px; }
-    .cmp2-card__side--o::before { top: 22px; }
+
+    /* Icon im Kreis, links im Textbereich */
     .cmp2-card__ico {
-      width: 30px; height: 30px; border-radius: 50%; margin-bottom: 8px;
+      position: absolute; left: 48px; top: 14px;
+      width: 26px; height: 26px; border-radius: 50%; margin: 0;
       display: flex; align-items: center; justify-content: center;
       background: rgba(156,106,67,0.09);
     }
-    .cmp2-card__side--o .cmp2-card__ico { background: rgba(44,38,34,0.04); }
-    .cmp2-card__ico svg { width: 15px; height: 15px; stroke: var(--accent); fill: none;
+    .cmp2-card__side--o .cmp2-card__ico { left: 48px; top: 11px; width: 24px; height: 24px; background: rgba(44,38,34,0.05); }
+    .cmp2-card__ico svg { width: 14px; height: 14px; stroke: var(--accent); fill: none;
       stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; }
     .cmp2-card__side--o .cmp2-card__ico svg { stroke: #8A7D6B; }
-    .cmp2-card__title { font-size: 13.5px; font-weight: 500; color: var(--ink); line-height: 1.3; margin-bottom: 4px; }
-    .cmp2-card__side--o .cmp2-card__title { color: #574E42; font-weight: 400; }
-    .cmp2-card__sub { font-size: 11px; line-height: 1.45; color: var(--ink-soft); }
-    .cmp2-card__side--o .cmp2-card__sub { color: #726757; }
+
+    /* Typo-Hierarchie: HESPYRA kräftig, Klassisch schwächer */
+    .cmp2-card__title { font-size: 15px; font-weight: 500; color: var(--ink); line-height: 1.25; margin-bottom: 3px; }
+    .cmp2-card__side--o .cmp2-card__title { font-size: 13px; color: #574E42; font-weight: 400; }
+    .cmp2-card__sub { font-size: 11.5px; line-height: 1.4; color: var(--ink-soft); }
+    .cmp2-card__side--o .cmp2-card__sub { font-size: 10.5px; color: #726757; }
+
     /* „vs" komplett entfernt + gemeinsame Kopfzeile entfällt (jeder Block trägt sein Label) */
     .cmp2-card__vs { display: none; }
     .cmp2-mhead { display: none; }
