@@ -2091,10 +2091,13 @@
           const end = el.offsetHeight;
           el.style.overflow = 'hidden';
           const startH = summaryHeight(el);
-          el.animate(
+          animating = true;
+          const hAnim = el.animate(
             [{ height: startH + 'px' }, { height: end + 'px' }],
             { duration: 420, easing: 'cubic-bezier(.2,.7,.2,1)' }
-          ).onfinish = () => { el.style.overflow = ''; };
+          );
+          hAnim.onfinish = () => { el.style.overflow = ''; animating = false; };
+          hAnim.oncancel = () => { animating = false; };
           body.animate(
             [{ opacity: 0, transform: 'translateY(6px)' }, { opacity: 1, transform: 'none' }],
             { duration: 420, easing: 'ease', delay: 60, fill: 'backwards' }
@@ -2106,11 +2109,13 @@
           const startH = el.offsetHeight;
           const endH = summaryHeight(el);
           el.style.overflow = 'hidden';
+          animating = true;
           const anim = el.animate(
             [{ height: startH + 'px' }, { height: endH + 'px' }],
             { duration: 340, easing: 'cubic-bezier(.2,.7,.2,1)' }
           );
-          anim.onfinish = () => { el.open = false; el.style.overflow = ''; };
+          anim.onfinish = () => { el.open = false; el.style.overflow = ''; animating = false; };
+          anim.oncancel = () => { el.open = false; el.style.overflow = ''; animating = false; };
         }
         function summaryHeight(el) {
           const s = el.querySelector('summary');
