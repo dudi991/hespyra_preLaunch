@@ -372,7 +372,7 @@
   }
   .ing-grid {
     --ing-gap: 20px;
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--ing-gap); align-items: stretch;
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--ing-gap); align-items: start;
   }
   .ing-card {
     background: rgba(255,255,255,0.65); border: 1px solid rgba(44,38,34,0.12);
@@ -1541,15 +1541,6 @@
         <p class="ing-detail" data-en="Full-bodied cacao and real bourbon vanilla give HESPYRA its warm, harmonious taste — the base of the composition.">Vollmundiger Kakao und echte Bourbon-Vanille geben HESPYRA seinen warmen, harmonischen Geschmack — die Basis der Komposition.</p>
       </details>
     </div>
-
-    <div class="mag-box">
-      <div class="mag-box__mark" aria-hidden="true">
-        <span class="mag-box__star">✳</span>
-        <span class="mag-box__rule"></span>
-      </div>
-      <p data-en="Magnesium contributes to normal functioning of the nervous system and to normal psychological function.">Magnesium trägt zu einer normalen Funktion des Nervensystems und zur normalen psychischen Funktion bei.</p>
-      <p data-en="The remaining ingredients we select with care and name to you openly and in full.">Die übrigen Zutaten wählen wir mit Sorgfalt aus und nennen sie dir offen und vollständig.</p>
-    </div>
   </div>
 </section>
 
@@ -2157,7 +2148,7 @@
     // Kandidaten automatisch markieren (kein Markup-Eingriff nötig, kein Hero).
     const sel = [
       '.section__eyebrow', '.section__title', '.ing-lead', '.ing-hint', '.ing-grid',
-      '.mag-box', '.taste__lead', '.taste-rows', '.split__media', '.steps .step',
+      '.taste__lead', '.taste-rows', '.split__media', '.steps .step',
       '.trust__text > *', '.trust__visual', '.cmp2--desktop', '.cmp2--mobile', '.cmp-foot', '.founder__text > *',
       '.founder__visual', '.faq-list', '.wl-lead', '.wl-form'
     ].join(',');
