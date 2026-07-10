@@ -197,6 +197,7 @@
   }
   /* H1 line wraps naturally (the headline is a flowing phrase, not fixed two-liner) */
   .hero-h1__line { display: inline; }
+  .h1-break-m { display: none; }
   .hero .lede {
     margin: 0 0 32px; font-size: clamp(17px, 2vw, 21px); line-height: 1.58;
     color: var(--ink-soft); max-width: 540px;
@@ -306,11 +307,19 @@
     /* Hero-Formular: auf schmalen Screens Feld über Button, beide volle Breite. */
     .hero-form { flex-wrap: wrap; }
     .hero-form input[type="email"], .hero-form__btn { flex: 1 1 100%; min-width: 0; }
+    .hero-form__btn { background: var(--night); border-color: var(--night); }
+    .hero-form__btn:hover { background: #100C0F; }
     #nav { padding: 10px 20px; }
     .hero__text { padding: 22px 26px 0; }
     .hero .eyebrow { font-size: 10.5px; letter-spacing: 0.16em; margin: 0 0 12px; }
-    .hero h1 { font-size: clamp(27px, 7.2vw, 36px); margin: 0 0 12px; }
+    .h1-break-m { display: inline; }
+    .hero h1 { font-size: clamp(32px, 8.6vw, 42px); line-height: 1.16; margin: 0 0 12px; }
     .hero .lede { margin: 0 0 18px; font-size: 15px; line-height: 1.48; }
+    /* Auf Mobile: Badges ÜBER das Formular (Reihenfolge via flex order) */
+    .hero__inner { display: flex; flex-direction: column; }
+    .hero .eyebrow, .hero h1, .hero .lede { order: 0; }
+    .hero-badges { order: 1; }
+    .hero-actions { order: 2; }
     .hero-badges {
       display: flex; align-items: center; flex-wrap: wrap; gap: 8px 14px;
       margin: 0 0 22px;
@@ -1404,7 +1413,7 @@
       <p class="eyebrow m-only" data-en="Swallowing several capsules at night? There’s a nicer way.">Abends mehrere Kapseln schlucken? Es geht auch schöner.</p>
 
       <h1 class="serif">
-        <span class="hero-h1__line" data-en="A supplement you ">Nahrungsergänzung, </span><em data-en="enjoy drinking.">die du gerne trinkst.</em>
+        <span class="hero-h1__line" data-en="A supplement you ">Nahrungsergänzung, </span><br class="h1-break-m"><em data-en="enjoy drinking.">die du gerne trinkst.</em>
       </h1>
 
       <p class="lede" data-en="A powder to stir with cacao, real vanilla, magnesium and selected plant extracts — for an evening you genuinely look forward to.">Ein Pulver zum Anrühren mit Kakao, echter Vanille, Magnesium und ausgewählten Pflanzenextrakten — für einen Abend, auf den du dich wirklich freust.</p>
