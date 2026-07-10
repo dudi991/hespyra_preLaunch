@@ -1918,6 +1918,14 @@
         </summary>
         <p class="faq-a" data-en="You’ll be the first to know when the first edition opens, and get early access to the limited first batches. Joining the waitlist is free and without obligation.">Du erfährst zuerst, wenn die erste Edition öffnet, und erhältst frühzeitig Zugang zu den begrenzten ersten Chargen. Die Eintragung in die Warteliste ist kostenlos und unverbindlich.</p>
       </details>
+
+      <details class="faq-item" name="faq">
+        <summary>
+          <span class="faq-q" data-en="Can I already buy HESPYRA?">Gibt es HESPYRA schon zu kaufen?</span>
+          <span class="faq-sign" aria-hidden="true"></span>
+        </summary>
+        <p class="faq-a" data-en="Not yet. The formula is fully developed — we're currently working on packaging, taste and production. The product images show how the first edition is intended to look. Via the waitlist, you'll be the first to know when it launches.">Noch nicht. Die Formel ist fertig entwickelt — an Verpackung, Geschmack und Produktion arbeiten wir gerade. Die Produktbilder zeigen, wie die erste Edition aussehen soll. Über die Warteliste erfährst du zuerst, wenn es losgeht.</p>
+      </details>
     </div>
   </div>
 </section>
@@ -1933,6 +1941,7 @@
     </h2>
     <p class="wl-lead d-only" data-en="HESPYRA is being created right now — and you can be part of it from the start. Sign up, follow how it’s made up close, and secure access to the limited first batches.">HESPYRA entsteht gerade – und du kannst von Anfang an dabei sein. Trag dich ein, begleite die Entstehung aus nächster Nähe und sichere dir Zugang zu den begrenzten ersten Chargen.</p>
     <p class="wl-lead m-only" data-en="Sign up and be the first to know when HESPYRA is available.">Trag dich ein und erfahre als Erstes, wann HESPYRA verfügbar ist.</p>
+    <p class="wl-lead wl-lead--vision" data-en="The formula is finalised — developed with Profound Formulas. What the images show is our vision of the first edition: we're currently working on packaging, taste and production.">Die Formel steht — entwickelt mit Profound Formulas. Was die Bilder zeigen, ist unsere Vision der ersten Edition: An Verpackung, Geschmack und Produktion arbeiten wir gerade.</p>
 
     <div class="wl-stack">
       <ul class="wl-benefits">
@@ -1972,8 +1981,8 @@
               <path class="tick" d="M17 29 L25 37 L40 20"></path>
             </svg>
           </div>
-          <div class="wl-success__title" data-en="Lovely to have you.">Schön, dass du dabei bist.</div>
-          <div class="wl-success__sub" data-en="We’ll be in touch.">Wir melden uns.</div>
+          <div class="wl-success__title" data-en="Almost there.">Fast geschafft.</div>
+          <div class="wl-success__sub" data-en="Please confirm your sign-up in your inbox (check your spam folder too).">Bitte bestätige deine Anmeldung in deinem Postfach (schau auch im Spam-Ordner nach).</div>
           <div class="wl-success__share">
             <p class="wl-share__ask" data-en="Know someone who loves their evenings?">Kennst du jemanden, der seine Abende liebt?</p>
             <div class="wl-share__actions">
@@ -2245,7 +2254,7 @@
         const en = document.documentElement.lang === 'en';
         setTimeout(() => {
           stickyForm.innerHTML = '<span style="font-family:\'Cormorant Garamond\',serif;font-style:italic;color:var(--accent-on-dark);font-size:16px;">'
-            + (en ? 'You’re in.' : 'Du bist dabei.') + '</span>';
+            + (en ? 'Almost there — please confirm your sign-up in your inbox (check your spam folder too).' : 'Fast geschafft — bitte bestätige deine Anmeldung in deinem Postfach (schau auch im Spam-Ordner nach).') + '</span>';
         }, 400);
         setTimeout(() => { sticky.classList.remove('visible'); dismissed = true; }, 2800);
       });
