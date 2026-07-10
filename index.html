@@ -243,10 +243,38 @@
     .hero-cta:hover .hero-cta__arrow { transform: none; }
   }
   .hero-footnote {
-    align-self: center; margin: 16px 0 0; font-size: 12.5px; line-height: 1.5;
-    color: var(--ink-soft); text-align: center; white-space: nowrap;
+    align-self: center; margin: 20px 0 0; font-size: 12.5px; line-height: 1.5;
+    color: var(--ink-mute); text-align: center; white-space: nowrap;
   }
   .hero-footnote__accent { color: inherit; }
+
+  /* Hero-Inline-Formular: eigene Optik für den hellen Hero-Hintergrund
+     (die geerbten .wl-row-Farben sind für dunklen BG und dort unsichtbar). */
+  .hero-form {
+    display: flex; margin: 8px 0 4px; width: 100%; max-width: 100%; gap: 8px;
+    flex-wrap: nowrap; justify-content: stretch;
+  }
+  .hero-form.is-done { display: none; }
+  .hero-form input[type="email"] {
+    flex: 1 1 0; width: 0; min-width: 0; padding: 18px 22px;
+    background: #F7F2EA; border: 1px solid #E5DDD3;
+    border-radius: 10px; color: var(--ink); font-family: 'Jost', sans-serif;
+    font-size: 15px; outline: none; transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .hero-form input[type="email"]::placeholder { color: #8C8173; }
+  .hero-form input[type="email"]:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(156,106,67,0.14); }
+  .hero-form__btn {
+    flex: 1 1 0; width: 0; min-width: 0; display: inline-flex; align-items: center; justify-content: center;
+    padding: 18px 22px; border: 1px solid var(--accent); border-radius: 10px;
+    background: var(--accent); color: var(--cream); font-family: 'Jost', sans-serif;
+    font-size: 14px; font-weight: 500; letter-spacing: 0.02em; cursor: pointer;
+    white-space: nowrap; transition: background 0.2s, transform 0.2s;
+  }
+  .hero-form__btn:hover { background: #A9764E; transform: translateY(-1px); }
+  .hero-form__success {
+    margin: 4px 0 0; font-family: 'Cormorant Garamond', serif; font-style: italic;
+    color: var(--accent); font-size: 16px; line-height: 1.4;
+  }
 
   .hero__media { position: relative; overflow: hidden; min-height: clamp(620px, 82vh, 760px); }
   .hero__media img {
@@ -266,7 +294,7 @@
     .hero__inner { max-width: 640px; margin-left: 0; }
     .hero h1 { font-size: clamp(34px, 6vw, 46px); margin: 0 0 16px; }
     .hero .lede { margin: 0 0 22px; }
-    .hero-badges { margin: 0 0 24px; }
+    .hero-badges { margin: 26px 0 8px; }
     /* image sits directly under the CTA with a small, controlled gap */
     .hero__media { order: 2; min-height: 0; height: auto; aspect-ratio: 5 / 4; max-height: 560px; margin-top: 32px; }
     .hero__media img { object-position: center 55%; }
@@ -275,6 +303,9 @@
     /* Glow kleiner, damit er bei voller Skalierung nicht über den Viewport ragt
        (verhindert horizontales Verschieben nach dem Eintrag, ohne Buttons abzuschneiden) */
     .wl-success__glow { width: 130px; height: 130px; }
+    /* Hero-Formular: auf schmalen Screens Feld über Button, beide volle Breite. */
+    .hero-form { flex-wrap: wrap; }
+    .hero-form input[type="email"], .hero-form__btn { flex: 1 1 100%; min-width: 0; }
     #nav { padding: 10px 20px; }
     .hero__text { padding: 22px 26px 0; }
     .hero .eyebrow { font-size: 10.5px; letter-spacing: 0.16em; margin: 0 0 12px; }
@@ -988,6 +1019,7 @@
   .sticky-optin__inner { max-width: 1140px; margin: 0 auto; padding: 15px 44px; display: flex; align-items: center; gap: 28px; }
   .sticky-optin__text { display: flex; flex-direction: column; flex: 1; min-width: 0; }
   .sticky-optin__text .so-title { font-family: 'Cormorant Garamond', serif; font-size: 19px; color: var(--cream); line-height: 1.2; }
+  .sticky-optin__text .so-title-short { display: none; }
   .sticky-optin__text .so-sub { font-size: 12.5px; color: var(--cream-soft); }
   .sticky-optin__form { display: flex; align-items: center; border-bottom: 1px solid var(--cream); min-width: 300px; transition: border-color 0.3s; }
   .sticky-optin__form:focus-within { border-bottom-color: var(--accent-on-dark); }
@@ -1013,7 +1045,9 @@
     .sticky-optin__close { position: static; font-size: 22px; padding: 0 0 0 4px; flex-shrink: 0; }
   }
   @media (max-width: 440px) {
-    .sticky-optin__text { display: none; }
+    .sticky-optin__text { display: block; flex: 0 1 auto; }
+    .sticky-optin__text .so-title { display: none; }
+    .sticky-optin__text .so-title-short { display: inline; font-family: 'Cormorant Garamond', serif; font-size: 13px; color: var(--cream); white-space: nowrap; }
     .sticky-optin__inner { gap: 8px; padding: 8px 12px; }
   }
   @media (prefers-reduced-motion: reduce) { .sticky-optin { transition: none; } }
@@ -1138,30 +1172,30 @@
     /* 1 · HERO — kompakter zusammenhängender Block, mehr Präsenz (nach Referenz) */
     .hero__text { padding: 72px 80px 102px; }
     .hero__inner { max-width: 560px; }
-    .hero h1 { font-size: clamp(34px, 10.4cqw, 62px); margin: 0 0 28px; }
-    .hero .lede { margin: 0 0 34px; }
+    .hero h1 { font-size: clamp(34px, 10.4cqw, 62px); margin: 0 0 32px; }
+    .hero .lede { margin: 0 0 40px; }
     .hero-badges {
-      display: flex; align-items: flex-start; gap: 0; margin: 0 0 36px;
+      display: flex; align-items: flex-start; gap: 0; margin: 40px 0 0;
     }
     .hero-badge {
       flex: 1; display: flex; flex-direction: column; align-items: flex-start; gap: 10px;
-      padding: 0 22px; background: none; border: none; border-radius: 0;
-      font-size: 14px; position: relative;
+      padding: 0 30px; background: none; border: none; border-radius: 0;
+      font-size: 13.5px; position: relative; color: var(--ink-soft);
     }
     .hero-badge:first-child { padding-left: 0; }
     .hero-badge:last-child { padding-right: 0; }
     .hero-badge + .hero-badge::before {
       content: ''; position: absolute; left: 0; top: 2px; bottom: 2px; width: 1px;
-      background: rgba(44,38,34,0.10);
+      background: rgba(44,38,34,0.08);
     }
-    .hero-badge__ico { width: 19px; height: 19px; color: var(--accent); }
+    .hero-badge__ico { width: 17px; height: 17px; color: var(--accent); }
     /* CTA etwas größer & hochwertiger, Schatten minimal stärker aber ruhig */
     .hero-cta {
       padding: 22px 56px; letter-spacing: 0.16em;
       box-shadow: 0 14px 32px rgba(156,106,67,0.24), 0 3px 8px rgba(44,38,34,0.14);
     }
     /* Bildgewicht: Dose & Glas dominanter, Fenster weniger Fokus */
-    .hero__media img { object-position: 62% 58%; }
+    .hero__media img { object-position: 66% 60%; transform: scale(1.06); transform-origin: 62% 58%; }
 
     /* 2 · ANWENDUNG — oberer Bereich großzügiger, volle Breite, linksbündig */
     #ritual { padding-top: 128px; padding-bottom: 120px; }
@@ -1276,6 +1310,7 @@
     }
     .wl-benefit { flex: 1; max-width: 260px; }
     .wl-microcopy-group { order: 3; margin-top: 28px; text-align: center; }
+    .wl-note--vision { order: 4; margin-top: 18px; text-align: center; max-width: 620px; }
     /* d-only nutzt global display:contents — das würde die order-Regel aushebeln.
        Für die Waitlist-Microcopy brauchen wir eine echte Box, damit order:3 greift. */
     .wl-microcopy-group.d-only { display: block; }
@@ -1328,6 +1363,7 @@
   <div class="sticky-optin__inner">
     <div class="sticky-optin__text">
       <span class="so-title" data-en="Join the first edition">Zur ersten Edition eintragen</span>
+      <span class="so-title-short" data-en="First edition —">Erste Edition —</span>
       <span class="so-sub" data-en="One message when the first edition opens — waitlist members first.">Eine Nachricht, wenn die erste Edition öffnet — für Warteliste-Mitglieder zuerst.</span>
     </div>
     <form class="sticky-optin__form" id="stickyForm" action="https://tf125fca5.emailsys1a.net/238/9119/938578f21b/subscribe/form.html" method="post" target="rm_iframe" novalidate>
@@ -1341,7 +1377,6 @@
 <!-- ANNOUNCEMENT BAR -->
 <div class="announce">
   <span class="announce__text" data-en="HESPYRA · An evening supplement — powder with magnesium to stir into a drink. The first edition is in the making.">HESPYRA · Nahrungsergänzung für den Abend — Pulver mit Magnesium zum Anrühren. Die erste Edition entsteht.</span>
-  <a href="#warteliste" class="announce__link" data-en="Join">Eintragen</a>
 </div>
 
 <!-- NAV -->
@@ -1374,17 +1409,21 @@
 
       <p class="lede" data-en="A powder to stir with cacao, real vanilla, magnesium and selected plant extracts — for an evening you genuinely look forward to.">Ein Pulver zum Anrühren mit Kakao, echter Vanille, Magnesium und ausgewählten Pflanzenextrakten — für einen Abend, auf den du dich wirklich freust.</p>
 
+      <div class="hero-actions">
+        <form class="hero-form" id="heroForm" action="https://tf125fca5.emailsys1a.net/238/9119/938578f21b/subscribe/form.html" method="post" target="rm_iframe" novalidate>
+          <input type="email" id="heroEmail" name="email" placeholder="E-Mail-Adresse" data-en-ph="Email address" autocomplete="email" required aria-label="E-Mail-Adresse" />
+          <button type="submit" class="hero-form__btn" data-en="Secure your spot →">Platz sichern →</button>
+        </form>
+        <p class="hero-form__success" id="heroSuccess" hidden data-en="Almost there — please confirm your sign-up in your inbox (check your spam folder too).">Fast geschafft — bitte bestätige deine Anmeldung in deinem Postfach (schau auch im Spam-Ordner nach).</p>
+        <p class="hero-footnote"><span data-en="Early access to the limited first edition.">Früher Zugang zur limitierten ersten Edition.</span> <span class="hero-footnote__accent" data-en="Free &amp; without obligation.">Kostenlos &amp; unverbindlich.</span></p>
+      </div>
+
       <ul class="hero-badges" aria-label="Produkt-Merkmale">
         <li class="hero-badge hero-badge--m-hide"><span class="hero-badge__ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg></span><span data-en="<b>20 sec.</b> ready"><b>20 Sek.</b> bereit</span></li>
         <li class="hero-badge"><span class="hero-badge__ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="7" y="7" width="10" height="10" rx="2"/><path d="M5 5l14 14"/></svg></span><span data-en="<b>No</b> added sugar"><b>Ohne</b> Zuckerzusatz</span></li>
         <li class="hero-badge"><span class="hero-badge__ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="5.5" width="16" height="15" rx="2"/><path d="M4 10h16"/><path d="M8 3.5v4M16 3.5v4"/></svg></span><span data-en="<b>30 days</b> supply"><b>30 Tage</b> Vorrat</span></li>
         <li class="hero-badge hero-badge--m-hide hero-badge--d-only"><span class="hero-badge__ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="7" cy="7" r="2.6"/><circle cx="17" cy="7" r="2.6"/><circle cx="12" cy="16" r="2.6"/><path d="M9.2 8.4 10.4 13.6M14.8 8.4 13.6 13.6M9.6 7h4.8"/></svg></span><span data-en="<b>5</b> selected raw materials"><b>5</b> ausgewählte Rohstoffe</span></li>
       </ul>
-
-      <div class="hero-actions">
-        <a href="#warteliste" class="hero-cta"><span class="hero-cta__label" data-en="Secure your spot on the waitlist">Platz auf der Warteliste sichern</span><span class="hero-cta__arrow" aria-hidden="true">→</span></a>
-        <p class="hero-footnote"><span data-en="Early access to the limited first edition.">Früher Zugang zur limitierten ersten Edition.</span> <span class="hero-footnote__accent" data-en="Free &amp; without obligation.">Kostenlos &amp; unverbindlich.</span></p>
-      </div>
     </div>
   </div>
 
@@ -1924,7 +1963,7 @@
           <span class="faq-q" data-en="Can I already buy HESPYRA?">Gibt es HESPYRA schon zu kaufen?</span>
           <span class="faq-sign" aria-hidden="true"></span>
         </summary>
-        <p class="faq-a" data-en="Not yet. The formula is fully developed — we're currently working on packaging, taste and production. The product images show how the first edition is intended to look. Via the waitlist, you'll be the first to know when it launches.">Noch nicht. Die Formel ist fertig entwickelt — an Verpackung, Geschmack und Produktion arbeiten wir gerade. Die Produktbilder zeigen, wie die erste Edition aussehen soll. Über die Warteliste erfährst du zuerst, wenn es losgeht.</p>
+        <p class="faq-a" data-en="Not yet. The formula is finalised — developed with Profound Formulas. Packaging and the first production run are being created right now. The images show our vision of the first edition. Via the waitlist, you'll be the first to know when it launches.">Noch nicht. Die Formel steht — entwickelt mit Profound Formulas. Gerade entstehen Verpackung und erste Produktion. Die Bilder zeigen unsere Vision der ersten Edition. Über die Warteliste erfährst du zuerst, wenn es losgeht.</p>
       </details>
     </div>
   </div>
@@ -1941,7 +1980,6 @@
     </h2>
     <p class="wl-lead d-only" data-en="HESPYRA is being created right now — and you can be part of it from the start. Sign up, follow how it’s made up close, and secure access to the limited first batches.">HESPYRA entsteht gerade – und du kannst von Anfang an dabei sein. Trag dich ein, begleite die Entstehung aus nächster Nähe und sichere dir Zugang zu den begrenzten ersten Chargen.</p>
     <p class="wl-lead m-only" data-en="Sign up and be the first to know when HESPYRA is available.">Trag dich ein und erfahre als Erstes, wann HESPYRA verfügbar ist.</p>
-    <p class="wl-lead wl-lead--vision" data-en="The formula is finalised — developed with Profound Formulas. What the images show is our vision of the first edition: we're currently working on packaging, taste and production.">Die Formel steht — entwickelt mit Profound Formulas. Was die Bilder zeigen, ist unsere Vision der ersten Edition: An Verpackung, Geschmack und Produktion arbeiten wir gerade.</p>
 
     <div class="wl-stack">
       <ul class="wl-benefits">
@@ -2221,17 +2259,25 @@
     const stickyClose = document.getElementById('stickyClose');
     const optinSection = document.getElementById('warteliste');
     const hero = document.querySelector('.hero');
+    const heroText = document.querySelector('.hero__text');
     if (!sticky || !optinSection || !hero) return;
     let dismissed = false;
+    let stickyShownTracked = false;
 
     const onScroll = () => {
       if (dismissed) return;
-      const heroGone = hero.getBoundingClientRect().bottom <= 0;
+      // Balken erscheint, sobald der Hero-TEXT aus dem Viewport ist (früher als vorher).
+      const trigger = heroText || hero;
+      const heroTextGone = trigger.getBoundingClientRect().bottom <= 0;
       const optinTop = optinSection.getBoundingClientRect().top;
       const inOptin = optinTop < window.innerHeight && optinTop > -optinSection.offsetHeight;
-      const show = heroGone && !inOptin;
+      const show = heroTextGone && !inOptin;
       sticky.classList.toggle('visible', show);
       sticky.setAttribute('aria-hidden', show ? 'false' : 'true');
+      if (show && !stickyShownTracked) {
+        stickyShownTracked = true;
+        track('sticky-shown');
+      }
     };
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
@@ -2329,6 +2375,51 @@
         track('waitlist-share', { method: 'copy' });
       });
     }
+  })();
+
+  // Hero-Inline-Formular: E-Mail validieren, echten POST an Rapidmail NICHT abbrechen.
+  (function initHeroForm() {
+    const form = document.getElementById('heroForm');
+    const email = document.getElementById('heroEmail');
+    const success = document.getElementById('heroSuccess');
+    if (!form || !email) return;
+    form.addEventListener('submit', (ev) => {
+      const ok = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value);
+      if (!ok) { ev.preventDefault(); email.focus(); return; }
+      track('waitlist-signup', { source: 'hero' });
+      // Inline-Erfolgszustand: Formular ausblenden, Bestätigungshinweis zeigen.
+      setTimeout(() => {
+        form.classList.add('is-done');
+        if (success) success.hidden = false;
+      }, 300);
+    });
+  })();
+
+  // CTA-Klicks in Announcement-Bar und Nav tracken.
+  // Funnel: 50 % Scrolltiefe, jeweils max. 1x pro Pageview.
+  (function initScrollDepth() {
+    let tracked = false;
+    const onScroll = () => {
+      if (tracked) return;
+      const scrolled = window.scrollY + window.innerHeight;
+      const half = document.documentElement.scrollHeight * 0.5;
+      if (scrolled >= half) { tracked = true; track('scroll-50'); }
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  })();
+
+  // Funnel: Sichtbarwerden des Haupt-Warteliste-Formulars, 1x pro Pageview.
+  (function initFormView() {
+    const target = document.getElementById('optinForm');
+    if (!target || !('IntersectionObserver' in window)) return;
+    let tracked = false;
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting && !tracked) { tracked = true; track('form-view'); io.disconnect(); }
+      });
+    }, { threshold: 0.3 });
+    io.observe(target);
   })();
 </script>
 
