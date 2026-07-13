@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#241D22" />
+<meta name="robots" content="noindex, follow" />
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23241D22'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-size='22' fill='%239E6B41' text-anchor='middle' font-style='italic'%3EH%3C/text%3E%3C/svg%3E" />
+<title>Quellen — Der Qualitätsguide · HESPYRA</title>
+<style>
+  /* == Fonts: selbst gehostet (DSGVO-konform, keine Google-Verbindung) == */
+  @font-face { font-family: 'Cormorant Garamond'; font-style: normal; font-weight: 400; font-display: swap; src: url('fonts/cormorant-garamond-v21-latin-regular.woff2') format('woff2'); }
+  @font-face { font-family: 'Cormorant Garamond'; font-style: italic; font-weight: 400; font-display: swap; src: url('fonts/cormorant-garamond-v21-latin-italic.woff2') format('woff2'); }
+  @font-face { font-family: 'Cormorant Garamond'; font-style: normal; font-weight: 500; font-display: swap; src: url('fonts/cormorant-garamond-v21-latin-500.woff2') format('woff2'); }
+  @font-face { font-family: 'Jost'; font-style: normal; font-weight: 400; font-display: swap; src: url('fonts/jost-v20-latin-regular.woff2') format('woff2'); }
+  @font-face { font-family: 'Jost'; font-style: normal; font-weight: 500; font-display: swap; src: url('fonts/jost-v20-latin-500.woff2') format('woff2'); }
+</style>
+<style>
+  :root { --cream:#EFE6D6; --cream-deep:#E8D8C2; --sand-line:#D2BE9F; --night:#241D22; --ink:#322B24; --ink-soft:#645A4B; --amber:#9E6B41; --amber-soft:#C0966B; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:var(--cream); color:var(--ink); font-family:'Jost',sans-serif; font-weight:400; line-height:1.72; -webkit-font-smoothing:antialiased; }
+  ::selection { background:var(--amber); color:var(--cream); }
+  .serif { font-family:'Cormorant Garamond',serif; }
+  nav { position:fixed; top:0; left:0; right:0; display:flex; justify-content:space-between; align-items:center; padding:18px 44px; z-index:20; background:rgba(239,230,214,0.92); backdrop-filter:blur(10px); border-bottom:1px solid var(--sand-line); }
+  nav .left { display:flex; align-items:center; gap:26px; }
+  nav .wordmark { letter-spacing:0.42em; font-size:18px; color:var(--ink); text-indent:0.42em; text-decoration:none; }
+  nav .back { font-size:13px; letter-spacing:0.12em; text-transform:uppercase; color:var(--ink-soft); text-decoration:none; transition:color .3s; }
+  nav .back:hover { color:var(--amber); }
+  nav .back__icon { display:none; font-size:20px; line-height:1; }
+  nav .lang { display:flex; align-items:center; gap:10px; }
+  nav .lang button { background:none; border:none; cursor:pointer; font-family:'Jost',sans-serif; font-size:14px; font-weight:500; letter-spacing:0.1em; color:var(--ink-soft); padding:3px 2px; transition:color .3s; }
+  nav .lang button.active { color:var(--ink); border-bottom:1.5px solid var(--amber); }
+  nav .lang button:hover { color:var(--ink); }
+  nav .lang span { color:var(--ink-soft); }
+  main { max-width:760px; margin:0 auto; padding:160px 28px 100px; }
+  .eyebrow { font-size:12px; letter-spacing:0.32em; text-transform:uppercase; color:var(--amber); font-weight:500; }
+  h1 { font-family:'Cormorant Garamond',serif; font-size:clamp(34px,5vw,52px); font-weight:400; line-height:1.1; margin:18px 0 28px; }
+  h2 { font-family:'Cormorant Garamond',serif; font-size:25px; font-weight:500; margin:52px 0 8px; }
+  .lead { font-size:19px; color:var(--ink); max-width:640px; margin-bottom:10px; }
+  p { color:var(--ink-soft); margin-bottom:16px; max-width:640px; }
+  p strong { color:var(--ink); font-weight:500; }
+  a { color:var(--amber); }
+  .section-note { font-size:14px; color:var(--ink-soft); margin:0 0 22px; max-width:640px; }
+
+  /* Quellen-Liste */
+  .src-list { list-style:none; margin:0 0 8px; max-width:680px; }
+  .src-item { padding:18px 0; border-bottom:1px solid var(--sand-line); }
+  .src-item:first-child { border-top:1px solid var(--sand-line); }
+  .src-title { font-size:16px; color:var(--ink); font-weight:500; margin:0 0 4px; }
+  .src-meta { font-size:13.5px; color:var(--ink-soft); margin:0 0 8px; }
+  .src-link { font-size:13.5px; letter-spacing:0.02em; word-break:break-word; }
+  .src-link a { text-decoration:none; border-bottom:1px solid var(--amber-soft); padding-bottom:1px; }
+  .src-link a:hover { border-bottom-color:var(--amber); }
+
+  .note { margin:48px 0 0; padding:18px 22px; border-left:2px solid var(--amber); background:var(--cream-deep); font-size:14px; color:var(--ink-soft); }
+  .note a { color:var(--amber); }
+
+  footer { border-top:1px solid var(--sand-line); padding:40px 44px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:14px; }
+  footer span, footer a { font-size:13px; color:var(--ink-soft); text-decoration:none; }
+  footer a { margin-left:22px; }
+  footer a:hover { color:var(--amber); }
+  @media (max-width:720px) {
+    nav { padding:16px 22px; } nav .left { gap:14px; } nav .back__full { display:none; } nav .back__icon { display:inline; }
+    main { padding:130px 22px 70px; }
+    footer { padding:32px 22px; } footer a { margin-left:0; margin-right:18px; }
+  }
+</style>
+<script defer src="https://cloud.umami.is/script.js" data-website-id="1ecf682b-8921-492c-9b42-71f46a9cae65"></script>
+</head>
+<body>
+<nav>
+  <div class="left">
+    <a href="index.html" class="wordmark">HESPYRA</a>
+    <a href="index.html" class="back" aria-label="Zurück zur Seite"><span class="back__full" data-en="Back to site">Zurück zur Seite</span><span class="back__icon" aria-hidden="true">←</span></a>
+  </div>
+  <div class="lang" role="group" aria-label="Sprache">
+    <button class="active" aria-current="true">DE</button><span>/</span><button>EN</button>
+  </div>
+</nav>
+<main>
+  <p class="eyebrow" data-en="The Quality Guide · Sources">Der Qualitätsguide · Quellen</p>
+  <h1 class="serif" data-en="Sources and further reading">Quellen und weiterführende Literatur</h1>
+  <p class="lead" data-en="This guide is based on European legislation, scientific publications and the recommendations of independent expert institutions. Below you'll find the primary sources with direct links to the official originals.">Dieser Guide basiert auf europäischen Rechtsgrundlagen, wissenschaftlichen Veröffentlichungen und den Empfehlungen unabhängiger Fachinstitutionen. Hier findest du die wichtigsten Quellen mit direkten Links zu den offiziellen Originalen.</p>
+
+  <h2 data-en="Legal foundations (EU)">Rechtsgrundlagen (EU)</h2>
+  <p class="section-note" data-en="The core European rules governing food information, supplements and health claims.">Die zentralen europäischen Regeln zu Lebensmittelinformation, Nahrungsergänzung und gesundheitsbezogenen Angaben.</p>
+  <ul class="src-list">
+    <li class="src-item">
+      <p class="src-title" data-en="Food Information Regulation — Regulation (EU) No 1169/2011">Lebensmittelinformationsverordnung (LMIV) — Verordnung (EU) Nr. 1169/2011</p>
+      <p class="src-meta" data-en="On the provision of food information to consumers. Includes the Nutrient Reference Values (NRV) in Annex XIII.">Betreffend die Information der Verbraucher über Lebensmittel. Enthält die Nährstoffbezugswerte (NRV) in Anhang XIII.</p>
+      <p class="src-link"><a href="https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:32011R1169" target="_blank" rel="noopener">eur-lex.europa.eu — CELEX 32011R1169</a></p>
+    </li>
+    <li class="src-item">
+      <p class="src-title" data-en="Directive 2002/46/EC on food supplements">Richtlinie 2002/46/EG über Nahrungsergänzungsmittel</p>
+      <p class="src-meta" data-en="The European framework directive for food supplements.">Die europäische Rahmenrichtlinie für Nahrungsergänzungsmittel.</p>
+      <p class="src-link"><a href="https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:32002L0046" target="_blank" rel="noopener">eur-lex.europa.eu — CELEX 32002L0046</a></p>
+    </li>
+    <li class="src-item">
+      <p class="src-title" data-en="Health Claims Regulation — Regulation (EC) No 1924/2006">Health-Claims-Verordnung — Verordnung (EG) Nr. 1924/2006</p>
+      <p class="src-meta" data-en="On nutrition and health claims made on foods.">Über nährwert- und gesundheitsbezogene Angaben über Lebensmittel.</p>
+      <p class="src-link"><a href="https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:32006R1924" target="_blank" rel="noopener">eur-lex.europa.eu — CELEX 32006R1924</a></p>
+    </li>
+    <li class="src-item">
+      <p class="src-title" data-en="Food Hygiene Regulation — Regulation (EC) No 852/2004">Lebensmittelhygiene-Verordnung — Verordnung (EG) Nr. 852/2004</p>
+      <p class="src-meta" data-en="On the hygiene of foodstuffs, including HACCP principles.">Über Lebensmittelhygiene, einschließlich der HACCP-Grundsätze.</p>
+      <p class="src-link"><a href="https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:32004R0852" target="_blank" rel="noopener">eur-lex.europa.eu — CELEX 32004R0852</a></p>
+    </li>
+  </ul>
+
+  <h2 data-en="Legal foundations (Germany)">Rechtsgrundlagen (Deutschland)</h2>
+  <p class="section-note" data-en="The national implementation for food supplements in Germany.">Die nationale Umsetzung für Nahrungsergänzungsmittel in Deutschland.</p>
+  <ul class="src-list">
+    <li class="src-item">
+      <p class="src-title" data-en="Food Supplements Ordinance (NemV), Germany">Nahrungsergänzungsmittelverordnung (NemV), Deutschland</p>
+      <p class="src-meta" data-en="Verordnung über Nahrungsergänzungsmittel — the German ordinance implementing Directive 2002/46/EC.">Verordnung über Nahrungsergänzungsmittel — die deutsche Umsetzung der Richtlinie 2002/46/EG.</p>
+      <p class="src-link"><a href="https://www.gesetze-im-internet.de/nemv/" target="_blank" rel="noopener">gesetze-im-internet.de — NemV</a></p>
+    </li>
+  </ul>
+
+  <h2 data-en="Official registers and expert institutions">Offizielle Register und Fachinstitutionen</h2>
+  <p class="section-note" data-en="Publicly accessible registers and the assessments of independent authorities.">Öffentlich zugängliche Register und die Bewertungen unabhängiger Behörden.</p>
+  <ul class="src-list">
+    <li class="src-item">
+      <p class="src-title" data-en="EU Register of authorised health claims (European Commission)">EU-Register zugelassener gesundheitsbezogener Angaben (Europäische Kommission)</p>
+      <p class="src-meta" data-en="The public list of nutrition and health claims permitted in the EU.">Die öffentliche Liste der in der EU zugelassenen nährwert- und gesundheitsbezogenen Angaben.</p>
+      <p class="src-link"><a href="https://ec.europa.eu/food/food-feed-portal/screen/health-claims/eu-register" target="_blank" rel="noopener">ec.europa.eu — EU Register on nutrition and health claims</a></p>
+    </li>
+    <li class="src-item">
+      <p class="src-title" data-en="BfR — Maximum level proposals for vitamins and minerals in food supplements">BfR — Höchstmengenvorschläge für Vitamine und Mineralstoffe in NEM</p>
+      <p class="src-meta" data-en="German Federal Institute for Risk Assessment, Opinion No. 009/2021.">Bundesinstitut für Risikobewertung, Stellungnahme Nr. 009/2021.</p>
+      <p class="src-link"><a href="https://www.bfr.bund.de" target="_blank" rel="noopener">bfr.bund.de — Stellungnahme Nr. 009/2021</a></p>
+    </li>
+    <li class="src-item">
+      <p class="src-title" data-en="EFSA — Tolerable Upper Intake Levels for Vitamins and Minerals">EFSA — Tolerable Upper Intake Levels for Vitamins and Minerals</p>
+      <p class="src-meta" data-en="European Food Safety Authority, scientific assessment of tolerable upper intake levels.">Europäische Behörde für Lebensmittelsicherheit, wissenschaftliche Bewertung tolerierbarer Höchstmengen.</p>
+      <p class="src-link"><a href="https://www.efsa.europa.eu" target="_blank" rel="noopener">efsa.europa.eu — Tolerable Upper Intake Levels</a></p>
+    </li>
+  </ul>
+
+  <div class="note">
+    <p data-en="Legislation may be amended over time. The EUR-Lex links point to the official consolidated versions, which always reflect the current status. Last reviewed: July 2026."><strong>Hinweis:</strong> Rechtsvorschriften können im Laufe der Zeit angepasst werden. Die EUR-Lex-Links führen zu den offiziellen konsolidierten Fassungen, die stets den aktuellen Stand abbilden. Zuletzt geprüft: Juli 2026.</p>
+  </div>
+</main>
+<footer>
+  <span>© 2026 HESPYRA</span>
+  <div>
+    <a href="ueber-uns.html" data-en="About">Über uns</a>
+    <a href="kontakt.html" data-en="Contact">Kontakt</a>
+    <a href="datenschutz.html" data-en="Privacy">Datenschutz</a>
+    <a href="impressum.html" data-en="Imprint">Impressum</a>
+  </div>
+</footer>
+<script>
+  (function(){
+    var btns=document.querySelectorAll('.lang button');
+    document.querySelectorAll('[data-en]').forEach(function(el){el.setAttribute('data-de',el.innerHTML);});
+    document.querySelectorAll('[data-en-ph]').forEach(function(el){el.setAttribute('data-de-ph',el.getAttribute('placeholder')||'');});
+    function setLang(l){
+      document.documentElement.lang=l;
+      document.querySelectorAll('[data-en]').forEach(function(el){
+        var v=el.getAttribute(l==='en'?'data-en':'data-de');
+        if(v!==null) el.innerHTML=v;
+      });
+      btns.forEach(function(b){
+        var isActive=b.textContent.trim().toLowerCase()===l;
+        b.classList.toggle('active',isActive);
+        if(isActive){b.setAttribute('aria-current','true');}else{b.removeAttribute('aria-current');}
+      });
+      try{sessionStorage.setItem('hespyra_lang',l);}catch(e){}
+    }
+    var saved=null; try{saved=sessionStorage.getItem('hespyra_lang');}catch(e){}
+    btns.forEach(function(b){b.addEventListener('click',function(){setLang(b.textContent.trim().toLowerCase());});});
+    if(saved==='en'||saved==='de'){setLang(saved);}
+  })();
+</script>
+</body>
+</html>
