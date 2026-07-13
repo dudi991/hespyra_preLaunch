@@ -2122,6 +2122,31 @@
     try { if (window.umami) { data ? window.umami.track(name, data) : window.umami.track(name); } } catch (e) {}
   }
 
+  // --- Diagnose: Hat der Rapidmail-POST das versteckte iframe erreicht? ---
+  // Ändert NICHTS an der Rapidmail-Anbindung. Feuert nach einem Formular-Submit
+  // ein Event, sobald das iframe die Antwort geladen hat. Fehlt dieses Event,
+  // obwohl ein Submit-Event kam, wurde der POST blockiert/abgebrochen.
+  (function initSubmitDiagnostics() {
+    const iframe = document.getElementById('rm_iframe');
+    if (!iframe) return;
+    let lastSubmitSource = null;
+    let lastSubmitAt = 0;
+    ['heroForm', 'optinForm', 'stickyForm'].forEach((id) => {
+      const f = document.getElementById(id);
+      if (!f) return;
+      const src = id === 'heroForm' ? 'hero' : (id === 'stickyForm' ? 'sticky' : 'cta-form');
+      // capture-Phase, damit wir den Submit auch sehen, wenn andere Handler laufen.
+      f.addEventListener('submit', () => { lastSubmitSource = src; lastSubmitAt = Date.now(); }, true);
+    });
+    iframe.addEventListener('load', () => {
+      // Nur zählen, wenn kurz zuvor ein Submit war (nicht das initiale Leerladen).
+      if (lastSubmitSource && (Date.now() - lastSubmitAt) < 15000) {
+        track('waitlist-iframe-response', { source: lastSubmitSource });
+        lastSubmitSource = null;
+      }
+    });
+  })();
+
   // Weiches Auf-/Zuklappen für native <details> (FAQ + Zutaten).
   // Animiert die Elementhöhe 0<->auto über die Web Animations API; behält native
   // Semantik und das exklusive name="faq"-Verhalten. Fällt ohne Animation sauber zurück.
