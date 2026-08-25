@@ -461,6 +461,14 @@
     margin: 0 26px 24px; padding-top: 18px; border-top: 1px solid rgba(44,38,34,0.12);
     font-size: 14.5px; line-height: 1.65; color: var(--ink-soft);
   }
+  .ing-detail p { margin: 0; }
+  .ing-amount {
+    display: block; margin-top: 14px; font-size: 13.5px; line-height: 1.4;
+    color: var(--ink); font-weight: 500; letter-spacing: 0.01em;
+  }
+  .ing-detail__note {
+    margin-top: 12px; font-size: 13.5px; color: var(--ink); font-weight: 500;
+  }
   .mag-box {
     margin: 32px 0 0; padding: 0; max-width: 640px; position: relative;
   }
@@ -1522,9 +1530,9 @@
   <div class="section__inner">
     <p class="section__eyebrow" data-en="The formula">Die Formel</p>
     <h2 class="section__title serif">
-      <span data-en="A premium formula — every ingredient ">Eine hochwertige Formel — jede Zutat </span><em data-en="named individually.">einzeln benannt.</em>
+      <span data-en="A formula for the evening — ">Eine Formel für den Abend — </span><em data-en="every ingredient named individually.">jede Zutat einzeln benannt.</em>
     </h2>
-    <p class="ing-lead" data-en="Magnesium, selected plant extracts and premium raw materials — no hidden “blends”, no fillers. You see exactly what’s inside. Open. Transparent. Traceable.">Magnesium, ausgewählte Pflanzenextrakte und Premium-Rohstoffe — keine versteckten „Blends", keine Füllstoffe. Du siehst genau, was drin ist. Offen. Transparent. Nachvollziehbar.</p>
+    <p class="ing-lead" data-en="Magnesium, L-theanine, saffron and selected plant extracts. Openly named.">Magnesium, L-Theanin, Safran und ausgewählte Pflanzenextrakte. Offen benannt.</p>
     <p class="ing-hint" data-en="More on origin &amp; details">Mehr zu Herkunft &amp; Details</p>
 
     <div class="ing-grid">
@@ -1534,10 +1542,14 @@
             <span class="ing-label" data-en="Fine extract">Edler Extrakt</span>
             <span class="ing-name">Safran</span>
             <span class="ing-tag" data-en="Affron® · from Spain">Affron® · aus Spanien</span>
+            <span class="ing-amount" data-en="28 mg per serving">28 mg pro Portion</span>
           </span>
           <span class="ing-sign" aria-hidden="true"></span>
         </summary>
-        <p class="ing-detail" data-en="A spice obtained from the hand-harvested blossoms of the saffron crocus. The extract used is Affron®, standardised for its characteristic saffron compounds such as safranal and crocins.">Ein Gewürz, das aus den von Hand geernteten Blüten des Safran-Krokus gewonnen wird. Zum Einsatz kommt der Extrakt Affron®, standardisiert auf seine charakteristischen Safran-Verbindungen wie Safranal und Crocine.</p>
+        <div class="ing-detail">
+          <p data-en="Standardised saffron extract from Spain. Affron® is obtained from hand-harvested blossoms and standardised to >3.5% Lepticrosalides®.">Standardisierter Safranextrakt aus Spanien. Affron® wird aus handgeernteten Blüten gewonnen und auf >3,5 % Lepticrosalide® standardisiert.</p>
+          <p class="ing-detail__note" data-en="28 mg per serving">28 mg pro Portion</p>
+        </div>
       </details>
 
       <details class="ing-card">
@@ -1545,35 +1557,47 @@
           <span class="ing-summary__text">
             <span class="ing-label" data-en="Functional mushroom">Vitalpilz</span>
             <span class="ing-name">Reishi</span>
-            <span class="ing-tag">Ganoderma lucidum</span>
+            <span class="ing-tag" data-en="Fruiting-body extract · Ganoderma lucidum">Fruchtkörperextrakt · Ganoderma lucidum</span>
+            <span class="ing-amount" data-en="1,000 mg per serving">1.000 mg pro Portion</span>
           </span>
           <span class="ing-sign" aria-hidden="true"></span>
         </summary>
-        <p class="ing-detail" data-en="A functional mushroom with a long tradition of use in East Asia. The extract comes from the fruiting body, in tested quality.">Ein Vitalpilz mit langer Anwendungstradition in Ostasien. Der Extrakt stammt aus dem Fruchtkörper, in geprüfter Qualität.</p>
+        <div class="ing-detail">
+          <p data-en="Extract from the fruiting body. Standardised to 30% polysaccharides, in tested quality.">Extrakt aus dem Fruchtkörper. Standardisiert auf 30 % Polysaccharide, in geprüfter Qualität.</p>
+          <p class="ing-detail__note" data-en="1,000 mg per serving = 300 mg polysaccharides">1.000 mg pro Portion = 300 mg Polysaccharide</p>
+        </div>
       </details>
 
       <details class="ing-card">
         <summary>
           <span class="ing-summary__text">
-            <span class="ing-label" data-en="Premium raw material">Premium-Rohstoff</span>
+            <span class="ing-label" data-en="Amino acid">Aminosäure</span>
             <span class="ing-name">L-Theanin</span>
-            <span class="ing-tag" data-en="From green tea leaves">Aus grünem Tee</span>
+            <span class="ing-tag" data-en="from green tea extract">aus Grüntee-Extrakt</span>
+            <span class="ing-amount" data-en="100 mg per serving">100 mg pro Portion</span>
           </span>
           <span class="ing-sign" aria-hidden="true"></span>
         </summary>
-        <p class="ing-detail" data-en="An amino acid that occurs naturally in the leaves of green tea. HESPYRA uses the pure form, in tested quality.">Eine Aminosäure, die natürlicherweise in den Blättern des grünen Tees vorkommt. Enthalten ist die reine Form, in geprüfter Qualität.</p>
+        <div class="ing-detail">
+          <p data-en="Obtained from green tea (Camellia sinensis) and standardised to 60% L-theanine. In pure form.">Gewonnen aus Grüntee (Camellia sinensis) und standardisiert auf 60 % L-Theanin. In reiner Form.</p>
+          <p class="ing-detail__note" data-en="100 mg per serving">100 mg pro Portion</p>
+        </div>
       </details>
 
       <details class="ing-card">
         <summary>
           <span class="ing-summary__text">
-            <span class="ing-label" data-en="Selected nutrient">Ausgewählter Nährstoff</span>
+            <span class="ing-label" data-en="Phospholipid">Phospholipid</span>
             <span class="ing-name">Phosphatidylserin</span>
-            <span class="ing-tag" data-en="Plant-based, from sunflower">Pflanzlich, aus Sonnenblume</span>
+            <span class="ing-tag">SunPS®</span>
+            <span class="ing-amount" data-en="70 mg phosphatidylserine per serving (100 mg SunPS®)">70 mg Phosphatidylserin pro Portion (100 mg SunPS®)</span>
           </span>
           <span class="ing-sign" aria-hidden="true"></span>
         </summary>
-        <p class="ing-detail" data-en="A phospholipid and natural building block of every cell membrane. The form used is plant-based, obtained from sunflower lecithin.">Ein Phospholipid und natürlicher Baustein jeder Zellmembran. Die verwendete Form ist pflanzlich, gewonnen aus Sonnenblumen-Lecithin.</p>
+        <div class="ing-detail">
+          <p data-en="SunPS® is a high-quality phospholipid from sunflower lecithin. Standardised to 70% phosphatidylserine.">SunPS® ist ein hochwertiges Phospholipid aus Sonnenblumen-Lecithin. Standardisiert auf 70 % Phosphatidylserin.</p>
+          <p class="ing-detail__note" data-en="70 mg phosphatidylserine per serving (100 mg SunPS®)">70 mg Phosphatidylserin pro Portion (100 mg SunPS®)</p>
+        </div>
       </details>
 
       <details class="ing-card">
@@ -1582,22 +1606,30 @@
             <span class="ing-label" data-en="Mineral base">Mineralstoff-Basis</span>
             <span class="ing-name">Magnesium</span>
             <span class="ing-tag" data-en="Bisglycinate &amp; taurate">Bisglycinat &amp; Taurat</span>
+            <span class="ing-amount" data-en="150 mg elemental magnesium per serving">150 mg elementares Magnesium pro Portion</span>
           </span>
           <span class="ing-sign" aria-hidden="true"></span>
         </summary>
-        <p class="ing-detail" data-en="In two particularly well-tolerated, organic forms. Magnesium contributes to normal functioning of the nervous system and to normal psychological function.">In zwei besonders gut verträglichen, organischen Formen. Magnesium trägt zu einer normalen Funktion des Nervensystems und zur normalen psychischen Funktion bei.</p>
+        <div class="ing-detail">
+          <p data-en="A combination of two organic magnesium forms. 150 mg elemental magnesium per serving.">Eine Kombination aus zwei organischen Magnesiumformen. 150 mg elementares Magnesium pro Portion.</p>
+          <p class="ing-detail__note" data-en="78 mg from bisglycinate / 72 mg from taurate">78 mg aus Bisglycinat / 72 mg aus Taurat</p>
+        </div>
       </details>
 
       <details class="ing-card">
         <summary>
           <span class="ing-summary__text">
-            <span class="ing-label" data-en="Taste">Geschmack</span>
-            <span class="ing-name">Kakao und Vanille</span>
-            <span class="ing-tag" data-en="Real ingredients">Echte Zutaten</span>
+            <span class="ing-label" data-en="Plant extract">Pflanzenextrakt</span>
+            <span class="ing-name">Ashwagandha</span>
+            <span class="ing-tag" data-en="KSM-66® · organic">KSM-66® · Bio</span>
+            <span class="ing-amount" data-en="300 mg per serving">300 mg pro Portion</span>
           </span>
           <span class="ing-sign" aria-hidden="true"></span>
         </summary>
-        <p class="ing-detail" data-en="Full-bodied cacao and real bourbon vanilla give HESPYRA its warm, harmonious taste — the base of the composition.">Vollmundiger Kakao und echte Bourbon-Vanille geben HESPYRA seinen warmen, harmonischen Geschmack — die Basis der Komposition.</p>
+        <div class="ing-detail">
+          <p data-en="High-quality ashwagandha extract KSM-66® from the root. Standardised to 5% withanolides.">Hochwertiger Ashwagandha-Extrakt KSM-66® aus der Wurzel. Standardisiert auf 5 % Withanolide.</p>
+          <p class="ing-detail__note" data-en="300 mg per serving = 15 mg withanolides">300 mg pro Portion = 15 mg Withanolide</p>
+        </div>
       </details>
     </div>
   </div>
