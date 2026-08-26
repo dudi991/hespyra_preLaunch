@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="de" class="no-js">
 <head>
-    <meta name="robots" content="noindex, nofollow">
+<meta name="robots" content="noindex, nofollow">
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="color-scheme" content="only light" />
@@ -358,6 +358,138 @@
   .section__title em { font-style: italic; color: var(--accent); }
   .section--dark .section__title em { color: var(--accent-on-dark); }
 
+  /* ============ DER SHOP ============ */
+  /* Breiterer Container — bewusst nur für #shop, alle anderen Sektionen unberührt. */
+  #shop .section__inner { max-width: 1500px; }
+
+  .shop__intro {
+    max-width: 620px; margin: 0 0 56px; font-size: 17px; line-height: 1.6;
+    color: rgba(239,231,214,0.82);
+  }
+  .shop__grid {
+    display: grid; grid-template-columns: 65fr 35fr; gap: 24px; align-items: stretch;
+  }
+  .shop-card {
+    display: flex; flex-direction: column;
+    background: rgba(255,255,255,0.03); border: 1px solid rgba(239,231,214,0.14);
+    border-radius: 16px; overflow: hidden;
+  }
+  /* Starter: Bild links, Text rechts (nebeneinander). Das Bild füllt die
+     (durch den kompakten Content bestimmte) Kartenhöhe nahtlos. */
+  .shop-card--starter { flex-direction: row; align-items: stretch; }
+  .shop-card--starter .shop-card__media {
+    flex: 0 0 55%; align-self: stretch; min-height: 0; aspect-ratio: auto;
+  }
+  .shop-card--starter .shop-card__body { flex: 1; }
+
+  .shop-card__media {
+    position: relative;
+    aspect-ratio: 4 / 5;           /* leicht hochformatig, nicht lang/schmal; nimmt später Foto auf */
+    background:
+      radial-gradient(120% 90% at 30% 20%, rgba(156,106,67,0.14), rgba(156,106,67,0) 60%),
+      #1B1518;
+    background-size: cover; background-position: center;
+  }
+  /* Austauschbares Produktbild über CSS-Variable; solange leer, greift der neutrale Grund. */
+  .shop-card__media[data-shop-media] { background-image: var(--shop-img, none), radial-gradient(120% 90% at 30% 20%, rgba(156,106,67,0.14), rgba(156,106,67,0) 60%); }
+  /* Falls später ein <img> eingesetzt wird: sauber füllen, ohne Verzerrung. */
+  .shop-card__media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  /* Refill-Bildslot: bewusst als Querformat-Streifen ausgelegt (finales Foto wird dafür produziert).
+     Feste Höhe statt Seitenverhältnis, damit die Karte auf breiten Screens flach bleibt. */
+  .shop-card__media--refill { aspect-ratio: auto; height: 262px; }
+
+  .shop-card__body { padding: 24px 34px 24px; display: flex; flex-direction: column; }
+  .shop-card__eyebrow {
+    margin: 0 0 10px; font-size: 11px; font-weight: 500; letter-spacing: 0.22em;
+    text-transform: uppercase; color: var(--accent-on-dark);
+  }
+  .shop-card__title {
+    margin: 0 0 6px; font-size: clamp(24px, 2.4vw, 31px); font-weight: 500;
+    line-height: 1.1; color: var(--cream);
+  }
+  .shop-card__price {
+    margin: 0 0 10px; font-size: 24px; font-weight: 500; color: var(--cream);
+  }
+  .shop-card__copy {
+    margin: 0 0 14px; font-size: 15px; line-height: 1.5; color: rgba(239,231,214,0.78);
+    max-width: 320px;
+  }
+  .shop-card__copy--refill { margin-bottom: 12px; }
+  .shop-card__rule { border: none; height: 1px; background: rgba(239,231,214,0.14); margin: 0 0 14px; }
+  .shop-card__list { list-style: none; margin: 0 0 18px; padding: 0; }
+  .shop-card__list li {
+    position: relative; padding-left: 26px; margin-bottom: 9px;
+    font-size: 15px; color: rgba(239,231,214,0.86);
+  }
+  .shop-card__list li::before {
+    content: ''; position: absolute; left: 0; top: 0.7em; width: 14px; height: 1px;
+    background: var(--accent-on-dark);
+  }
+  .shop-card__cta {
+    margin-top: auto; display: flex; align-items: center; justify-content: center; gap: 12px;
+    width: 100%; padding: 14px 24px; border-radius: 10px; cursor: pointer;
+    font-family: 'Jost', sans-serif; font-size: 14px; font-weight: 500; letter-spacing: 0.04em;
+    background: var(--accent); color: #FFFFFF; border: 1px solid var(--accent);
+    transition: background 0.2s, transform 0.2s;
+  }
+  .shop-card__cta:hover { background: #A9764E; transform: translateY(-1px); }
+  /* Refill = zweite Ebene: Button als ruhige Outline-Variante, Starter bleibt der gefüllte CTA. */
+  .shop-card--refill .shop-card__cta {
+    background: transparent; color: var(--accent-on-dark);
+    border-color: rgba(199,154,110,0.55);
+  }
+  .shop-card--refill .shop-card__cta:hover {
+    background: rgba(199,154,110,0.10); border-color: var(--accent-on-dark);
+  }
+  .shop-card__cta-arrow { transition: transform 0.2s; }
+  .shop-card__cta:hover .shop-card__cta-arrow { transform: translateX(3px); }
+
+  /* Kaufoptionen (Einzeln / Abo) */
+  .shop-options { display: flex; flex-direction: column; gap: 8px; margin: 0 0 14px; }
+  .shop-option {
+    position: relative; display: grid;
+    grid-template-columns: auto 1fr auto; align-items: center; gap: 12px;
+    padding: 11px 18px; border-radius: 10px; cursor: pointer;
+    border: 1px solid rgba(239,231,214,0.16); background: rgba(255,255,255,0.02);
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .shop-option input { position: absolute; opacity: 0; pointer-events: none; }
+  .shop-option__dot {
+    width: 18px; height: 18px; border-radius: 50%; border: 1.5px solid rgba(239,231,214,0.4);
+    position: relative; flex-shrink: 0; transition: border-color 0.2s;
+  }
+  .shop-option__dot::after {
+    content: ''; position: absolute; inset: 3px; border-radius: 50%;
+    background: var(--accent-on-dark); opacity: 0; transition: opacity 0.2s;
+  }
+  .shop-option__label { font-size: 15.5px; color: var(--cream); }
+  .shop-option__price { font-size: 15.5px; color: var(--cream); font-weight: 500; white-space: nowrap; }
+  .shop-option__per { color: rgba(239,231,214,0.6); font-weight: 400; }
+  .shop-option__note {
+    grid-column: 2 / -1; margin-top: 2px; font-size: 12.5px; line-height: 1.4;
+    color: rgba(239,231,214,0.55);
+  }
+  .shop-option:has(input:checked) { border-color: var(--accent); background: rgba(156,106,67,0.08); }
+  .shop-option:has(input:checked) .shop-option__dot { border-color: var(--accent-on-dark); }
+  .shop-option:has(input:checked) .shop-option__dot::after { opacity: 1; }
+  .shop-option input:focus-visible ~ .shop-option__dot { outline: 2px solid var(--accent-on-dark); outline-offset: 2px; }
+
+  /* Refill-Karte: Bild oben, Text unten (gestapelt) */
+  .shop-card--refill .shop-card__media { flex: 0 0 auto; }
+
+  @media (max-width: 900px) {
+    .shop__grid { grid-template-columns: 1fr; gap: 20px; }
+    .shop-card--starter { flex-direction: column; }
+    .shop-card--starter .shop-card__media {
+      flex: 0 0 auto; width: 100%; align-self: stretch; aspect-ratio: 16 / 10;
+    }
+  }
+  @media (max-width: 560px) {
+    .shop-card__body { padding: 30px 26px 30px; }
+    .shop-card__media { min-height: 220px; }
+    .shop__intro { margin-bottom: 40px; }
+  }
+
   /* Hairline to mark a section boundary when neighbours share a background colour. */
   .section-divider { position: relative; }
   .section-divider::before {
@@ -465,9 +597,10 @@
   .ing-amount {
     display: block; margin-top: 14px; font-size: 13.5px; line-height: 1.4;
     color: var(--ink); font-weight: 500; letter-spacing: 0.01em;
+    min-height: 2.8em;
   }
   .ing-detail__note {
-    margin-top: 12px; font-size: 13.5px; color: var(--ink); font-weight: 500;
+    margin-top: 22px; font-size: 13.5px; color: var(--ink); font-weight: 500;
   }
   .mag-box {
     margin: 32px 0 0; padding: 0; max-width: 640px; position: relative;
@@ -1927,6 +2060,78 @@
   </div>
 </section>
 
+<!-- 07b · DER SHOP — modular, für spätere Shopify-Anbindung vorbereitet.
+     Produktdaten/Preise liegen im JS-Config-Objekt SHOP_PRODUCTS (siehe initShop),
+     nicht fest im Markup. Cart-Aktionen laufen über addToShopCart() — aktuell ein
+     Platzhalter, später Andockpunkt für die Shopify-Cart-API. Bilder sind über
+     die CSS-Variable --shop-img austauschbar; fehlt ein Bild, greift ein ruhiger Fallback. -->
+<section class="section section--dark shop" id="shop" data-shop-currency="EUR">
+  <div class="section__inner">
+    <p class="section__eyebrow" data-en="The shop">Der Shop</p>
+    <h2 class="section__title serif">
+      <span data-en="An object that stays. ">Ein Objekt bleibt. </span><em data-en="The refill follows.">Der Refill kommt nach.</em>
+    </h2>
+    <p class="shop__intro" data-en="The starter set is the beginning: amber glass, metal scoop and the first refill.">Das Starter-Set ist der Anfang: Braunglas, Metalllöffel und der erste Refill.</p>
+
+    <div class="shop__grid">
+
+      <!-- STARTER-SET (links, größer) -->
+      <article class="shop-card shop-card--starter" data-product="starter-set">
+        <div class="shop-card__media" data-shop-media="starter" style="--shop-img:url('img/shop-starter.webp')"></div>
+        <div class="shop-card__body">
+          <p class="shop-card__eyebrow" data-en="For the beginning">Für den Anfang</p>
+          <h3 class="shop-card__title serif" data-en="The Starter Set">Das Starter-Set</h3>
+          <p class="shop-card__price serif" data-shop-price="starter-set:default">99 €</p>
+          <p class="shop-card__copy" data-en="Everything for the first 30 evenings with HESPYRA.">Alles für die ersten 30 Abende mit HESPYRA.</p>
+          <hr class="shop-card__rule" />
+          <ul class="shop-card__list">
+            <li data-en="HESPYRA amber glass">HESPYRA-Braunglas</li>
+            <li data-en="Metal scoop · for one portion">Metalllöffel · für eine Portion</li>
+            <li data-en="First refill · 30 portions">Erster Refill · 30 Portionen</li>
+          </ul>
+          <button type="button" class="shop-card__cta" data-shop-add="starter-set:default">
+            <span data-en="Add to cart">In den Warenkorb</span>
+            <span class="shop-card__cta-arrow" aria-hidden="true">→</span>
+          </button>
+        </div>
+      </article>
+
+      <!-- REFILL (rechts, kompakter) -->
+      <article class="shop-card shop-card--refill" data-product="refill">
+        <div class="shop-card__media shop-card__media--refill" data-shop-media="refill" style="--shop-img:url('img/shop-refill.webp')"></div>
+        <div class="shop-card__body">
+          <p class="shop-card__eyebrow" data-en="For afterwards">Für danach</p>
+          <h3 class="shop-card__title serif" data-en="The Refill">Der Refill</h3>
+          <p class="shop-card__copy shop-card__copy--refill" data-en="HESPYRA · 30 portions">HESPYRA · 30 Portionen</p>
+
+          <div class="shop-options" role="radiogroup" aria-label="Kaufoption">
+            <label class="shop-option">
+              <input type="radio" name="refill-option" value="single" data-shop-variant="refill:single" />
+              <span class="shop-option__dot" aria-hidden="true"></span>
+              <span class="shop-option__label" data-en="One-time">Einzeln</span>
+              <span class="shop-option__price" data-shop-price="refill:single">79 €</span>
+            </label>
+            <label class="shop-option shop-option--selected">
+              <input type="radio" name="refill-option" value="subscription" data-shop-variant="refill:subscription" checked />
+              <span class="shop-option__dot" aria-hidden="true"></span>
+              <span class="shop-option__label" data-en="Subscription">Im Abo</span>
+              <span class="shop-option__price"><span data-shop-price="refill:subscription">69 €</span> <span class="shop-option__per" data-en="/ delivery">/ Lieferung</span></span>
+              <span class="shop-option__note" data-en="Every 30 days · pause or cancel anytime.">Alle 30 Tage · jederzeit pausierbar oder kündbar.</span>
+            </label>
+          </div>
+
+          <button type="button" class="shop-card__cta" data-shop-add="refill:subscription">
+            <span data-en="Add to cart">In den Warenkorb</span>
+            <span class="shop-card__cta-arrow" aria-hidden="true">→</span>
+          </button>
+        </div>
+      </article>
+
+    </div>
+
+  </div>
+</section>
+
 <!-- 08 · FAQ -->
 <section class="section section-divider" id="faq">
   <div class="section__inner">
@@ -2487,6 +2692,89 @@
       });
     }, { threshold: 0.3 });
     io.observe(target);
+  })();
+
+  // ============ DER SHOP ============
+  // Modular & für Shopify vorbereitet: Produktdaten, Preise und Kaufoptionen leben in
+  // SHOP_PRODUCTS (eine Stelle, leicht änderbar) — NICHT fest in der UI-Logik. Preise
+  // werden von hier ins Markup gerendert. Cart-Aktionen laufen ausschließlich über
+  // addToShopCart(): aktuell ein Platzhalter, später der einzige Ort, an dem die
+  // Shopify-Cart-/Checkout-API angebunden wird. shopifyVariantId ist vorbereitet und
+  // bleibt vorerst null.
+  (function initShop() {
+    const root = document.getElementById('shop');
+    if (!root) return;
+
+    // ---- Einzige Datenquelle für Produkte/Preise/Optionen (später via Shopify befüllbar) ----
+    const SHOP_PRODUCTS = {
+      'starter-set': {
+        title: 'Das Starter-Set',
+        variants: {
+          'default': { price: 9900, shopifyVariantId: null }   // Preise in Cent, damit später Shopify-kompatibel
+        }
+      },
+      'refill': {
+        title: 'Der Refill',
+        variants: {
+          'single':       { price: 7900, shopifyVariantId: null, sellingPlan: null },
+          'subscription': { price: 6900, shopifyVariantId: null, sellingPlan: 'every-30-days' }
+        }
+      }
+    };
+    const CURRENCY = root.getAttribute('data-shop-currency') || 'EUR';
+
+    function formatPrice(cents) {
+      // Vorläufige, leicht anpassbare Preis-Darstellung (später ggf. via Shopify/Intl).
+      const value = (cents / 100);
+      const str = Number.isInteger(value) ? String(value) : value.toFixed(2).replace('.', ',');
+      return str + ' €';
+    }
+
+    // Preise aus der Datenquelle ins Markup rendern (data-shop-price="produkt:variante").
+    root.querySelectorAll('[data-shop-price]').forEach((el) => {
+      const [pid, vid] = el.getAttribute('data-shop-price').split(':');
+      const v = SHOP_PRODUCTS[pid] && SHOP_PRODUCTS[pid].variants[vid];
+      if (v) el.textContent = formatPrice(v.price);
+    });
+
+    // ---- Cart-Andockpunkt: hier später Shopify anbinden ----
+    function addToShopCart(productId, variantId) {
+      const product = SHOP_PRODUCTS[productId];
+      const variant = product && product.variants[variantId];
+      if (!variant) return;
+      // Tracking (bereits aktiv). Der eigentliche Cart-Call kommt später hierher.
+      track('shop-add-to-cart', { product: productId, variant: variantId });
+      // TODO(Shopify): variant.shopifyVariantId + ggf. variant.sellingPlan an die
+      // Shopify-Cart-API übergeben (z.B. /cart/add.js oder Storefront-API).
+      // Solange nicht angebunden, geben wir eine ruhige Rückmeldung.
+      if (!variant.shopifyVariantId) {
+        console.info('[shop] Warenkorb noch nicht angebunden:', productId, variantId, formatPrice(variant.price));
+      }
+    }
+
+    // Refill: Auswahl (Einzeln/Abo) steuert, welche Variante der CTA in den Warenkorb legt.
+    const refillCard = root.querySelector('[data-product="refill"]');
+    if (refillCard) {
+      const radios = refillCard.querySelectorAll('input[name="refill-option"]');
+      const refillCta = refillCard.querySelector('[data-shop-add]');
+      function syncRefill() {
+        const checked = refillCard.querySelector('input[name="refill-option"]:checked');
+        if (checked && refillCta) {
+          const variantId = checked.value; // 'single' | 'subscription'
+          refillCta.setAttribute('data-shop-add', 'refill:' + variantId);
+        }
+      }
+      radios.forEach((r) => r.addEventListener('change', syncRefill));
+      syncRefill();
+    }
+
+    // Alle CTAs an addToShopCart binden (data-shop-add="produkt:variante").
+    root.querySelectorAll('[data-shop-add]').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const [pid, vid] = btn.getAttribute('data-shop-add').split(':');
+        addToShopCart(pid, vid);
+      });
+    });
   })();
 </script>
 
